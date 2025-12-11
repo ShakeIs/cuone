@@ -1,0 +1,39 @@
+.logo {
+  filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(176deg) brightness(109%) contrast(98%);
+}
+
+.logo:hover {
+  filter: invert(34%) sepia(80%) saturate(2663%) hue-rotate(9deg) brightness(96%) contrast(104%);
+}
+
+.footer-container {
+  background-image: url('/footer-background.png');
+  background-size: contain;
+}
+
+.footer-headers-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 96px;
+  margin-left: 120px;
+  margin-right: 120px;
+  padding-bottom: 280px;
+}
+
+.footer-text {
+  color: #000003;
+}
+
+.grid-3-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.

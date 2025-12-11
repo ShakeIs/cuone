@@ -1,0 +1,81 @@
+.container {
+  margin-left: 120px;
+  margin-right: 120px;
+  margin-top: 80px;
+}
+
+.shaping-ideas-text {
+  font-weight: 400;
+  font-size: 72px;
+  width: 50%;
+  transition: color 0.5s ease;
+}
+
+.shaping-ideas-text:hover {
+  color: #e85102;
+}
+
+.brand-identity-text {
+  margin-top: 32px;
+  font-weight: 400;
+  font-size: 40px;
+  width: 50%;
+  transition: transform 0.5s ease;
+}
+
+.brand-identity-text:hover {
+  transform: scale(1.05);
+}
+
+.button {
+  margin-top: 32px;
+}
+
+.btn-rounded {
+  margin-top: 32px;
+  padding: 20px 40px;
+  background: #e85102;
+  color: #000000;
+  border: 1px solid #ffffff25;
+  border-radius: 36px; /* full rounded pill */
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.5s ease, background-color 0.5s ease;
+}
+
+.btn-rounded:hover {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.container2 {
+  background-image: url('/Kampuotas.png');
+  background-size: cover;     /* fills the screen */
+  background-repeat: no-repeat;
+}
+
+.container2-parent {
+  display: flex;
+  justify-content: center; /* horizontal */
+  align-items: center;     /* vertical */
+}
+
+.container2-text {
+  padding-top: 368px;
+  font-size: 64px;
+  font-weight: 600;
+  color: #F6F6FF;
+}
+
+.container2-parent2 {
+  padding: 68px 120px 191px;
+  display: flex;
+  justify-content: space-between; /* horizontal */
+  align-items: center;     /* vertical */
+}
+
+.projects-text {
+  font-size: 64px;
+  font-weight: 600;
+  color: #F6F6FF;
+}

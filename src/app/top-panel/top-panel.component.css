@@ -1,0 +1,39 @@
+.top-panel {
+  display: flex;
+  margin: 40px 120px;
+}
+
+.logo:hover {
+  cursor: pointer;
+  filter: invert(34%) sepia(80%) saturate(2663%) hue-rotate(9deg) brightness(96%) contrast(104%);
+  transition: filter 0.3s ease;
+}
+
+.nav-links {
+  position: absolute;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.nav-links a {
+  color: #f5efff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #e85102;
+}
+
+.slash {
+  width: 14px;
+  height: 35px;
+  color: #d0d0d0;
+}
