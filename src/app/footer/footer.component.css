@@ -7,8 +7,7 @@
 }
 
 .footer-container {
-  background-image: url('/footer-background.png');
-  background-size: contain;
+  background: linear-gradient(180deg, #FFEAE0 0%, #E85102 66.83%, #501C00 100%);
 }
 
 .footer-headers-container {
