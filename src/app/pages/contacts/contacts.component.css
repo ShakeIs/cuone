@@ -1,0 +1,57 @@
+.founder-margins {
+  margin-top: 48px;
+  margin-right: 120px;
+  margin-left: 120px;
+}
+
+.founder-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
+
+.focus-text {
+  width: 55%;
+}
+
+.experience-container {
+  margin-top: 200px;
+  margin-right: 120px;
+  margin-left: 120px;
+}
+
+.container-with-image {
+  display: flex;
+}
+
+.margin-photo {
+  margin-right: 32px;
+}
+
+.studio-container {
+  margin: 48px 120px 200px;
+}
+
+.rotated-image {
+  rotate: 180deg;
+  width: 100%;
+  height: 304px;
+}
+
+.btn-rounded {
+  margin-top: 48px;
+  margin-bottom: 348px;
+  padding: 20px 40px;
+  background: #e85102;
+  color: #000000;
+  border: 1px solid #ffffff25;
+  border-radius: 36px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.5s ease, background-color 0.5s ease;
+}
+
+.btn-rounded:hover {
+  background-color: #333333;
+  color: #ffffff;
+}
