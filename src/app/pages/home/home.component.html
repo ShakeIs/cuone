@@ -1,27 +1,63 @@
-<div class="container">
-  <div class="shaping-ideas-text">
+<div class="main-text-container">
+  <div class="shaping-ideas-text semi-bold">
     Shaping your ideas into something real
   </div>
-  <div class="brand-identity-text">
+  <div class="brand-identity-text regular">
     From brand identity to digital visuals – CU/ONE blends strategy, aesthetics, and innovation.
   </div>
-  <button class="btn-rounded">Contacts</button>
+  <button class="btn-rounded regular">Contacts</button>
 </div>
 
-<div class="container2">
-  <div class="container2-parent">
-    <div class="container2-text">Shaping your ideas into:</div>
+<div class="ideas-container">
+  <div class="flex-center-container">
+    <div class="ideas-container-text semi-bold">Shaping your ideas into:</div>
   </div>
-  <div class="container2-parent2">
-    <div>Aesthetics</div>
-    <div>Story</div>
-    <div>Identity</div>
-    <div>Originality</div>
-    <div>Precision</div>
-    <div>Connection</div>
+  <div class="ideas-container-parent2">
+    <div class="regular fs-24">Aesthetics</div>
+    <div class="regular fs-24">Story</div>
+    <div class="regular fs-24">Identity</div>
+    <div class="regular fs-24">Originality</div>
+    <div class="regular fs-24">Precision</div>
+    <div class="regular fs-24">Connection</div>
   </div>
 </div>
 
-<div class="container2-parent">
-  <div class="projects-text">Projects</div>
+<div class="flex-center-container">
+  <div class="projects-text regular">Projects</div>
+</div>
+
+<img src="Apvalus.png" alt="" class="responsive-img">
+
+<div class="container-studio mt-84">
+  <div class="flex-center-container fs-64 semi-bold">
+    We are a new, modern graphic
+  </div>
+  <div class="flex-center-container fs-64 semi-bold">
+    design studio
+  </div>
+  <div class="flex-center-container fs-40 regular flex-wrap mt-24">
+    <span>
+       crafting visual solutions for brands that want to stand out. Our work focuses on
+    </span>
+    <span>
+      brand identity, visual communication, and design elements that transform your ideas
+    </span>
+    <span>
+      into clear, meaningful expressions.
+    </span>
+  </div>
+</div>
+
+<img src="Apvalus.png" alt="" class="responsive-img rotated-image">
+
+<div class="clients-grid">
+  @for (img of images; track $index) {
+    <img
+      [src]="hoveredIndex === $index ? img.hover : img.normal"
+      (mouseenter)="hoveredIndex = $index"
+      (mouseleave)="hoveredIndex = null"
+      alt=""
+      width="162px"
+    />
+  }
 </div>

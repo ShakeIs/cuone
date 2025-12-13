@@ -1,11 +1,10 @@
-.container {
+.main-text-container {
   margin-left: 120px;
   margin-right: 120px;
   margin-top: 80px;
 }
 
 .shaping-ideas-text {
-  font-weight: 400;
   font-size: 72px;
   width: 50%;
   transition: color 0.5s ease;
@@ -17,7 +16,6 @@
 
 .brand-identity-text {
   margin-top: 32px;
-  font-weight: 400;
   font-size: 40px;
   width: 50%;
   transition: transform 0.5s ease;
@@ -37,8 +35,8 @@
   background: #e85102;
   color: #000000;
   border: 1px solid #ffffff25;
-  border-radius: 36px; /* full rounded pill */
-  font-size: 16px;
+  border-radius: 36px;
+  font-size: 20px;
   cursor: pointer;
   transition: color 0.5s ease, background-color 0.5s ease;
 }
@@ -48,34 +46,64 @@
   color: #ffffff;
 }
 
-.container2 {
+.ideas-container {
   background-image: url('/Kampuotas.png');
-  background-size: cover;     /* fills the screen */
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
-.container2-parent {
-  display: flex;
-  justify-content: center; /* horizontal */
-  align-items: center;     /* vertical */
-}
-
-.container2-text {
+.ideas-container-text {
   padding-top: 368px;
   font-size: 64px;
   font-weight: 600;
   color: #F6F6FF;
 }
 
-.container2-parent2 {
+.ideas-container-parent2 {
   padding: 68px 120px 191px;
   display: flex;
-  justify-content: space-between; /* horizontal */
-  align-items: center;     /* vertical */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .projects-text {
   font-size: 64px;
-  font-weight: 600;
   color: #F6F6FF;
 }
+
+.responsive-img {
+  width: 100%;
+}
+
+.container-studio {
+  margin-left: 160px;
+  margin-right: 160px;
+}
+
+.smaller-text {
+  font-size: 40px;
+  font-weight: 400;
+  color: #F6F6FF;
+}
+
+.rotated-image {
+  transform: rotate(180deg);
+  margin-top: 98px;
+}
+
+.clients-grid {
+  margin-right: 120px;
+  margin-left: 120px;
+  margin-bottom: 360px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 80px;
+}
+
