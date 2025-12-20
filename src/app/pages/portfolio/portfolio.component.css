@@ -1,0 +1,110 @@
+.main-container {
+  margin-right: 120px;
+  margin-left: 120px;
+}
+
+.two-column-card-container {
+  display: grid;
+  grid-template-columns: 66.25% 33.75%;
+  gap: 20px;
+}
+
+.two-column-card-container-right {
+  display: grid;
+  grid-template-columns: 33.75% 66.25%;
+  gap: 20px;
+}
+
+.three-column-card-container {
+  display: grid;
+  grid-template-columns: 33.75% 33.125% 33.125%;
+  gap: 20px;
+}
+
+.three-column-card-container-left {
+  display: grid;
+  grid-template-columns: 33.125% 33.125% 33.75%;
+  gap: 20px;
+}
+
+.full-line {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: none;
+  width: 100%;
+  background-color: #F6F6FF;
+  border-top: 1px solid #F6F6FF;
+}
+
+.information-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.information-flex-with-redirect {
+  display: flex;
+  flex-direction: column;
+}
+
+.information-flex-with-redirect > :last-child {
+  margin-top: auto;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.image:hover {
+  filter: grayscale(0%);
+}
+
+.smaller-image {
+  width: 33.33%;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.smaller-image:hover {
+  filter: grayscale(0%);
+}
+
+.more-info-container {
+  display: flex;
+  align-items: center;
+}
+
+.more-info-button {
+  margin-left: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #f5efff;
+}
+
+.more-info-button:hover {
+  color: #e85102;
+}
+
+.phones-container {
+  background-image: url('/Apvalus.png'), url('/Apvalus_Rotated.png');
+  background-repeat: no-repeat;
+  background-size: 100% calc(50% - 62px), 100% calc(50% - 62px);
+  background-position: center top, center bottom;
+}
+
+.three-images-container {
+  display: flex;
+  gap: 20px;
+}
+
+.container-flex {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.margin-last-text {
+  margin-bottom: 124px;
+}

@@ -38,6 +38,14 @@ body {
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'MyFont';
+  src: url('/fonts/Inter_18pt-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 .regular {
   font-weight: 400;
 }
@@ -48,6 +56,10 @@ body {
 
 .semi-bold {
   font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
 }
 
 .flex-wrap {
@@ -72,6 +84,14 @@ body {
 
 .mt-84 {
   margin-top: 84px;
+}
+
+.mt-96 {
+  margin-top: 96px;
+}
+
+.fs-20 {
+  font-size: 20px;
 }
 
 .fs-24 {
@@ -106,4 +126,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.pointer {
+  cursor: pointer;
 }
