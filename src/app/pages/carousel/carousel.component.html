@@ -1,0 +1,35 @@
+<div class="carousel">
+
+  <!-- CONTROLS -->
+  <div class="carousel-controls">
+    <button (click)="prev()">‹</button>
+    <button (click)="next()">›</button>
+  </div>
+
+  <!-- TRACK -->
+  <div class="carousel-track">
+    <div
+      class="carousel-card"
+      *ngFor="let item of items; let i = index"
+      [ngClass]="getPosition(i)"
+    >
+
+      <!-- VIDEO -->
+      <video
+        #videoEl
+        [src]="item.video"
+        muted
+        playsinline
+        preload="metadata"
+      ></video>
+
+      <!-- TEXT -->
+      <div class="carousel-caption">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
