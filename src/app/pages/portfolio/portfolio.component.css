@@ -108,3 +108,75 @@
 .margin-last-text {
   margin-bottom: 124px;
 }
+
+@media (max-width: 768px) {
+  .main-container {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .two-column-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 48px;
+  }
+
+  .container-inline-flex {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .three-column-card-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .item {
+    flex: 0 0 46%;
+  }
+
+  .last {
+    flex: 0 0 100%;
+  }
+
+  .two-column-card-container-right {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .image {
+    filter: grayscale(0%);
+  }
+
+  .three-column-card-container-left{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .smaller-image {
+    width: 48%;
+    filter: grayscale(0%);
+  }
+
+  .container-flex {
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .phones-container {
+    background-image: url('/Apvalus_Rotated.png'), url('/Apvalus.png');
+    background-repeat: no-repeat;
+    background-size: 100% calc(50% - 62px), 100% calc(50% - 62px);
+    background-position: center top, center bottom;
+  }
+
+  .phones-image {
+    width: 33%;
+    height: 100%;
+  }
+
+  .phones-wrapper {
+    display: flex;
+    gap: 8px;
+  }
+}

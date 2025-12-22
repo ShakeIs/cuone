@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, HostListener, signal} from '@angular/core';
 import {RouterLink} from '@angular/router';
 
 @Component({
@@ -10,5 +10,10 @@ import {RouterLink} from '@angular/router';
   styleUrl: './portfolio.component.css',
 })
 export class Portfolio {
+  screenWidth = signal(window.innerWidth);
 
+  @HostListener('window:resize')
+  onResize() {
+    this.screenWidth.set(window.innerWidth);
+  }
 }

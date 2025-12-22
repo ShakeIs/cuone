@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import {Component, HostListener, signal} from '@angular/core';
+import {RouterLink, RouterLinkActive} from '@angular/router';
 import {NgOptimizedImage} from '@angular/common';
 
 @Component({
@@ -10,4 +10,15 @@ import {NgOptimizedImage} from '@angular/common';
 })
 export class TopPanel {
 
+  screenWidth = signal(window.innerWidth);
+  isMenuOpen = signal(false);
+
+  @HostListener('window:resize')
+  onResize() {
+    this.screenWidth.set(window.innerWidth);
+  }
+
+  toggleMenu() {
+    this.isMenuOpen.update(val => !val);
+  }
 }

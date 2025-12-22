@@ -3,7 +3,7 @@
     Portfolio
   </div>
   <div class="mt-24 fs-32 regular">
-    A selection of my latest client, academic, and<br> personal design projects
+    A selection of my latest client, academic, and personal design projects
   </div>
 
 
@@ -16,33 +16,63 @@
         DUBLIS restaurant. Created the logo, brand identity, and the complete visual branding for the restaurant.
       </span>
       <hr class="full-line">
-      <span class="fs-20">
+      @if (screenWidth() > 768) {
+        <span class="fs-20">
         2025<span class="orange">/</span>02
       </span>
-      <div class="more-info-container">
-        <img src="small_vector.png" alt="">
-        <a class="fs-20 more-info-button" routerLink="/dublis">More info about the project</a>
-      </div>
+        <div class="more-info-container">
+          <img src="small_vector.png" alt="">
+          <a class="fs-20 more-info-button" routerLink="/dublis">More info about the project</a>
+        </div>
+      } @else {
+        <div class="container-inline-flex">
+          <span class="fs-20">
+            2025<span class="orange">/</span>02
+          </span>
+          <div class="more-info-container">
+            <img src="small_vector.png" alt="">
+            <a class="fs-20 more-info-button" routerLink="/dublis">Tap for more info</a>
+          </div>
+        </div>
+      }
     </div>
   </div>
 
 
   <div class="mt-48 three-column-card-container">
-    <div class="information-flex">
+    @if (screenWidth() > 768) {
+      <div class="information-flex">
       <span class="fs-24 regular">
         “Mobilaus gaterio paslaugos”. Created the logo and brand identity.
       </span>
-      <hr class="full-line">
-      <span class="fs-20">
+        <hr class="full-line">
+        <span class="fs-20">
         2025<span class="orange">/</span>10
       </span>
-    </div>
-    <div>
-      <img src="photos/gateris/gateris_1.png" alt="" class="rounded-24 image">
-    </div>
-    <div>
-      <img src="photos/gateris/gateris_2.png" alt="" class="rounded-24 image">
-    </div>
+      </div>
+      <div>
+        <img src="photos/gateris/gateris_1.png" alt="" class="rounded-24 image">
+      </div>
+      <div>
+        <img src="photos/gateris/gateris_2.png" alt="" class="rounded-24 image">
+      </div>
+    } @else {
+      <div class="item">
+        <img src="photos/gateris/gateris_1.png" alt="" class="rounded-24 image">
+      </div>
+      <div class="item">
+        <img src="photos/gateris/gateris_2.png" alt="" class="rounded-24 image">
+      </div>
+      <div class="information-flex last">
+        <span class="fs-24 regular">
+          “Mobilaus gaterio paslaugos”. Created the logo and brand identity.
+        </span>
+        <hr class="full-line">
+        <span class="fs-20">
+          2025<span class="orange">/</span>10
+        </span>
+      </div>
+    }
   </div>
 
 
@@ -52,13 +82,25 @@
         “Vaisių amžius”. Created the logo, brand identity, and its adaptations. Project completed for academic studies.
       </span>
       <hr class="full-line">
-      <span class="fs-20">
+      @if (screenWidth() > 768) {
+        <span class="fs-20">
         2025<span class="orange">/</span>11
       </span>
-      <div class="more-info-container">
-        <img src="small_vector.png" alt="">
-        <a class="fs-20 more-info-button" routerLink="/vaisiai">More info about the project</a>
-      </div>
+        <div class="more-info-container">
+          <img src="small_vector.png" alt="">
+          <a class="fs-20 more-info-button" routerLink="/vaisiai">More info about the project</a>
+        </div>
+      } @else {
+        <div class="container-inline-flex">
+          <span class="fs-20">
+            2025<span class="orange">/</span>11
+          </span>
+          <div class="more-info-container">
+            <img src="small_vector.png" alt="">
+            <a class="fs-20 more-info-button" routerLink="/vaisiai">Tap for more info</a>
+          </div>
+        </div>
+      }
     </div>
     <div class="pointer" routerLink="/vaisiai">
       <img src="photos/vaisiai.png" alt="" class="rounded-24 image">
@@ -67,13 +109,13 @@
 
 
   <div class="mt-48 three-column-card-container-left">
-    <div>
+    <div class="item">
       <img src="photos/basketnews/bnews_1.png" alt="" class="rounded-24 image">
     </div>
-    <div>
+    <div class="item">
       <img src="photos/basketnews/bnews_2.png" alt="" class="rounded-24 image">
     </div>
-    <div class="information-flex">
+    <div class="information-flex last">
       <span class="fs-24 regular">
         Created a T-shirt design commissioned by “BasketNews”.
       </span>
@@ -102,31 +144,58 @@
 </div>
 
 <!--  Phones-->
-<div class="mt-48 phones-container">
-  <div class="main-container">
-    <img src="photos/Phones-horizontal.png" alt="" class="rounded-24 image">
+@if (screenWidth() > 768) {
+  <div class="mt-48 phones-container">
+    <div class="main-container">
+      <img src="photos/Phones-horizontal.png" alt="" class="rounded-24 image">
+    </div>
   </div>
-</div>
+} @else {
+  <div class="mt-48 phones-container">
+    <div class="main-container">
+      <div class="phones-wrapper">
+        <img src="photos/phones/phone_1.png" alt="" class="rounded-24 phones-image">
+        <img src="photos/phones/phone_2.png" alt="" class="rounded-24 phones-image">
+        <img src="photos/phones/phone_3.png" alt="" class="rounded-24 phones-image">
+      </div>
+      <div class="phones-wrapper mt-12">
+        <img src="photos/phones/phone_4.png" alt="" class="rounded-24 phones-image">
+        <img src="photos/phones/phone_5.png" alt="" class="rounded-24 phones-image">
+        <img src="photos/phones/phone_6.png" alt="" class="rounded-24 phones-image">
+      </div>
+      <div class="phones-wrapper mt-12">
+        <img src="photos/phones/phone_7.png" alt="" class="rounded-24 phones-image">
+        <img src="photos/phones/phone_8.png" alt="" class="rounded-24 phones-image">
+        <img src="photos/phones/phone_9.png" alt="" class="rounded-24 phones-image">
+      </div>
+    </div>
+  </div>
+}
 
 <div class="main-container mt-48">
   <span class="fs-24 regular">
-    These social media posts reinforce the brand’s identity, with each project reflecting the company’s<br> distinct visual style and delivering clear, engaging content.
+    These social media posts reinforce the brand’s identity, with each project reflecting the company’s distinct visual style and delivering clear, engaging content.
   </span>
 
   <div class="three-images-container mt-48">
-    <img src="photos/poster/poster_1.png" alt="" class="rounded-24 smaller-image">
+    @if (screenWidth() > 768) {
+      <img src="photos/poster/poster_1.png" alt="" class="rounded-24 smaller-image">
+    }
     <img src="photos/poster/poster_2.png" alt="" class="rounded-24 smaller-image">
     <img src="photos/poster/poster_3.jpg" alt="" class="rounded-24 smaller-image">
   </div>
 
   <div class="mt-48">
       <span class="fs-24 regular">
-      Various types of posters: social media visuals, promotional designs, informational layouts, and<br> themed creative posters. Developed in different styles to meet specific communication<br> and branding needs.
+      Various types of posters: social media visuals, promotional designs, informational layouts, and
+        themed creative posters. Developed in different styles to meet specific communication and branding needs.
       </span>
   </div>
 
   <div class="three-images-container mt-48">
-    <img src="photos/kupiskio/kupiskio_1.png" alt="" class="rounded-24 smaller-image">
+    @if (screenWidth() > 768) {
+      <img src="photos/kupiskio/kupiskio_1.png" alt="" class="rounded-24 smaller-image">
+    }
     <img src="photos/kupiskio/kupiskio_2.png" alt="" class="rounded-24 smaller-image">
     <img src="photos/kupiskio/kupiskio_3.png" alt="" class="rounded-24 smaller-image">
   </div>
@@ -135,7 +204,11 @@
       <span class="fs-24 regular">
         Created the logo and brand identity guidelines.<br> Project developed for a competition.
       </span>
+    @if (screenWidth() > 768) {
       <img src="white_line.png" alt="" class="rounded-24">
+    } @else {
+      <hr class="full-line">
+    }
     <span class="fs-20">
         2025<span class="orange">/</span>09
       </span>
@@ -151,26 +224,50 @@
         Event visualization and advertising campaign. Project completed for academic studies.
       </span>
       <hr class="full-line">
+      @if (screenWidth() > 768) {
+        <span class="fs-20">
+        2025<span class="orange">/</span>10
+      </span>
+        <div class="more-info-container">
+          <img src="small_vector.png" alt="">
+          <a class="fs-20 more-info-button" routerLink="/aidai">More info about the project</a>
+        </div>
+      } @else {
+        <div class="container-inline-flex">
       <span class="fs-20">
         2025<span class="orange">/</span>10
       </span>
-      <div class="more-info-container">
-        <img src="small_vector.png" alt="">
-        <a class="fs-20 more-info-button" routerLink="/aidai">More info about the project</a>
-      </div>
+          <div class="more-info-container">
+            <img src="small_vector.png" alt="">
+            <a class="fs-20 more-info-button" routerLink="/aidai">Tap for more info</a>
+          </div>
+        </div>
+      }
     </div>
   </div>
 
   <div class="three-images-container mt-48">
-    <img src="photos/mobile/mobile_1.png" alt="" class="rounded-24 smaller-image">
+    @if (screenWidth() > 768) {
+      <img src="photos/mobile/mobile_3.png" alt="" class="rounded-24 smaller-image">
+    }
     <img src="photos/mobile/mobile_2.png" alt="" class="rounded-24 smaller-image">
-    <img src="photos/mobile/mobile_3.png" alt="" class="rounded-24 smaller-image">
+    <img src="photos/mobile/mobile_1.png" alt="" class="rounded-24 smaller-image">
   </div>
 
   <div class="mt-48 margin-last-text">
       <span class="fs-24 regular">
-        Website designs and social media visuals. Crafted to deliver clear, functional, and visually<br> engaging layouts adapted to various platforms and communication goals.
+        Website designs and social media visuals. Crafted to deliver clear, functional,
+        and visually engaging layouts adapted to various platforms and communication goals.
       </span>
+    @if (screenWidth() < 769) {
+      <hr class="full-line">
+      <span class="fs-20">
+        2025<span class="orange">/</span>11
+      </span>
+      <span class="fs-20">
+        2025<span class="orange">/</span>04
+      </span>
+    }
   </div>
 
 </div>
