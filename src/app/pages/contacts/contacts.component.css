@@ -55,3 +55,144 @@
   background-color: #333333;
   color: #ffffff;
 }
+
+.contacts-line-container {
+  display: inline-flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.fb-icon {
+  height: 24px;
+  width: 24px;
+}
+
+.mail-icon {
+  height: 24px;
+  width: 30px;
+}
+
+.text1 {
+  margin-top: 24px;
+}
+
+.text2 {
+  margin-top: 32px;
+}
+
+.text3 {
+  margin-top: 48px;
+}
+
+.text4 {
+  margin-top: 24px;
+}
+
+.text5 {
+  margin-top: 48px;
+}
+
+.text6 {
+  margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+  .founder-margins {
+    margin-top: 48px;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .founder-grid {
+    display: block;
+  }
+
+  .focus-text {
+    width: 100%;
+  }
+
+  .image {
+    margin-top: 32px;
+    margin-bottom: 4px;
+    width: 100%;
+  }
+
+  .experience-container {
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .margin-photo {
+    margin-right: 12px;
+  }
+
+  .slash {
+    height: 38px;
+  }
+
+  .studio-container {
+    margin: 24px 20px 48px;
+  }
+
+  .fs-24 {
+    font-size: 14px;
+  }
+
+  .fs-32 {
+    font-size: 24px;
+  }
+
+  .fs-48 {
+    font-size: 24px;
+  }
+
+  .fs-64 {
+    font-size: 24px;
+  }
+
+  .text1 {
+    margin-top: 8px;
+  }
+
+  .text2 {
+    margin-top: 16px;
+  }
+
+  .text3 {
+    margin-top: 24px;
+  }
+
+  .text4 {
+    margin-top: 12px;
+  }
+
+  .text5 {
+    margin-top: 24px;
+  }
+
+  .text6 {
+    margin-top: 12px;
+  }
+
+  .rotated-image {
+    height: auto;
+  }
+
+  .fb-icon {
+    height: 16px;
+    width: 16px;
+  }
+
+  .mail-icon {
+    height: 20px;
+    width: 16px;
+  }
+
+  .btn-rounded {
+    margin-bottom: 124px;
+  }
+}
