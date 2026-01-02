@@ -107,3 +107,73 @@
   gap: 80px;
 }
 
+
+.mobile-kampuotas {
+  width: 100%;
+}
+
+.mobile-ideas-container {
+  margin-top: 32px;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 24px;
+  justify-items: center;
+}
+
+.mobile-text {
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .main-text-container {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 0;
+  }
+
+  .shaping-ideas-text {
+    font-size: 32px;
+    width: 100%;
+  }
+
+  .brand-identity-text {
+    margin-top: 24px;
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .btn-rounded {
+    margin-top: 12px;
+    padding: 10px 20px;
+    font-size: 10px;
+  }
+
+  .ideas-container-text {
+    padding-top: 0;
+    font-size: 24px;
+  }
+
+  .container-studio {
+    margin-top: 32px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .rotated-image {
+    margin-top: 32px;
+  }
+
+  .clients-grid {
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 124px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 36px;
+    align-items: center;
+  }
+}

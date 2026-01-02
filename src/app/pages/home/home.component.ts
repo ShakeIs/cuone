@@ -1,18 +1,25 @@
-import {Component} from '@angular/core';
+import {Component, HostListener, signal} from '@angular/core';
 import {RouterLink} from '@angular/router';
 import {CarouselComponent} from '../carousel/carousel.component';
+import {NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-home',
   imports: [
     RouterLink,
-    CarouselComponent
+    CarouselComponent,
+    NgClass
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class Home {
-  // TODO: Custom height and width :)
+  screenWidth = signal(window.innerWidth);
+
+  @HostListener('window:resize')
+  onResize() {
+    this.screenWidth.set(window.innerWidth);
+  }
 
   hoveredIndex: number | null = null;
 
@@ -27,6 +34,18 @@ export class Home {
     {normal: 'clients/skin.svg', hover: 'clients/skin-hover.svg'},
     {normal: 'clients/lineka.svg', hover: 'clients/lineka-hover.svg'},
     {normal: 'clients/zelvos.svg', hover: 'clients/zelvos-hover.svg'},
+  ];
+
+  mobileImages = [
+    {normal: 'clients/gateris.svg', hover: 'clients/gateris-hover.svg'},
+    {normal: 'clients/kunset.svg', hover: 'clients/kunset-hover.svg'},
+    {normal: 'clients/kupiskio.svg', hover: 'clients/kupiskio-hover.svg'},
+    {normal: 'clients/vaisiu.svg', hover: 'clients/vaisiu-hover.svg'},
+    {normal: 'clients/artele.svg', hover: 'clients/artele-hover.svg'},
+    {normal: 'clients/zelvos.svg', hover: 'clients/zelvos-hover.svg'},
+    {normal: 'clients/dublis.svg', hover: 'clients/dublis-hover.svg'},
+    {normal: 'clients/skin.svg', hover: 'clients/skin-hover.svg'},
+    {normal: 'clients/lineka.svg', hover: 'clients/lineka-hover.svg'},
   ];
 
 }

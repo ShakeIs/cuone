@@ -8,19 +8,36 @@
   <button class="btn-rounded regular" routerLink="/contacts">Contacts</button>
 </div>
 
-<div class="ideas-container">
-  <div class="flex-center-container">
-    <div class="ideas-container-text semi-bold">Shaping your ideas into:</div>
+@if (screenWidth() > 767) {
+  <div class="ideas-container">
+    <div class="flex-center-container">
+      <div class="ideas-container-text semi-bold">Shaping your ideas into:</div>
+    </div>
+    <div class="ideas-container-parent2">
+      <div class="regular fs-24">Aesthetics</div>
+      <div class="regular fs-24">Story</div>
+      <div class="regular fs-24">Identity</div>
+      <div class="regular fs-24">Originality</div>
+      <div class="regular fs-24">Precision</div>
+      <div class="regular fs-24">Connection</div>
+    </div>
   </div>
-  <div class="ideas-container-parent2">
-    <div class="regular fs-24">Aesthetics</div>
-    <div class="regular fs-24">Story</div>
-    <div class="regular fs-24">Identity</div>
-    <div class="regular fs-24">Originality</div>
-    <div class="regular fs-24">Precision</div>
-    <div class="regular fs-24">Connection</div>
+} @else {
+  <div>
+    <img src="Kampuotas.png" alt="" class="mobile-kampuotas">
+    <div class="flex-center-container">
+      <div class="ideas-container-text semi-bold">Shaping your ideas into:</div>
+    </div>
+    <div class="mobile-ideas-container">
+      <div class="regular mobile-text">Aesthetics</div>
+      <div class="regular mobile-text">Story</div>
+      <div class="regular mobile-text">Identity</div>
+      <div class="regular mobile-text">Originality</div>
+      <div class="regular mobile-text">Precision</div>
+      <div class="regular mobile-text">Connection</div>
+    </div>
   </div>
-</div>
+}
 
 <div class="flex-center-container">
   <div class="projects-text regular">Projects</div>
@@ -31,35 +48,51 @@
 <img src="Apvalus.png" alt="" class="responsive-img">
 
 <div class="container-studio mt-84">
-  <div class="flex-center-container fs-64 semi-bold">
-    We are a new, modern graphic
+  <div class="flex-center-container semi-bold" [ngClass]="screenWidth() > 767 ? 'fs-64' : 'fs-24'">
+    We are a new, modern graphic design studio
   </div>
-  <div class="flex-center-container fs-64 semi-bold">
-    design studio
-  </div>
-  <div class="flex-center-container fs-40 regular flex-wrap mt-24">
-    <span>
+  <div class="flex-center-container regular flex-wrap" [ngClass]="screenWidth() > 767 ? 'fs-40 mt-24' : 'fs-16 mt-12'">
+    @if (screenWidth() > 767) {
+      <span>
        crafting visual solutions for brands that want to stand out. Our work focuses on
     </span>
-    <span>
+      <span>
       brand identity, visual communication, and design elements that transform your ideas
     </span>
-    <span>
+      <span>
       into clear, meaningful expressions.
     </span>
+    } @else {
+      crafting visual solutions for brands that want to stand out. Our work focuses on brand identity, visual communication, and design elements that transform your ideas into clear, meaningful expressions.
+    }
+
   </div>
 </div>
 
 <img src="Apvalus.png" alt="" class="responsive-img rotated-image">
 
-<div class="clients-grid">
-  @for (img of images; track $index) {
-    <img
-      [src]="hoveredIndex === $index ? img.hover : img.normal"
-      (mouseenter)="hoveredIndex = $index"
-      (mouseleave)="hoveredIndex = null"
-      alt=""
-      width="162px"
-    />
-  }
-</div>
+@if (screenWidth() > 767) {
+  <div class="clients-grid">
+    @for (img of images; track $index) {
+      <img
+        [src]="hoveredIndex === $index ? img.hover : img.normal"
+        (mouseenter)="hoveredIndex = $index"
+        (mouseleave)="hoveredIndex = null"
+        alt=""
+        width="162px"
+      />
+    }
+  </div>
+} @else {
+  <div class="clients-grid">
+    @for (img of mobileImages; track $index) {
+      <img
+        [src]="hoveredIndex === $index ? img.hover : img.normal"
+        (mouseenter)="hoveredIndex = $index"
+        (mouseleave)="hoveredIndex = null"
+        alt=""
+        width="80px"
+      />
+    }
+  </div>
+}
