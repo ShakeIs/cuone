@@ -1,6 +1,4 @@
 .carousel {
-  max-width: 900px;
-  margin: auto;
 }
 
 /* CONTROLS */
@@ -14,7 +12,7 @@
 /* TRACK */
 .carousel-track {
   position: relative;
-  height: 420px;
+  height: 900px;
   overflow: hidden;
 }
 
@@ -22,26 +20,26 @@
 .carousel-card {
   position: absolute;
   top: 50%;
-  width: 260px;
-  height: 360px;
+  width: 570px;
+  height: 700px;
   border-radius: 16px;
   overflow: hidden;
   transform: translateY(-50%);
-  transition: all 0.6s ease;
   opacity: 0;
 }
 
 /* VIDEO */
 .carousel-card video {
   width: 100%;
-  height: 100%;
+  height: 82%;
   object-fit: cover;
 }
 
 /* TEXT */
 .carousel-caption {
+  display: flex;
+  justify-content: center;
   position: absolute;
-  bottom: 0;
   width: 100%;
   padding: 16px;
   color: white;
@@ -54,22 +52,45 @@
   transform: translate(-50%, -50%) scale(1);
   opacity: 1;
   z-index: 3;
+  transition: all 0.6s ease;
 }
 
 .carousel-card.left {
-  left: 25%;
+  left: 20%;
   transform: translate(-50%, -50%) scale(0.85);
   opacity: 0.6;
   z-index: 2;
+  transition: all 0.6s ease;
 }
 
 .carousel-card.right {
-  left: 75%;
+  left: 80%;
   transform: translate(-50%, -50%) scale(0.85);
   opacity: 0.6;
   z-index: 2;
+  transition: all 0.6s ease;
 }
 
 .carousel-card.hidden {
   pointer-events: none;
+}
+
+.grayscale {
+  filter: grayscale(1);
+}
+
+.btn-rounded {
+  margin-top: 32px;
+  padding: 20px 40px;
+  background: #e85102;
+  color: #000000;
+  border: 1px solid #ffffff25;
+  border-radius: 36px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.5s ease, background-color 0.5s ease;
+}
+
+.disabled-button {
+  background: #333333;
 }

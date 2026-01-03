@@ -2,7 +2,12 @@
   <div class="footer-headers-container grid-3-cols">
 
     <div class="col col-1">
-      <img ngSrc="CU-ONE.svg" alt="Logo" width="136" height="35" class="logo" priority routerLink="/">
+      <img
+        alt="Logo" width="136" height="35" class="logo" priority routerLink="/"
+        [src]="isHovered ? 'logo_orange.svg' : 'CU-ONE.svg'"
+        (mouseenter)="isHovered = true"
+        (mouseleave)="isHovered = false"
+      />
     </div>
 
     <div class="col col-2">

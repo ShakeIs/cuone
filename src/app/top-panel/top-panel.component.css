@@ -6,7 +6,6 @@
 
 .logo:hover {
   cursor: pointer;
-  filter: invert(34%) sepia(80%) saturate(2663%) hue-rotate(9deg) brightness(96%) contrast(104%);
   transition: filter 0.3s ease;
 }
 
@@ -99,5 +98,6 @@
   text-decoration: none;
   color: white;
   margin-bottom: 32px;
+  cursor: pointer;
 }
 

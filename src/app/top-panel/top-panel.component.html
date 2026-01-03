@@ -1,6 +1,11 @@
 <nav class="top-panel">
 
-  <img ngSrc="CU-ONE.svg" alt="Logo" width="136" height="35" class="logo" priority routerLink="/">
+  <img
+    alt="Logo" width="136" height="35" class="logo" priority routerLink="/"
+    [src]="isHovered ? 'logo_orange.svg' : 'CU-ONE.svg'"
+    (mouseenter)="isHovered = true"
+    (mouseleave)="isHovered = false"
+  />
 
   @if (screenWidth() > 768) {
     <div class="nav-links">
@@ -26,7 +31,7 @@
 
 @if (isMenuOpen()) {
   <nav class="mobile-menu">
-    <a routerLink="/portfolio" routerLinkActive="active" class="text-mobile mt-24">Portfolio</a>
-    <a routerLink="/contacts" routerLinkActive="active" class="text-mobile">Contacts</a>
+    <a (click)="navigate('/portfolio')" routerLinkActive="active" class="text-mobile mt-24">Portfolio</a>
+    <a (click)="navigate('/contacts')" routerLinkActive="active" class="text-mobile">Contacts</a>
   </nav>
 }

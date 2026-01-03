@@ -3,14 +3,14 @@ import {
   QueryList,
   ViewChildren,
   ElementRef,
-  AfterViewInit
+  AfterViewInit, signal, HostListener
 } from '@angular/core';
 import {NgClass, NgForOf} from '@angular/common';
+import {RouterLink} from '@angular/router';
 
 interface CarouselItem {
   video: string;
   title: string;
-  description: string;
 }
 
 @Component({
@@ -18,7 +18,8 @@ interface CarouselItem {
   templateUrl: './carousel.component.html',
   imports: [
     NgClass,
-    NgForOf
+    NgForOf,
+    RouterLink
   ],
   styleUrls: ['./carousel.component.css']
 })
@@ -28,43 +29,66 @@ export class CarouselComponent implements AfterViewInit {
 
   items: CarouselItem[] = [
     {
-      video: 'videos/Kupiskiomuziejus-video.mp4',
-      title: 'Mountain',
-      description: 'Nature experience'
+      video: 'videos/Mobilausgateriopaslaugos-video.mp4',
+      title: 'BRAND IDENTITY',
     },
     {
-      video: 'videos/Poster-video.mp4',
-      title: 'City',
-      description: 'Urban life'
+      video: 'videos/Skinelegance-video.mp4',
+      title: 'BRAND IDENTITY',
+    },
+    {
+      video: 'videos/Zvaigdziuaidai-video.mp4',
+      title: 'VISUALIZATION OF EVENT ADVERTISING CAMPAIGN',
     },
     {
       video: 'videos/Vaisiuamzius-video.mp4',
-      title: 'Ocean',
-      description: 'Relaxing waves'
+      title: 'BRAND IDENTITY',
+    },
+    {
+      video: 'videos/Kupiskiomuziejus-video.mp4',
+      title: 'BRAND IDENTITY',
+    },
+    {
+      video: 'videos/Poster-video.mp4',
+      title: 'POSTERS',
     }
   ];
 
   currentIndex = 0;
+
+  screenWidth = signal(window.innerWidth);
+
+  @HostListener('window:resize')
+  onResize() {
+    this.screenWidth.set(window.innerWidth);
+  }
 
   ngAfterViewInit() {
     this.playCenterVideo();
   }
 
   next() {
-    this.currentIndex = (this.currentIndex + 1) % this.items.length;
+    if (this.currentIndex < this.items.length - 1) {
+      this.currentIndex = (this.currentIndex + 1);
+    }
     this.playCenterVideo();
   }
 
   prev() {
-    this.currentIndex =
-      (this.currentIndex - 1 + this.items.length) % this.items.length;
+    if (this.currentIndex > 0) {
+      this.currentIndex = (this.currentIndex - 1);
+    }
     this.playCenterVideo();
   }
 
   getPosition(index: number): 'left' | 'center' | 'right' | 'hidden' {
+    if (this.screenWidth() <= 768) {
+      if (index === this.currentIndex) return 'center';
+      return 'hidden';
+    }
     if (index === this.currentIndex) return 'center';
-    if (index === (this.currentIndex - 1 + this.items.length) % this.items.length) return 'left';
-    if (index === (this.currentIndex + 1) % this.items.length) return 'right';
+    if (index === (this.currentIndex > 0 && this.currentIndex - 1)) return 'left';
+    if (index === (this.currentIndex + 1)) return 'right';
     return 'hidden';
   }
 
@@ -76,6 +100,7 @@ export class CarouselComponent implements AfterViewInit {
 
       if (index === this.currentIndex) {
         video.currentTime = 0;
+        video.loop = true;
         video.play().catch(() => {});
       } else {
         video.pause();

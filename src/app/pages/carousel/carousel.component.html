@@ -2,8 +2,12 @@
 
   <!-- CONTROLS -->
   <div class="carousel-controls">
-    <button (click)="prev()">‹</button>
-    <button (click)="next()">›</button>
+    <button class="btn-rounded regular" (click)="prev()" [ngClass]="this.currentIndex === 0 ? 'disabled-button' : ''">
+      <img src="arrow_left.svg">
+    </button>
+    <button class="btn-rounded regular" (click)="next()" [ngClass]="this.currentIndex === this.items.length - 1 ? 'disabled-button' : ''">
+      <img src="arrow_right.svg">
+    </button>
   </div>
 
   <!-- TRACK -->
@@ -21,12 +25,15 @@
         muted
         playsinline
         preload="metadata"
+        [ngClass]="this.currentIndex !== i ? 'grayscale' : ''"
+        class="rounded-24"
       ></video>
 
       <!-- TEXT -->
       <div class="carousel-caption">
-        <h3>{{ item.title }}</h3>
-        <p>{{ item.description }}</p>
+        <div class="fs-36 regular">
+          {{ item.title }}
+        </div>
       </div>
 
     </div>
