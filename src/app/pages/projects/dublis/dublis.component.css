@@ -1,4 +1,4 @@
-.page {
+.page-container {
   margin-right: 120px;
   margin-left: 140px;
   margin-top: 96px;
@@ -19,7 +19,7 @@
   gap: 20px;
 }
 
-.last-image {
+.last-big-image {
   margin-bottom: 124px;
 }
 
@@ -46,7 +46,7 @@
     grid-column: 1 / -1;
   }
 
-  .page {
+  .page-container {
     margin-right: 20px;
     margin-left: 20px;
     margin-top: 32px;
@@ -62,7 +62,7 @@
     margin-left: 0;
   }
 
-  .last-image {
+  .last-big-image {
     width: 100%;
     height: 100%;
     margin-bottom: 24px;

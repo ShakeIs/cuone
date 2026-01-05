@@ -1,4 +1,4 @@
-.page {
+.page-container {
   margin-right: 120px;
   margin-left: 140px;
   margin-top: 96px;
@@ -13,14 +13,20 @@
   margin-left: 180px;
 }
 
+.text-font-size {
+  font-size: 24px;
+}
+
 .photos-container {
   display: flex;
-  flex-wrap: wrap;
   gap: 20px;
 }
 
-.last-image {
+.last-big-image {
   margin-bottom: 124px;
+  width: 100%;
+  max-width: 980px;
+  height: auto;
 }
 
 .dublis-image {
@@ -31,9 +37,26 @@
   display: none;
 }
 
+.image {
+  max-width: 530px;
+  width: 33.33%;
+  height: auto;
+}
+
 @media (max-width: 768px) {
+  .page-container {
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 32px;
+  }
+
   .container {
     display: block;
+    margin-bottom: 48px;
+  }
+
+  .text-font-size {
+    font-size: 12px;
   }
 
   .photos-container {
@@ -46,12 +69,6 @@
     grid-column: 1 / -1;
   }
 
-  .page {
-    margin-right: 20px;
-    margin-left: 20px;
-    margin-top: 32px;
-  }
-
   .dublis-image {
     width: 154px;
     height: 122px;
@@ -62,7 +79,7 @@
     margin-left: 0;
   }
 
-  .last-image {
+  .last-big-image {
     width: 100%;
     height: 100%;
     margin-bottom: 24px;
@@ -71,6 +88,7 @@
   .image {
     width: 100%;
     height: 100%;
+    max-width: 100%;
   }
 
   .mt-48 {
@@ -79,12 +97,12 @@
 
   .btn-rounded {
     display: inline-block;
-    margin-bottom: 304px;
-    padding: 20px 40px;
+    margin-bottom: 124px;
+    padding: 12px 20px;
     background: #e85102;
     color: #000000;
     border: 1px solid #ffffff25;
     border-radius: 36px;
-    font-size: 20px;
+    font-size: 10px;
   }
 }

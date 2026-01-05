@@ -126,7 +126,7 @@ body {
   color: #e85102;
 }
 
-.rounded-24 {
+.rounded-corners {
   border-radius: 24px;
 }
 
@@ -138,4 +138,10 @@ body {
 
 .pointer {
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .rounded-corners {
+    border-radius: 12px;
+  }
 }
