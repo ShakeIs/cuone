@@ -44,7 +44,7 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 781px) {
   .footer-headers-container {
     display: flex;
     justify-content: space-between;

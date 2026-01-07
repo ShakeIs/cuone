@@ -115,6 +115,15 @@
     margin-left: 20px;
   }
 
+  .more-info-button {
+    margin-left: 4px;
+  }
+
+  .full-line {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
   .two-column-card-container {
     display: flex;
     flex-wrap: wrap;

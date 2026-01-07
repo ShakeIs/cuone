@@ -1,10 +1,12 @@
 import {Component, HostListener, signal} from '@angular/core';
 import {RouterLink} from '@angular/router';
+import {NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-portfolio',
   imports: [
-    RouterLink
+    RouterLink,
+    NgClass
   ],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.css',
