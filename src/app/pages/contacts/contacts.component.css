@@ -4,6 +4,10 @@
   margin-left: 120px;
 }
 
+.image {
+  width: 100%;
+}
+
 .founder-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
