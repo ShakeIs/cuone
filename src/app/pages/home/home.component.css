@@ -47,7 +47,7 @@
 }
 
 .ideas-container {
-  background-image: url('/Kampuotas.png');
+  background-image: url('/cuone/dist/frontend/browser/public/Kampuotas.png');
   background-size: cover;
   background-repeat: no-repeat;
 }

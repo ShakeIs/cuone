@@ -88,7 +88,7 @@
 }
 
 .phones-container {
-  background-image: url('/Apvalus.png'), url('/Apvalus_Rotated.png');
+  background-image: url('/cuone/dist/frontend/browser/public/Apvalus.png'), url('/cuone/dist/frontend/browser/public/Apvalus_Rotated.png');
   background-repeat: no-repeat;
   background-size: 100% calc(50% - 62px), 100% calc(50% - 62px);
   background-position: center top, center bottom;
@@ -173,7 +173,7 @@
   }
 
   .phones-container {
-    background-image: url('/Apvalus_Rotated.png'), url('/Apvalus.png');
+    background-image: url('/cuone/dist/frontend/browser/public/Apvalus_Rotated.png'), url('/cuone/dist/frontend/browser/public/Apvalus.png');
     background-repeat: no-repeat;
     background-size: 100% calc(50% - 62px), 100% calc(50% - 62px);
     background-position: center top, center bottom;

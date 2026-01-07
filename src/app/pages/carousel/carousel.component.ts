@@ -29,27 +29,27 @@ export class CarouselComponent implements AfterViewInit {
 
   items: CarouselItem[] = [
     {
-      video: 'videos/Mobilausgateriopaslaugos-video.mp4',
+      video: 'public/videos/Mobilausgateriopaslaugos-video.mp4',
       title: 'BRAND IDENTITY',
     },
     {
-      video: 'videos/Skinelegance-video.mp4',
+      video: 'public/videos/Skinelegance-video.mp4',
       title: 'BRAND IDENTITY',
     },
     {
-      video: 'videos/Zvaigdziuaidai-video.mp4',
+      video: 'public/videos/Zvaigdziuaidai-video.mp4',
       title: 'VISUALIZATION OF EVENT ADVERTISING CAMPAIGN',
     },
     {
-      video: 'videos/Vaisiuamzius-video.mp4',
+      video: 'public/videos/Vaisiuamzius-video.mp4',
       title: 'BRAND IDENTITY',
     },
     {
-      video: 'videos/Kupiskiomuziejus-video.mp4',
+      video: 'public/videos/Kupiskiomuziejus-video.mp4',
       title: 'BRAND IDENTITY',
     },
     {
-      video: 'videos/Poster-video.mp4',
+      video: 'public/videos/Poster-video.mp4',
       title: 'POSTERS',
     }
   ];

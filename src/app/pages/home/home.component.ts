@@ -24,28 +24,28 @@ export class Home {
   hoveredIndex: number | null = null;
 
   images = [
-    {normal: 'clients/gateris.svg', hover: 'clients/gateris-hover.svg'},
-    {normal: 'clients/kunset.svg', hover: 'clients/kunset-hover.svg'},
-    {normal: 'clients/kupiskio.svg', hover: 'clients/kupiskio-hover.svg'},
-    {normal: 'clients/vaisiu.svg', hover: 'clients/vaisiu-hover.svg'},
-    {normal: 'clients/artele.svg', hover: 'clients/artele-hover.svg'},
-    {normal: 'clients/dublis.svg', hover: 'clients/dublis-hover.svg'},
-    {normal: 'clients/padel.svg', hover: 'clients/padel.svg'},
-    {normal: 'clients/skin.svg', hover: 'clients/skin-hover.svg'},
-    {normal: 'clients/lineka.svg', hover: 'clients/lineka-hover.svg'},
-    {normal: 'clients/zelvos.svg', hover: 'clients/zelvos-hover.svg'},
+    {normal: 'public/clients/gateris.svg', hover: 'public/clients/gateris-hover.svg'},
+    {normal: 'public/clients/kunset.svg', hover: 'public/clients/kunset-hover.svg'},
+    {normal: 'public/clients/kupiskio.svg', hover: 'public/clients/kupiskio-hover.svg'},
+    {normal: 'public/clients/vaisiu.svg', hover: 'public/clients/vaisiu-hover.svg'},
+    {normal: 'public/clients/artele.svg', hover: 'public/clients/artele-hover.svg'},
+    {normal: 'public/clients/dublis.svg', hover: 'public/clients/dublis-hover.svg'},
+    {normal: 'public/clients/padel.svg', hover: 'public/clients/padel.svg'},
+    {normal: 'public/clients/skin.svg', hover: 'public/clients/skin-hover.svg'},
+    {normal: 'public/clients/lineka.svg', hover: 'public/clients/lineka-hover.svg'},
+    {normal: 'public/clients/zelvos.svg', hover: 'public/clients/zelvos-hover.svg'},
   ];
 
   mobileImages = [
-    {normal: 'clients/gateris.svg', hover: 'clients/gateris-hover.svg'},
-    {normal: 'clients/kunset.svg', hover: 'clients/kunset-hover.svg'},
-    {normal: 'clients/kupiskio.svg', hover: 'clients/kupiskio-hover.svg'},
-    {normal: 'clients/vaisiu.svg', hover: 'clients/vaisiu-hover.svg'},
-    {normal: 'clients/artele.svg', hover: 'clients/artele-hover.svg'},
-    {normal: 'clients/zelvos.svg', hover: 'clients/zelvos-hover.svg'},
-    {normal: 'clients/dublis.svg', hover: 'clients/dublis-hover.svg'},
-    {normal: 'clients/skin.svg', hover: 'clients/skin-hover.svg'},
-    {normal: 'clients/lineka.svg', hover: 'clients/lineka-hover.svg'},
+    {normal: 'public/clients/gateris.svg', hover: 'public/clients/gateris-hover.svg'},
+    {normal: 'public/clients/kunset.svg', hover: 'public/clients/kunset-hover.svg'},
+    {normal: 'public/clients/kupiskio.svg', hover: 'public/clients/kupiskio-hover.svg'},
+    {normal: 'public/clients/vaisiu.svg', hover: 'public/clients/vaisiu-hover.svg'},
+    {normal: 'public/clients/artele.svg', hover: 'public/clients/artele-hover.svg'},
+    {normal: 'public/clients/zelvos.svg', hover: 'public/clients/zelvos-hover.svg'},
+    {normal: 'public/clients/dublis.svg', hover: 'public/clients/dublis-hover.svg'},
+    {normal: 'public/clients/skin.svg', hover: 'public/clients/skin-hover.svg'},
+    {normal: 'public/clients/lineka.svg', hover: 'public/clients/lineka-hover.svg'},
   ];
 
 }
