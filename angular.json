@@ -36,6 +36,9 @@
           "options": {
             "buildTarget": "frontend:build"
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
