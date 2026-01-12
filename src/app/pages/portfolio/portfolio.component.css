@@ -11,7 +11,7 @@
 
 .two-column-card-container-right {
   display: grid;
-  grid-template-columns: 33.75% 66.25%;
+  grid-template-columns: 33.75% 68.25%;
   gap: 20px;
 }
 
