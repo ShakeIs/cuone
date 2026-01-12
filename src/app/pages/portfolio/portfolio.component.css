@@ -109,6 +109,11 @@
   margin-bottom: 124px;
 }
 
+.text-width {
+  width: 70%;
+  display: flex;
+}
+
 @media (max-width: 768px) {
   .main-container {
     margin-right: 20px;
