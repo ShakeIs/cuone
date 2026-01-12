@@ -48,22 +48,20 @@
 <img src="public/Apvalus.png" alt="" class="responsive-img">
 
 <div class="container-studio mt-84">
-  <div class="flex-center-container semi-bold" [ngClass]="screenWidth() > 767 ? 'fs-64' : 'fs-24'">
+  <div class="flex-center-container semi-bold text-center" [ngClass]="screenWidth() > 767 ? 'fs-64' : 'fs-24'">
     We are a new, modern graphic design studio
   </div>
   <div class="flex-center-container regular flex-wrap" [ngClass]="screenWidth() > 767 ? 'fs-40 mt-24' : 'fs-16 mt-12'">
     @if (screenWidth() > 767) {
-      <span>
-       crafting visual solutions for brands that want to stand out. Our work focuses on
-    </span>
-      <span>
-      brand identity, visual communication, and design elements that transform your ideas
-    </span>
-      <span>
-      into clear, meaningful expressions.
-    </span>
+      <span class="text-center">
+        crafting visual solutions for brands that want to stand out. Our work focuses on
+        brand identity, visual communication, and design elements that transform your ideas
+        into clear, meaningful expressions.
+      </span>
     } @else {
-      crafting visual solutions for brands that want to stand out. Our work focuses on brand identity, visual communication, and design elements that transform your ideas into clear, meaningful expressions.
+      <span class="text-center">
+        crafting visual solutions for brands that want to stand out. Our work focuses on brand identity, visual communication, and design elements that transform your ideas into clear, meaningful expressions.
+      </span>
     }
 
   </div>

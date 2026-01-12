@@ -148,6 +148,10 @@ body {
   cursor: pointer;
 }
 
+.text-center {
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .rounded-corners {
     border-radius: 12px;
