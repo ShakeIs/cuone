@@ -197,6 +197,9 @@
   }
 
   .btn-rounded {
+    margin-top: 24px;
     margin-bottom: 124px;
+    padding: 10px 20px;
+    font-size: 10px;
   }
 }
