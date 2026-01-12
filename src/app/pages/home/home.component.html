@@ -73,10 +73,9 @@
   <div class="clients-grid">
     @for (img of images; track $index) {
       <img
-        [src]="hoveredIndex === $index ? img.hover : img.normal"
-        (mouseenter)="hoveredIndex = $index"
-        (mouseleave)="hoveredIndex = null"
+        [src]="img.hover"
         alt=""
+        class="logo-img"
         width="162px"
       />
     }
@@ -85,10 +84,7 @@
   <div class="clients-grid">
     @for (img of mobileImages; track $index) {
       <img
-        [src]="hoveredIndex === $index ? img.hover : img.normal"
-        (mouseenter)="hoveredIndex = $index"
-        (mouseleave)="hoveredIndex = null"
-        alt=""
+        [src]="img.normal"
         width="80px"
       />
     }

@@ -126,6 +126,15 @@
   font-size: 14px;
 }
 
+.logo-img {
+  filter: brightness(0) invert(1);
+  transition: filter 0.5s ease;
+}
+
+.logo-img:hover {
+  filter: none;
+}
+
 @media (max-width: 768px) {
   .main-text-container {
     margin-left: 20px;

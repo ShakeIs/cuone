@@ -24,7 +24,7 @@ export class Home {
   hoveredIndex: number | null = null;
 
   images = [
-    {normal: 'public/clients/gateris.svg', hover: 'public/clients/gateris-hover.svg'},
+    {normal: 'public/clients/gateris-hover.svg', hover: 'public/clients/gateris-hover.svg'},
     {normal: 'public/clients/kunset.svg', hover: 'public/clients/kunset-hover.svg'},
     {normal: 'public/clients/kupiskio.svg', hover: 'public/clients/kupiskio-hover.svg'},
     {normal: 'public/clients/vaisiu.svg', hover: 'public/clients/vaisiu-hover.svg'},

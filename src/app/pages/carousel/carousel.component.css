@@ -111,6 +111,14 @@
   }
 
   .carousel-track {
-    height: 700px;
+    height: 620px;
+  }
+
+  .carousel-card {
+    height: 620px;
+  }
+
+  .video-container {
+    width: 400px;
   }
 }
