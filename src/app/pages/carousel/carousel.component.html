@@ -19,15 +19,18 @@
     >
 
       <!-- VIDEO -->
-      <video
-        #videoEl
-        [src]="item.video"
-        muted
-        playsinline
-        preload="metadata"
-        [ngClass]="this.currentIndex !== i ? 'grayscale' : ''"
-        class="rounded-corners"
-      ></video>
+      <div class="video-container">
+        <video
+          #videoEl
+          [src]="item.video"
+          width="456"
+          muted
+          playsinline
+          preload="metadata"
+          [ngClass]="this.currentIndex !== i ? 'grayscale' : ''"
+          class="rounded-corners"
+        ></video>
+      </div>
 
       <!-- TEXT -->
       <div class="carousel-caption">

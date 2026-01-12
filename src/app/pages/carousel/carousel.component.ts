@@ -1,12 +1,5 @@
-import {
-  Component,
-  QueryList,
-  ViewChildren,
-  ElementRef,
-  AfterViewInit, signal, HostListener
-} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, QueryList, signal, ViewChildren} from '@angular/core';
 import {NgClass, NgForOf} from '@angular/common';
-import {RouterLink} from '@angular/router';
 
 interface CarouselItem {
   video: string;
@@ -18,8 +11,7 @@ interface CarouselItem {
   templateUrl: './carousel.component.html',
   imports: [
     NgClass,
-    NgForOf,
-    RouterLink
+    NgForOf
   ],
   styleUrls: ['./carousel.component.css']
 })
@@ -38,7 +30,7 @@ export class CarouselComponent implements AfterViewInit {
     },
     {
       video: 'public/videos/Zvaigdziuaidai-video.mp4',
-      title: 'VISUALIZATION OF EVENT ADVERTISING CAMPAIGN',
+      title: 'VISUALIZATION OF EVENT',
     },
     {
       video: 'public/videos/Vaisiuamzius-video.mp4',
@@ -101,7 +93,8 @@ export class CarouselComponent implements AfterViewInit {
       if (index === this.currentIndex) {
         video.currentTime = 0;
         video.loop = true;
-        video.play().catch(() => {});
+        video.play().catch(() => {
+        });
       } else {
         video.pause();
       }

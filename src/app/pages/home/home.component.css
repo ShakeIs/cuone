@@ -74,7 +74,6 @@
 
 .projects-text {
   font-size: 64px;
-  color: #F6F6FF;
 }
 
 .responsive-img {
@@ -175,5 +174,10 @@
     grid-template-rows: repeat(2, auto);
     gap: 36px;
     align-items: center;
+  }
+
+  .projects-text {
+    font-size: 24px;
+    margin-top: 46px;
   }
 }
