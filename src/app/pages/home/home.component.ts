@@ -42,7 +42,7 @@ export class Home {
     {normal: 'public/clients/kupiskio.svg', hover: 'public/clients/kupiskio-hover.svg'},
     {normal: 'public/clients/vaisiu.svg', hover: 'public/clients/vaisiu-hover.svg'},
     {normal: 'public/clients/artele.svg', hover: 'public/clients/artele-hover.svg'},
-    {normal: 'public/clients/zelvos.svg', hover: 'public/clients/zelvos-hover.svg'},
+    {normal: 'public/clients/hope-hover.svg', hover: 'public/clients/hope-hover.svg'},
     {normal: 'public/clients/dublis.svg', hover: 'public/clients/dublis-hover.svg'},
     {normal: 'public/clients/skin.svg', hover: 'public/clients/skin-hover.svg'},
     {normal: 'public/clients/lineka.svg', hover: 'public/clients/lineka-hover.svg'},
