@@ -66,7 +66,7 @@
   }
 
   .col-1 {
-    grid-column: 1 / -1; /* full-width row */
+    grid-column: 1 / -1;
   }
 
   .header-text {
