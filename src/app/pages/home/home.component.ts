@@ -33,7 +33,7 @@ export class Home {
     {normal: 'public/clients/padel.svg', hover: 'public/clients/padel.svg'},
     {normal: 'public/clients/skin.svg', hover: 'public/clients/skin-hover.svg'},
     {normal: 'public/clients/lineka.svg', hover: 'public/clients/lineka-hover.svg'},
-    {normal: 'public/clients/zelvos.svg', hover: 'public/clients/zelvos-hover.svg'},
+    {normal: 'public/clients/hope-hover.svg', hover: 'public/clients/hope-hover.svg'},
   ];
 
   mobileImages = [
