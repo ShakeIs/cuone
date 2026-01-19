@@ -49,6 +49,42 @@
   margin-bottom: 96px;
 }
 
+.ig-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.ig-text {
+  margin-left: 4px;
+  color: #000;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.ig-icon {
+  transition: filter 0.25s ease;
+}
+
+/* hover state */
+.ig-container:hover .ig-text {
+  color: white;
+}
+
+.ig-container:hover .ig-icon {
+  filter: brightness(0) invert(1);
+}
+
+.contacts-text {
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.contacts-text:hover {
+  color: white;
+}
+
 @media (max-width: 781px) {
   .footer-headers-container {
     display: flex;
