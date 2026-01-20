@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -11,4 +11,11 @@ import {RouterLink} from '@angular/router';
 })
 export class FooterComponent {
   isHovered = false;
+
+  constructor(private router: Router) {
+  }
+
+  navigate(link: string) {
+    this.router.navigate([link]);
+  }
 }

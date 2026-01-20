@@ -88,7 +88,7 @@
 }
 
 .phones-container {
-  background-image: url('/cuone/public/Apvalus.png'), url('/cuone/public/Apvalus_Rotated.png');
+  background-image: url('/public/Apvalus.png'), url('/public/Apvalus_Rotated.png');
   background-repeat: no-repeat;
   background-size: 100% calc(50% - 62px), 100% calc(50% - 62px);
   background-position: center top, center bottom;
@@ -178,7 +178,7 @@
   }
 
   .phones-container {
-    background-image: url('/cuone/public/Apvalus_Rotated.png'), url('/cuone/public/Apvalus.png');
+    background-image: url('/public/Apvalus_Rotated.png'), url('/public/Apvalus.png');
     background-repeat: no-repeat;
     background-size: 100% calc(50% - 62px), 100% calc(50% - 62px);
     background-position: center top, center bottom;
