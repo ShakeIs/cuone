@@ -1,8 +1,8 @@
-import {Component, HostListener, signal} from '@angular/core';
-import {RouterLink} from '@angular/router';
-import {CarouselComponent} from '../carousel/carousel.component';
-import {NgClass} from '@angular/common';
-import {TranslatePipe} from '../../shared/i18n/translate.pipe';
+import { Component, HostListener, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { CarouselComponent } from '../carousel/carousel.component';
+import { NgClass } from '@angular/common';
+import { TranslatePipe } from '../../shared/i18n/translate.pipe';
 
 @Component({
   selector: 'app-home',
@@ -26,28 +26,28 @@ export class Home {
   hoveredIndex: number | null = null;
 
   images = [
-    {normal: 'public/clients/gateris-hover.svg', hover: 'public/clients/gateris-hover.svg'},
-    {normal: 'public/clients/kunset.svg', hover: 'public/clients/kunset-hover.svg'},
-    {normal: 'public/clients/kupiskio.svg', hover: 'public/clients/kupiskio-hover.svg'},
-    {normal: 'public/clients/vaisiu.svg', hover: 'public/clients/vaisiu-hover.svg'},
-    {normal: 'public/clients/artele.svg', hover: 'public/clients/artele-hover.svg'},
-    {normal: 'public/clients/dublis.svg', hover: 'public/clients/dublis-hover.svg'},
-    {normal: 'public/clients/padel.svg', hover: 'public/clients/padel.svg'},
-    {normal: 'public/clients/skin.svg', hover: 'public/clients/skin-hover.svg'},
-    {normal: 'public/clients/lineka.svg', hover: 'public/clients/lineka-hover.svg'},
-    {normal: 'public/clients/hope-hover.svg', hover: 'public/clients/hope-hover.svg'},
+    { normal: 'public/clients/gateris_1.svg' },
+    { normal: 'public/clients/kunset_2.svg' },
+    { normal: 'public/clients/kupiskio_3.svg' },
+    { normal: 'public/clients/vaisiu_4.svg' },
+    { normal: 'public/clients/artele_5.svg' },
+    { normal: 'public/clients/dublis_6.svg' },
+    { normal: 'public/clients/renatus_7.svg' },
+    { normal: 'public/clients/dizaino_8.svg' },
+    { normal: 'public/clients/lineka_9.svg' },
+    { normal: 'public/clients/sushi_10.svg' },
   ];
 
   mobileImages = [
-    {normal: 'public/clients/gateris.svg', hover: 'public/clients/gateris-hover.svg', width: 80},
-    {normal: 'public/clients/kunset.svg', hover: 'public/clients/kunset-hover.svg', width: 80},
-    {normal: 'public/clients/kupiskio.svg', hover: 'public/clients/kupiskio-hover.svg', width: 80},
-    {normal: 'public/clients/vaisiu.svg', hover: 'public/clients/vaisiu-hover.svg', width: 80},
-    {normal: 'public/clients/artele.svg', hover: 'public/clients/artele-hover.svg', width: 80},
-    {normal: 'public/clients/hope-hover.svg', hover: 'public/clients/hope-hover.svg', width: 55},
-    {normal: 'public/clients/dublis.svg', hover: 'public/clients/dublis-hover.svg', width: 80},
-    {normal: 'public/clients/skin.svg', hover: 'public/clients/skin-hover.svg', width: 80},
-    {normal: 'public/clients/lineka.svg', hover: 'public/clients/lineka-hover.svg', width: 80},
+    { normal: 'public/clients/gateris_1.svg', width: 80 },
+    { normal: 'public/clients/kunset_2.svg', width: 80 },
+    { normal: 'public/clients/kupiskio_3.svg', width: 80 },
+    { normal: 'public/clients/vaisiu_4.svg', width: 80 },
+    { normal: 'public/clients/artele_5.svg', width: 80 },
+    { normal: 'public/clients/dizaino_8.svg', width: 55 },
+    { normal: 'public/clients/dublis_6.svg', width: 80 },
+    { normal: 'public/clients/lineka_9.svg', width: 80 },
+    { normal: 'public/clients/sushi_10.svg', width: 80 },
   ];
 
 }
