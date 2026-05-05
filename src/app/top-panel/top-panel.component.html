@@ -9,19 +9,19 @@
 
   @if (screenWidth() > 768) {
     <div class="nav-links">
-      <a routerLink="/portfolio" routerLinkActive="active">Portfolio</a>
+      <a routerLink="/portfolio" routerLinkActive="active">{{ 'nav.portfolio' | t }}</a>
       <svg class="slash" viewBox="0 0 10 20" aria-hidden="true">
         <line x1="2" y1="60" x2="8" y2="2"
               stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
-      <a routerLink="/contacts" routerLinkActive="active">Contacts</a>
+      <a routerLink="/contacts" routerLinkActive="active">{{ 'nav.contacts' | t }}</a>
     </div>
     <div class="fake"></div>
   } @else {
     <button class="hamburger"
             [class.is-active]="isMenuOpen()"
             (click)="toggleMenu()"
-            aria-label="Toggle menu">
+            [attr.aria-label]="'nav.toggleMenu' | t">
       <div class="bar"></div>
       <div class="bar"></div>
       <div class="bar"></div>
@@ -32,7 +32,7 @@
 
 @if (isMenuOpen()) {
   <nav class="mobile-menu">
-    <a (click)="navigate('/portfolio')" routerLinkActive="active" class="text-mobile mt-24">Portfolio</a>
-    <a (click)="navigate('/contacts')" routerLinkActive="active" class="text-mobile">Contacts</a>
+    <a (click)="navigate('/portfolio')" routerLinkActive="active" class="text-mobile mt-24">{{ 'nav.portfolio' | t }}</a>
+    <a (click)="navigate('/contacts')" routerLinkActive="active" class="text-mobile">{{ 'nav.contacts' | t }}</a>
   </nav>
 }

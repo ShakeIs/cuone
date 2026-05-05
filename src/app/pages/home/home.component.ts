@@ -2,13 +2,15 @@ import {Component, HostListener, signal} from '@angular/core';
 import {RouterLink} from '@angular/router';
 import {CarouselComponent} from '../carousel/carousel.component';
 import {NgClass} from '@angular/common';
+import {TranslatePipe} from '../../shared/i18n/translate.pipe';
 
 @Component({
   selector: 'app-home',
   imports: [
     RouterLink,
     CarouselComponent,
-    NgClass
+    NgClass,
+    TranslatePipe
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

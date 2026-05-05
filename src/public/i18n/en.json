@@ -1,0 +1,74 @@
+{
+  "nav": {
+    "portfolio": "Portfolio",
+    "contacts": "Contacts",
+    "toggleMenu": "Toggle menu"
+  },
+  "footer": {
+    "follow": "Follow",
+    "contact": "Contact"
+  },
+  "home": {
+    "heroTitle": "Shaping your ideas into something real",
+    "heroDescription": "From brand identity to digital visuals - CU/ONE blends strategy, aesthetics, and innovation.",
+    "contactsButton": "Contacts",
+    "ideasTitle": "Shaping your ideas into:",
+    "ideas": {
+      "aesthetics": "Aesthetics",
+      "story": "Story",
+      "identity": "Identity",
+      "originality": "Originality",
+      "precision": "Precision",
+      "connection": "Connection"
+    },
+    "projects": "PROJECTS",
+    "studioTitle": "We are a new, modern graphic design studio",
+    "studioDescription": "crafting visual solutions for brands that want to stand out. Our work focuses on brand identity, visual communication, and design elements that transform your ideas into clear, meaningful expressions."
+  },
+  "carousel": {
+    "brandIdentity": "BRAND IDENTITY",
+    "eventVisualization": "VISUALIZATION OF EVENT",
+    "posters": "POSTERS"
+  },
+  "contacts": {
+    "founderLabel": "Studio Founder",
+    "introTitle": "I'm a graphic designer specializing in branding, logos, and web and promotional visuals.",
+    "introDescription": "My focus is on creating clear, memorable and purpose-driven design solutions that help brands grow and communicate effectively. I work efficiently, responsibly, and with a strong commitment to understanding each client's goals - turning ideas into visuals that make an impact.",
+    "contactsLabel": "Contacts:",
+    "followLabel": "Follow:",
+    "experienceTitle": "Experience",
+    "experienceDescription": "I have around 3 years of experience in graphic design, working on logo creation, brand identity, promotional graphics, posters, 3D modeling, animation, and web design layouts. Since 2023, I've been actively developing and showcasing my design work on my account @kipras_design, constantly improving my style and technical skills.",
+    "studioNameTitle": "Studio name",
+    "studioNameDescription": "CU/ONE brings together two symbolic origins: CU stands for copper - the first metal shaped by human hands, symbolizing craftsmanship, creative foundations, and reflecting the Latin origin of the name Kipras. This also inspired the copper-toned orange used in the identity. ONE represents the first spark of creation. Together, they express the studio's link to ancient craft, personal roots, and new creative beginnings.",
+    "discoverTitle": "Discover my work",
+    "portfolioButton": "Portfolio"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "A selection of my latest client, academic, and personal design projects",
+    "moreInfo": "More info about the project",
+    "tapForMore": "Tap for more info",
+    "dublisDescription": "DUBLIS restaurant. Created the logo, brand identity, and the complete visual branding for the restaurant.",
+    "gaterisDescription": "\"Mobilaus gaterio paslaugos\". Created the logo and brand identity.",
+    "vaisiaiDescription": "\"Vaisiu amzius\". Created the logo, brand identity, and its adaptations. Project completed for academic studies.",
+    "basketnewsDescription": "Created a T-shirt design commissioned by \"BasketNews\".",
+    "skinDescription": "\"Skin Elegance\". Created the logo and brand identity.",
+    "socialMediaDescription": "These social media posts reinforce the brand's identity, with each project reflecting the company's distinct visual style and delivering clear, engaging content.",
+    "postersDescription": "Various types of posters: social media visuals, promotional designs, informational layouts, and themed creative posters. Developed in different styles to meet specific communication and branding needs.",
+    "kupiskioDescription": "Created the logo and brand identity guidelines.<br> Project developed for a competition.",
+    "aidaiDescription": "Event visualization and advertising campaign. Project completed for academic studies.",
+    "websitesDescription": "Website designs and social media visuals. Crafted to deliver clear, functional, and visually engaging layouts adapted to various platforms and communication goals."
+  },
+  "projects": {
+    "back": "Back",
+    "dublis": {
+      "description": "DUBLIS restaurant. Created the logo, brand identity, and the complete visual branding for the restaurant, including visual direction, color system, typography, and design assets used across menus, signage, and promotional materials."
+    },
+    "aidai": {
+      "description": "Event visualization and advertising campaign. Developed a complete visual concept for the event, including key visuals, promotional materials, social media graphics, and layout design. The project was completed for academic studies, focusing on clear communication, cohesive visual style, and effective promotion across different platforms."
+    },
+    "vaisiai": {
+      "description": "\"Vaisiu amzius\". Created the logo, brand identity, and a full set of visual adaptations. Developed the color palette, typography, and layout system to ensure a cohesive and visually engaging identity. The project was completed for academic studies, focusing on clear communication, consistency, and modern brand expression."
+    }
+  }
+}

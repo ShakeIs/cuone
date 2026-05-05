@@ -1,9 +1,10 @@
 import {Component, HostListener, signal} from '@angular/core';
 import {Router, RouterLink, RouterLinkActive} from '@angular/router';
+import {TranslatePipe} from '../shared/i18n/translate.pipe';
 
 @Component({
   selector: 'app-top-panel',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, TranslatePipe],
   templateUrl: './top-panel.component.html',
   styleUrl: './top-panel.component.css',
 })

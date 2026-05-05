@@ -1,46 +1,46 @@
 <div class="main-text-container">
   <div class="shaping-ideas-text semi-bold">
-    Shaping your ideas into something real
+    {{ 'home.heroTitle' | t }}
   </div>
   <div class="brand-identity-text regular">
-    From brand identity to digital visuals – CU/ONE blends strategy, aesthetics, and innovation.
+    {{ 'home.heroDescription' | t }}
   </div>
-  <button class="btn-rounded regular" routerLink="/contacts">Contacts</button>
+  <button class="btn-rounded regular" routerLink="/contacts">{{ 'home.contactsButton' | t }}</button>
 </div>
 
 @if (screenWidth() > 767) {
   <div class="ideas-container">
     <div class="flex-center-container">
-      <div class="ideas-container-text semi-bold">Shaping your ideas into:</div>
+      <div class="ideas-container-text semi-bold">{{ 'home.ideasTitle' | t }}</div>
     </div>
     <div class="ideas-container-parent2">
-      <div class="regular fs-24">Aesthetics</div>
-      <div class="regular fs-24">Story</div>
-      <div class="regular fs-24">Identity</div>
-      <div class="regular fs-24">Originality</div>
-      <div class="regular fs-24">Precision</div>
-      <div class="regular fs-24">Connection</div>
+      <div class="regular fs-24">{{ 'home.ideas.aesthetics' | t }}</div>
+      <div class="regular fs-24">{{ 'home.ideas.story' | t }}</div>
+      <div class="regular fs-24">{{ 'home.ideas.identity' | t }}</div>
+      <div class="regular fs-24">{{ 'home.ideas.originality' | t }}</div>
+      <div class="regular fs-24">{{ 'home.ideas.precision' | t }}</div>
+      <div class="regular fs-24">{{ 'home.ideas.connection' | t }}</div>
     </div>
   </div>
 } @else {
   <div>
     <img src="public/Kampuotas.png" alt="" class="mobile-kampuotas">
     <div class="flex-center-container">
-      <div class="ideas-container-text semi-bold">Shaping your ideas into:</div>
+      <div class="ideas-container-text semi-bold">{{ 'home.ideasTitle' | t }}</div>
     </div>
     <div class="mobile-ideas-container">
-      <div class="regular mobile-text">Aesthetics</div>
-      <div class="regular mobile-text">Story</div>
-      <div class="regular mobile-text">Identity</div>
-      <div class="regular mobile-text">Originality</div>
-      <div class="regular mobile-text">Precision</div>
-      <div class="regular mobile-text">Connection</div>
+      <div class="regular mobile-text">{{ 'home.ideas.aesthetics' | t }}</div>
+      <div class="regular mobile-text">{{ 'home.ideas.story' | t }}</div>
+      <div class="regular mobile-text">{{ 'home.ideas.identity' | t }}</div>
+      <div class="regular mobile-text">{{ 'home.ideas.originality' | t }}</div>
+      <div class="regular mobile-text">{{ 'home.ideas.precision' | t }}</div>
+      <div class="regular mobile-text">{{ 'home.ideas.connection' | t }}</div>
     </div>
   </div>
 }
 
 <div class="flex-center-container">
-  <div class="projects-text regular">PROJECTS</div>
+  <div class="projects-text regular">{{ 'home.projects' | t }}</div>
 </div>
 
 <app-carousel></app-carousel>
@@ -49,21 +49,12 @@
 
 <div class="container-studio mt-84">
   <div class="flex-center-container semi-bold text-center" [ngClass]="screenWidth() > 767 ? 'fs-64' : 'fs-24'">
-    We are a new, modern graphic design&nbsp;studio
+    {{ 'home.studioTitle' | t }}
   </div>
   <div class="flex-center-container regular flex-wrap" [ngClass]="screenWidth() > 767 ? 'fs-40 mt-24' : 'fs-16 mt-12'">
-    @if (screenWidth() > 767) {
-      <span class="text-center">
-        crafting visual solutions for brands that want to stand out. Our work focuses on
-        brand identity, visual communication, and design elements that transform your ideas
-        into clear, meaningful expressions.
-      </span>
-    } @else {
-      <span class="text-center">
-        crafting visual solutions for brands that want to stand out. Our work focuses on brand identity, visual communication, and design elements that transform your ideas into clear, meaningful expressions.
-      </span>
-    }
-
+    <span class="text-center">
+      {{ 'home.studioDescription' | t }}
+    </span>
   </div>
 </div>
 

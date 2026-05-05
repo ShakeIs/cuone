@@ -1,9 +1,10 @@
 import {AfterViewInit, Component, ElementRef, HostListener, QueryList, signal, ViewChildren} from '@angular/core';
 import {NgClass, NgForOf} from '@angular/common';
+import {TranslatePipe} from '../../shared/i18n/translate.pipe';
 
 interface CarouselItem {
   video: string;
-  title: string;
+  titleKey: string;
 }
 
 @Component({
@@ -11,7 +12,8 @@ interface CarouselItem {
   templateUrl: './carousel.component.html',
   imports: [
     NgClass,
-    NgForOf
+    NgForOf,
+    TranslatePipe
   ],
   styleUrls: ['./carousel.component.css']
 })
@@ -22,27 +24,27 @@ export class CarouselComponent implements AfterViewInit {
   items: CarouselItem[] = [
     {
       video: 'public/videos/Mobilausgateriopaslaugos-video.mp4',
-      title: 'BRAND IDENTITY',
+      titleKey: 'carousel.brandIdentity',
     },
     {
       video: 'public/videos/Skinelegance-video.mp4',
-      title: 'BRAND IDENTITY',
+      titleKey: 'carousel.brandIdentity',
     },
     {
       video: 'public/videos/Zvaigdziuaidai-video.mp4',
-      title: 'VISUALIZATION OF EVENT',
+      titleKey: 'carousel.eventVisualization',
     },
     {
       video: 'public/videos/Vaisiuamzius-video.mp4',
-      title: 'BRAND IDENTITY',
+      titleKey: 'carousel.brandIdentity',
     },
     {
       video: 'public/videos/Kupiskiomuziejus-video.mp4',
-      title: 'BRAND IDENTITY',
+      titleKey: 'carousel.brandIdentity',
     },
     {
       video: 'public/videos/Poster-video.mp4',
-      title: 'POSTERS',
+      titleKey: 'carousel.posters',
     }
   ];
 

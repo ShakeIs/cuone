@@ -1,6 +1,4 @@
 <div class="carousel">
-
-  <!-- CONTROLS -->
   <div class="carousel-controls">
     <button class="btn-rounded regular" (click)="prev()" [ngClass]="this.currentIndex === 0 ? 'disabled-button' : ''">
       <img src="public/arrow_left.svg">
@@ -10,15 +8,12 @@
     </button>
   </div>
 
-  <!-- TRACK -->
   <div class="carousel-track">
     <div
       class="carousel-card"
       *ngFor="let item of items; let i = index"
       [ngClass]="getPosition(i)"
     >
-
-      <!-- VIDEO -->
       <div class="video-container">
         <video
           #videoEl
@@ -32,14 +27,11 @@
         ></video>
       </div>
 
-      <!-- TEXT -->
       <div class="carousel-caption">
         <div class="fs-36 regular">
-          {{ item.title }}
+          {{ item.titleKey | t }}
         </div>
       </div>
-
     </div>
   </div>
-
 </div>

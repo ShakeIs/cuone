@@ -1,11 +1,10 @@
 <div class="main-container">
   <div class="bold orange" [ngClass]="screenWidth() > 767 ? 'fs-64' : 'fs-24'">
-    Portfolio
+    {{ 'portfolio.title' | t }}
   </div>
   <div class="mt-24 regular" [ngClass]="screenWidth() > 767 ? 'fs-32' : 'fs-14'">
-    A selection of my latest client, academic, and personal design projects
+    {{ 'portfolio.subtitle' | t }}
   </div>
-
 
   <div class="mt-96 two-column-card-container">
     <div class="pointer" routerLink="/dublis">
@@ -13,7 +12,7 @@
     </div>
     <div class="information-flex-with-redirect">
       <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24' : 'fs-14'">
-        DUBLIS restaurant. Created the logo, brand identity, and the complete visual branding for the restaurant.
+        {{ 'portfolio.dublisDescription' | t }}
       </span>
       <hr class="full-line">
       @if (screenWidth() > 768) {
@@ -22,7 +21,7 @@
       </span>
         <div class="more-info-container">
           <img src="public/small_vector.png" alt="">
-          <a class="fs-20 more-info-button" routerLink="/dublis">More info about the project</a>
+          <a class="fs-20 more-info-button" routerLink="/dublis">{{ 'portfolio.moreInfo' | t }}</a>
         </div>
       } @else {
         <div class="container-inline-flex">
@@ -31,19 +30,18 @@
           </span>
           <div class="more-info-container">
             <span class="orange">/</span>
-            <a class="fs-12 more-info-button" routerLink="/dublis">Tap for more info</a>
+            <a class="fs-12 more-info-button" routerLink="/dublis">{{ 'portfolio.tapForMore' | t }}</a>
           </div>
         </div>
       }
     </div>
   </div>
 
-
   <div class="mt-48 three-column-card-container">
     @if (screenWidth() > 768) {
       <div class="information-flex">
       <span class="fs-24 regular">
-        “Mobilaus gaterio paslaugos”. Created the logo and brand identity.
+        {{ 'portfolio.gaterisDescription' | t }}
       </span>
         <hr class="full-line">
         <span class="fs-20">
@@ -65,7 +63,7 @@
       </div>
       <div class="information-flex last">
         <span class="fs-14 regular">
-          “Mobilaus gaterio paslaugos”. Created the logo and brand identity.
+          {{ 'portfolio.gaterisDescription' | t }}
         </span>
         <hr class="full-line">
         <span class="fs-12">
@@ -75,11 +73,10 @@
     }
   </div>
 
-
   <div class="mt-48 two-column-card-container-right">
     <div class="information-flex-with-redirect">
       <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24' : 'fs-14'">
-        “Vaisių amžius”. Created the logo, brand identity, and its adaptations. Project completed for academic studies.
+        {{ 'portfolio.vaisiaiDescription' | t }}
       </span>
       <hr class="full-line">
       @if (screenWidth() > 768) {
@@ -88,7 +85,7 @@
       </span>
         <div class="more-info-container">
           <img src="public/small_vector.png" alt="">
-          <a class="fs-20 more-info-button" routerLink="/vaisiai">More info about the project</a>
+          <a class="fs-20 more-info-button" routerLink="/vaisiai">{{ 'portfolio.moreInfo' | t }}</a>
         </div>
       } @else {
         <div class="container-inline-flex">
@@ -97,7 +94,7 @@
           </span>
           <div class="more-info-container">
             <span class="orange">/</span>
-            <a class="fs-12 more-info-button" routerLink="/vaisiai">Tap for more info</a>
+            <a class="fs-12 more-info-button" routerLink="/vaisiai">{{ 'portfolio.tapForMore' | t }}</a>
           </div>
         </div>
       }
@@ -106,7 +103,6 @@
       <img src="public/photos/vaisiai.png" alt="" class="rounded-corners image">
     </div>
   </div>
-
 
   <div class="mt-48 three-column-card-container-left">
     <div class="item">
@@ -117,7 +113,7 @@
     </div>
     <div class="information-flex last">
       <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24' : 'fs-14'">
-        Created a T-shirt design commissioned by “BasketNews”.
+        {{ 'portfolio.basketnewsDescription' | t }}
       </span>
       <hr class="full-line">
       <span [ngClass]="screenWidth() > 767 ? 'fs-20' : 'fs-12'">
@@ -126,11 +122,10 @@
     </div>
   </div>
 
-
   <div class="mt-48 two-column-card-container-right">
     <div class="information-flex">
       <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24' : 'fs-14'">
-        “Skin Elegance”. Created the logo and brand identity.
+        {{ 'portfolio.skinDescription' | t }}
       </span>
       <hr class="full-line">
       <span [ngClass]="screenWidth() > 767 ? 'fs-20' : 'fs-12'">
@@ -143,7 +138,6 @@
   </div>
 </div>
 
-<!--  Phones-->
 @if (screenWidth() > 768) {
   <div class="mt-48 phones-container">
     <div class="main-container">
@@ -174,7 +168,7 @@
 
 <div class="main-container" [ngClass]="screenWidth() > 767 ? 'mt-48' : 'mt-12'">
   <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24 text-width' : 'fs-14'">
-    These social media posts reinforce the brand’s identity, with each project reflecting the company’s distinct visual style and delivering clear, engaging content.
+    {{ 'portfolio.socialMediaDescription' | t }}
   </span>
 
   <div class="three-images-container mt-48">
@@ -186,10 +180,9 @@
   </div>
 
   <div [ngClass]="screenWidth() > 767 ? 'mt-48' : 'mt-12'">
-      <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24 text-width' : 'fs-14'">
-      Various types of posters: social media visuals, promotional designs, informational layouts, and
-        themed creative posters. Developed in different styles to meet specific communication and branding needs.
-      </span>
+    <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24 text-width' : 'fs-14'">
+      {{ 'portfolio.postersDescription' | t }}
+    </span>
   </div>
 
   <div class="three-images-container mt-48">
@@ -201,19 +194,16 @@
   </div>
 
   <div class="container-flex" [ngClass]="screenWidth() > 767 ? 'mt-48' : 'mt-12'">
-      <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24' : 'fs-14'">
-        Created the logo and brand identity guidelines.<br> Project developed for a competition.
-      </span>
+    <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24' : 'fs-14'" [innerHTML]="'portfolio.kupiskioDescription' | t"></span>
     @if (screenWidth() > 768) {
       <img src="public/white_line.png" alt="" class="rounded-corners">
     } @else {
       <hr class="full-line">
     }
     <span [ngClass]="screenWidth() > 767 ? 'fs-20' : 'fs-12'">
-        2025<span class="orange">/</span>09
-      </span>
+      2025<span class="orange">/</span>09
+    </span>
   </div>
-
 
   <div class="mt-48 two-column-card-container">
     <div class="pointer" routerLink="/aidai">
@@ -221,7 +211,7 @@
     </div>
     <div class="information-flex-with-redirect">
       <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24' : 'fs-14'">
-        Event visualization and advertising campaign. Project completed for academic studies.
+        {{ 'portfolio.aidaiDescription' | t }}
       </span>
       <hr class="full-line">
       @if (screenWidth() > 768) {
@@ -230,16 +220,16 @@
       </span>
         <div class="more-info-container">
           <img src="public/small_vector.png" alt="">
-          <a class="fs-20 more-info-button" routerLink="/aidai">More info about the project</a>
+          <a class="fs-20 more-info-button" routerLink="/aidai">{{ 'portfolio.moreInfo' | t }}</a>
         </div>
       } @else {
         <div class="container-inline-flex">
-      <span class="fs-12">
-        2025<span class="orange">/</span>10
-      </span>
+          <span class="fs-12">
+            2025<span class="orange">/</span>10
+          </span>
           <div class="more-info-container">
             <span class="orange">/</span>
-            <a class="fs-12 more-info-button" routerLink="/aidai">Tap for more info</a>
+            <a class="fs-12 more-info-button" routerLink="/aidai">{{ 'portfolio.tapForMore' | t }}</a>
           </div>
         </div>
       }
@@ -255,10 +245,9 @@
   </div>
 
   <div class="margin-last-text" [ngClass]="screenWidth() > 767 ? 'mt-48' : 'mt-12'">
-      <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24 text-width' : 'fs-14'">
-        Website designs and social media visuals. Crafted to deliver clear, functional,
-        and visually engaging layouts adapted to various platforms and communication goals.
-      </span>
+    <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24 text-width' : 'fs-14'">
+      {{ 'portfolio.websitesDescription' | t }}
+    </span>
     @if (screenWidth() < 769) {
       <hr class="full-line">
       <span class="fs-12">
@@ -269,5 +258,4 @@
       </span>
     }
   </div>
-
 </div>
