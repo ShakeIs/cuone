@@ -1,8 +1,19 @@
+:host {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #000003;
+}
+
 .top-panel {
   display: flex;
-  margin: 40px 120px;
-  padding-bottom: 32px;
+  padding: 40px 120px 32px;
   justify-content: space-between;
+  background-color: #000003;
 }
 
 .logo:hover {
@@ -61,12 +72,8 @@
 
 @media (max-width: 768px) {
   .top-panel {
-    display: flex;
-    margin-left: 20px;
-    margin-top: 48px;
     align-items: center;
-    justify-content: space-between;
-    margin-right: 20px;
+    padding: 48px 20px 32px;
   }
 }
 
@@ -104,12 +111,10 @@
 }
 
 .mobile-menu {
-  position: absolute;
-  top: 100px;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: black;
+  background-color: #000003;
+  padding: 0 20px 32px;
 }
 
 .text-mobile {
