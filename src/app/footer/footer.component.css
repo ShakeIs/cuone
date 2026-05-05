@@ -1,13 +1,5 @@
-.logo {
-  filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(176deg) brightness(109%) contrast(98%);
-}
-
-.logo:hover {
-  filter: invert(34%) sepia(80%) saturate(2663%) hue-rotate(9deg) brightness(96%) contrast(104%);
-}
-
 .footer-container {
-  background: linear-gradient(180deg, #FFEAE0 0%, #E85102 66.83%, #501C00 100%);
+  background: #16161A;
 }
 
 .footer-headers-container {
@@ -19,7 +11,7 @@
 }
 
 .footer-text {
-  color: #000003;
+  color: #F5EFFF;
 }
 
 .grid-3-cols {
@@ -45,8 +37,8 @@
 
 .copyright {
   font-size: 24px;
-  margin-top: 200px;
-  margin-bottom: 96px;
+  margin-top: 48px;
+  margin-bottom: 42px;
 }
 
 .ig-container {
@@ -57,22 +49,13 @@
 
 .ig-text {
   margin-left: 4px;
-  color: #000;
+  color: #F5EFFF;
   text-decoration: none;
   transition: color 0.25s ease;
 }
 
 .ig-icon {
   transition: filter 0.25s ease;
-}
-
-/* hover state */
-.ig-container:hover .ig-text {
-  color: white;
-}
-
-.ig-container:hover .ig-icon {
-  filter: brightness(0) invert(1);
 }
 
 .contacts-text {
@@ -82,7 +65,7 @@
 }
 
 .contacts-text:hover {
-  color: white;
+  color: #e85102;
 }
 
 @media (max-width: 781px) {
