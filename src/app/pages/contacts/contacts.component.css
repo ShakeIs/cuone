@@ -107,6 +107,10 @@
   color: #F5EFFF;
 }
 
+.profile-rounded-corners {
+  border-radius: 8px;
+}
+
 @media (max-width: 768px) {
   .founder-margins {
     margin-top: 48px;

@@ -177,7 +177,7 @@
   .clients-grid {
     margin-right: 20px;
     margin-left: 20px;
-    margin-bottom: 124px;
+    margin-bottom: 48px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, auto);
