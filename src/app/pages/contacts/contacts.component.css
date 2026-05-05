@@ -47,7 +47,7 @@
   margin-bottom: 348px;
   padding: 20px 40px;
   background: #e85102;
-  color: #000000;
+  color: #000003;
   border: 1px solid #ffffff25;
   border-radius: 36px;
   font-size: 20px;
@@ -57,7 +57,7 @@
 
 .btn-rounded:hover {
   background-color: #333333;
-  color: #ffffff;
+  color: #F5EFFF;
 }
 
 .contacts-line-container {
@@ -104,7 +104,7 @@
 }
 
 .ig-text {
-  color: white;
+  color: #F5EFFF;
 }
 
 @media (max-width: 768px) {

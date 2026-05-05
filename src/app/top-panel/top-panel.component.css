@@ -39,7 +39,7 @@
 .language-button {
   border: none;
   background: transparent;
-  color: #f5efff;
+  color: #F5EFFF;
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
@@ -52,7 +52,7 @@
 }
 
 .nav-links a {
-  color: #f5efff;
+  color: #F5EFFF;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -93,7 +93,7 @@
 .bar {
   width: 30px;
   height: 3px;
-  background-color: white;
+  background-color: #F5EFFF;
   transition: all 0.3s ease-in-out;
   border-radius: 10px;
 }
@@ -122,7 +122,7 @@
   font-size: 20px;
   font-weight: 400;
   text-decoration: none;
-  color: white;
+  color: #F5EFFF;
   margin-bottom: 32px;
   cursor: pointer;
 }

@@ -51,7 +51,7 @@
   justify-content: center;
   width: 100%;
   padding: 16px;
-  color: white;
+  color: #F5EFFF;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
 }
 
@@ -92,7 +92,7 @@
   margin-top: 32px;
   padding: 20px 40px;
   background: #e85102;
-  color: #000000;
+  color: #000003;
   border: 1px solid #ffffff25;
   border-radius: 36px;
   font-size: 20px;
