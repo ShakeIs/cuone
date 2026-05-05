@@ -16,7 +16,11 @@
       </svg>
       <a routerLink="/contacts" routerLinkActive="active">{{ 'nav.contacts' | t }}</a>
     </div>
-    <div class="fake"></div>
+    <div class="fake">
+      <button class="language-button" type="button" (click)="toggleLanguage()">
+        {{ languageButtonLabel }}
+      </button>
+    </div>
   } @else {
     <button class="hamburger"
             [class.is-active]="isMenuOpen()"
@@ -32,7 +36,10 @@
 
 @if (isMenuOpen()) {
   <nav class="mobile-menu">
-    <a (click)="navigate('/portfolio')" routerLinkActive="active" class="text-mobile mt-24">{{ 'nav.portfolio' | t }}</a>
     <a (click)="navigate('/contacts')" routerLinkActive="active" class="text-mobile">{{ 'nav.contacts' | t }}</a>
+    <a (click)="navigate('/portfolio')" routerLinkActive="active" class="text-mobile">{{ 'nav.portfolio' | t }}</a>
+    <button class="text-mobile mobile-language-button" type="button" (click)="toggleLanguage()">
+      {{ languageButtonLabel }}
+    </button>
   </nav>
 }

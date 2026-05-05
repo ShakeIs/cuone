@@ -20,6 +20,24 @@
 
 .fake {
   width: 136px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.language-button {
+  border: none;
+  background: transparent;
+  color: #f5efff;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.language-button:hover {
+  color: #e85102;
 }
 
 .nav-links a {
@@ -102,5 +120,12 @@
   color: white;
   margin-bottom: 32px;
   cursor: pointer;
+}
+
+.mobile-language-button {
+  border: none;
+  background: transparent;
+  text-align: left;
+  padding: 0;
 }
 
