@@ -1,4 +1,4 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CarouselComponent } from '../carousel/carousel.component';
 import { NgClass } from '@angular/common';
@@ -16,11 +16,15 @@ import { TranslatePipe } from '../../shared/i18n/translate.pipe';
   styleUrl: './home.component.css',
 })
 export class Home {
-  screenWidth = signal(window.innerWidth);
+  readonly desktopBreakpoint = 768;
+  screenWidth = signal(typeof window !== 'undefined' ? window.innerWidth : this.desktopBreakpoint + 1);
+  isDesktop = computed(() => this.screenWidth() > this.desktopBreakpoint);
 
   @HostListener('window:resize')
   onResize() {
-    this.screenWidth.set(window.innerWidth);
+    if (typeof window !== 'undefined') {
+      this.screenWidth.set(window.innerWidth);
+    }
   }
 
   hoveredIndex: number | null = null;

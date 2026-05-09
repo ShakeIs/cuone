@@ -1,3 +1,8 @@
+:host {
+  display: block;
+  overflow-x: hidden;
+}
+
 .main-text-container {
   margin-left: 120px;
   margin-right: 120px;
@@ -85,6 +90,7 @@
 
 .responsive-img {
   width: 100%;
+  display: block;
 }
 
 .container-studio {
@@ -117,6 +123,11 @@
   gap: 80px;
 }
 
+.client-logo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
 .mobile-kampuotas {
   width: 100%;
@@ -135,6 +146,65 @@
 
 .mobile-text {
   font-size: 14px;
+}
+
+@media (min-width: 769px) and (max-width: 1279px) {
+  .main-text-container {
+    margin-left: 48px;
+    margin-right: 48px;
+    margin-top: 48px;
+  }
+
+  .shaping-ideas-text {
+    font-size: clamp(48px, 8vw, 64px);
+    width: min(100%, 620px);
+  }
+
+  .brand-identity-text {
+    font-size: clamp(26px, 4.2vw, 34px);
+    width: min(100%, 620px);
+  }
+
+  .ideas-container-text {
+    padding-top: 220px;
+    font-size: 44px;
+    text-align: center;
+  }
+
+  .ideas-container-parent2 {
+    padding: 48px 48px 120px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px 32px;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .projects-text {
+    margin-left: 48px;
+  }
+
+  .container-studio {
+    margin-left: 64px;
+    margin-right: 64px;
+  }
+
+  .rotated-image {
+    margin-top: 64px;
+  }
+
+  .clients-grid {
+    margin-right: 48px;
+    margin-left: 48px;
+    margin-bottom: 160px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 40px 32px;
+    justify-items: center;
+  }
+
+  .client-logo {
+    width: min(100%, 140px);
+  }
 }
 
 @media (max-width: 768px) {
