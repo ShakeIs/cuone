@@ -47,8 +47,9 @@
 }
 
 .ideas-container {
-  background-image: url('/public/Kampuotas.png');
+  background-image: url('/public/home-form-desktop.png');
   background-size: cover;
+  background-position: center top;
   background-repeat: no-repeat;
 }
 
@@ -163,6 +164,12 @@
   .ideas-container-text {
     padding-top: 0;
     font-size: 24px;
+  }
+
+  .ideas-container {
+    background-image: url('/public/home-form-mobile.png');
+    background-size: 100% auto;
+    background-position: center top;
   }
 
   .container-studio {
