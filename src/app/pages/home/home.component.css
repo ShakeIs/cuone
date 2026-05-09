@@ -78,6 +78,10 @@
   margin-bottom: 10px;
 }
 
+.clients-text {
+  margin-bottom: 40px;
+}
+
 .responsive-img {
   width: 100%;
 }
@@ -85,6 +89,10 @@
 .container-studio {
   margin-left: 160px;
   margin-right: 160px;
+}
+
+.studio-title-text {
+  white-space: pre-line;
 }
 
 .smaller-text {
@@ -180,7 +188,13 @@
   }
 
   .projects-text {
-    font-size: 24px;
-    margin-top: 46px;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-top: 74px;
+    margin-bottom: 24px;
+  }
+
+  .clients-text {
+    margin-bottom: 24px;
   }
 }

@@ -47,7 +47,7 @@
 <img src="public/Apvalus.png" alt="" class="responsive-img">
 
 <div class="container-studio mt-84">
-  <div class="flex-center-container semi-bold text-center" [ngClass]="screenWidth() > 767 ? 'fs-64' : 'fs-24'">
+  <div class="flex-center-container semi-bold text-center studio-title-text" [ngClass]="screenWidth() > 767 ? 'fs-64' : 'fs-24'">
     {{ 'home.studioTitle' | t }}
   </div>
   <div class="flex-center-container regular flex-wrap" [ngClass]="screenWidth() > 767 ? 'fs-40 mt-24' : 'fs-16 mt-12'">
@@ -58,6 +58,8 @@
 </div>
 
 <img src="public/Apvalus.png" alt="" class="responsive-img rotated-image">
+
+<div class="projects-text clients-text regular">Klientai:</div>
 
 @if (screenWidth() > 767) {
   <div class="clients-grid">
