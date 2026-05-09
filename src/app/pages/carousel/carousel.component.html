@@ -1,14 +1,11 @@
 <div class="carousel">
-  <div class="carousel-controls">
-    <button class="btn-rounded regular" (click)="prev()" [ngClass]="this.currentIndex === 0 ? 'disabled-button' : ''">
-      <img src="public/arrow_left.svg">
-    </button>
-    <button class="btn-rounded regular" (click)="next()" [ngClass]="this.currentIndex === this.items.length - 1 ? 'disabled-button' : ''">
-      <img src="public/arrow_right.svg">
-    </button>
-  </div>
-
   <div class="carousel-track">
+    @if (hasPrev) {
+      <button class="carousel-arrow carousel-arrow-left" type="button" (click)="prev()" aria-label="Previous service">
+        <img src="public/carousel-arrow-left.svg" alt="">
+      </button>
+    }
+
     <div
       class="carousel-card"
       *ngFor="let item of items; let i = index"
@@ -22,7 +19,7 @@
           muted
           playsinline
           preload="metadata"
-          [ngClass]="this.currentIndex !== i ? 'grayscale' : ''"
+          [ngClass]="!isCenter(i) ? 'grayscale' : ''"
           class="rounded-corners"
         ></video>
       </div>
@@ -33,5 +30,11 @@
         </div>
       </div>
     </div>
+
+    @if (hasNext) {
+      <button class="carousel-arrow carousel-arrow-right" type="button" (click)="next()" aria-label="Next service">
+        <img src="public/carousel-arrow-right.svg" alt="">
+      </button>
+    }
   </div>
 </div>

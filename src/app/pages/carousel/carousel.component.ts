@@ -7,6 +7,8 @@ interface CarouselItem {
   titleKey: string;
 }
 
+type CarouselPosition = 'left' | 'center' | 'right' | 'hidden-left' | 'hidden-right';
+
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
@@ -51,6 +53,7 @@ export class CarouselComponent implements AfterViewInit {
   currentIndex = 0;
 
   screenWidth = signal(window.innerWidth);
+  readonly mobileBreakpoint = 768;
 
   @HostListener('window:resize')
   onResize() {
@@ -75,15 +78,28 @@ export class CarouselComponent implements AfterViewInit {
     this.playCenterVideo();
   }
 
-  getPosition(index: number): 'left' | 'center' | 'right' | 'hidden' {
-    if (this.screenWidth() <= 768) {
+  get hasPrev(): boolean {
+    return this.currentIndex > 0;
+  }
+
+  get hasNext(): boolean {
+    return this.currentIndex < this.items.length - 1;
+  }
+
+  getPosition(index: number): CarouselPosition {
+    if (this.screenWidth() <= this.mobileBreakpoint) {
       if (index === this.currentIndex) return 'center';
-      return 'hidden';
+      return index < this.currentIndex ? 'hidden-left' : 'hidden-right';
     }
+
     if (index === this.currentIndex) return 'center';
-    if (index === (this.currentIndex > 0 && this.currentIndex - 1)) return 'left';
-    if (index === (this.currentIndex + 1)) return 'right';
-    return 'hidden';
+    if (index === this.currentIndex - 1) return 'left';
+    if (index === this.currentIndex + 1) return 'right';
+    return index < this.currentIndex ? 'hidden-left' : 'hidden-right';
+  }
+
+  isCenter(index: number): boolean {
+    return this.getPosition(index) === 'center';
   }
 
   private playCenterVideo() {

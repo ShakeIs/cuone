@@ -1,42 +1,33 @@
-.carousel {}
-
-/* CONTROLS */
-.carousel-controls {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 24px;
+.carousel {
+  position: relative;
 }
 
-/* TRACK */
 .carousel-track {
   position: relative;
-  height: 900px;
+  height: 830px;
   overflow: hidden;
 }
 
-/* CARD */
 .carousel-card {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   position: absolute;
-  top: 50%;
-  width: 570px;
-  height: 700px;
-  border-radius: 16px;
-  overflow: hidden;
-  transform: translateY(-50%);
+  top: 0;
+  width: 587px;
+  height: 830px;
   opacity: 0;
+  transition: transform 0.55s ease, opacity 0.55s ease, left 0.55s ease, top 0.55s ease;
 }
 
-/* VIDEO */
 .video-container {
-  width: 456px;
-  height: 82%;
+  width: 480px;
+  height: 600px;
   border-radius: 24px;
   overflow: hidden;
   position: relative;
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .carousel-card video {
@@ -45,80 +36,141 @@
   object-fit: cover;
 }
 
-/* TEXT */
 .carousel-caption {
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 16px;
+  padding: 12px 16px 0;
   color: #F5EFFF;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  text-align: center;
 }
 
-/* POSITIONS */
+.carousel-caption .fs-36 {
+  font-size: 36px;
+  text-transform: uppercase;
+}
+
 .carousel-card.center {
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
+  top: 0;
+  transform: translateX(-50%) scale(1);
   opacity: 1;
   z-index: 3;
-  transition: all 0.6s ease;
 }
 
 .carousel-card.left {
-  left: 20%;
-  transform: translate(-50%, -50%) scale(0.85);
-  opacity: 0.6;
+  left: 18%;
+  top: 48px;
+  transform: translateX(-50%) scale(0.82);
+  opacity: 0.45;
   z-index: 2;
-  transition: all 0.6s ease;
 }
 
 .carousel-card.right {
-  left: 80%;
-  transform: translate(-50%, -50%) scale(0.85);
-  opacity: 0.6;
+  left: 82%;
+  top: 48px;
+  transform: translateX(-50%) scale(0.82);
+  opacity: 0.45;
   z-index: 2;
-  transition: all 0.6s ease;
 }
 
-.carousel-card.hidden {
+.carousel-card.hidden-left,
+.carousel-card.hidden-right {
   pointer-events: none;
+  opacity: 0;
+  z-index: 1;
+}
+
+.carousel-card.hidden-left {
+  left: -10%;
+  top: 48px;
+  transform: translateX(-50%) scale(0.76);
+}
+
+.carousel-card.hidden-right {
+  left: 110%;
+  top: 48px;
+  transform: translateX(-50%) scale(0.76);
 }
 
 .grayscale {
   filter: grayscale(1);
 }
 
-.btn-rounded {
-  margin-top: 32px;
-  padding: 20px 40px;
-  background: #e85102;
-  color: #000003;
-  border: 1px solid #ffffff25;
-  border-radius: 36px;
-  font-size: 20px;
+.carousel-arrow {
+  position: absolute;
+  top: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: transparent;
   cursor: pointer;
-  transition: color 0.5s ease, background-color 0.5s ease;
+  z-index: 4;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-.disabled-button {
-  background: #333333;
+.carousel-arrow:hover {
+  opacity: 0.7;
+  transform: scale(1.08);
+}
+
+.carousel-arrow img {
+  width: 38px;
+  height: 38px;
+}
+
+.carousel-arrow-left {
+  left: calc(50% - 312px);
+}
+
+.carousel-arrow-right {
+  right: calc(50% - 312px);
 }
 
 @media (max-width: 768px) {
-  .btn-rounded {
-    margin-top: 12px;
-    padding: 10px 20px;
-  }
-
   .carousel-track {
-    height: 520px;
+    height: 540px;
   }
 
   .carousel-card {
-    height: 520px;
+    width: 100%;
+    height: 540px;
+    top: 0;
   }
 
   .video-container {
-    width: 320px;
+    width: min(100%, 320px);
+    height: 400px;
+  }
+
+  .carousel-caption {
+    padding-top: 16px;
+  }
+
+  .carousel-caption .fs-36 {
+    font-size: 20px;
+  }
+
+  .carousel-arrow {
+    top: auto;
+    bottom: 0;
+    width: 56px;
+    height: 56px;
+  }
+
+  .carousel-arrow img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .carousel-arrow-left {
+    left: calc(50% - 104px);
+  }
+
+  .carousel-arrow-right {
+    right: calc(50% - 104px);
   }
 }
