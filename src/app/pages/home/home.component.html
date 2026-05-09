@@ -5,7 +5,7 @@
   <div class="brand-identity-text regular">
     {{ 'home.heroDescription' | t }}
   </div>
-  <button class="btn-rounded regular" routerLink="/contacts">{{ 'home.contactsButton' | t }}</button>
+  <button class="btn-rounded semi-bold" routerLink="/contacts">{{ 'home.contactsButton' | t }}</button>
 </div>
 
 @if (screenWidth() > 767) {
@@ -50,7 +50,7 @@
   <div class="flex-center-container semi-bold text-center studio-title-text" [ngClass]="screenWidth() > 767 ? 'fs-64' : 'fs-24'">
     {{ 'home.studioTitle' | t }}
   </div>
-  <div class="flex-center-container regular flex-wrap" [ngClass]="screenWidth() > 767 ? 'fs-40 mt-24' : 'fs-16 mt-12'">
+  <div class="flex-center-container regular flex-wrap" [ngClass]="screenWidth() > 767 ? 'fs-36 mt-24' : 'fs-14 mt-12'">
     <span class="text-center">
       {{ 'home.studioDescription' | t }}
     </span>

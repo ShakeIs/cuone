@@ -133,7 +133,7 @@
 
 @media (max-width: 768px) {
   .carousel-track {
-    height: 700px;
+    height: 490px;
   }
 
   .carousel-card {
@@ -148,7 +148,7 @@
     width: 100%;
     height: auto;
     aspect-ratio: 335 / 453;
-    max-height: 620px;
+    max-height: 400px;
   }
 
   .carousel-caption {
