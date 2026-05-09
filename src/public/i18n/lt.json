@@ -26,9 +26,12 @@
     "studioDescription": "Kuriame vizualinius sprendimus prekių ženklams, kurie siekia išsiskirti. Mūsų darbas orientuotas į prekių ženklo identitetą, vizualinę komunikaciją ir dizaino elementus, kurie paverčia jūsų idėjas aiškiomis ir prasmingomis išraiškomis."
   },
   "carousel": {
-    "brandIdentity": "BRAND IDENTITY",
-    "eventVisualization": "VISUALIZATION OF EVENT",
-    "posters": "POSTERS"
+    "webDesign": "WEB DIZAINAS",
+    "eventsDesign": "RENGINIŲ DIZAINAS",
+    "brandStyle": "FIRMINIS STILIUS",
+    "packagingDesign": "PAKUOTĖS DIZAINAS",
+    "tshirtDesign": "MARŠKINĖLIŲ DIZAINAS",
+    "digitalAndPrintDesign": "SKAITMENINIS IR SPAUDOS DIZAINAS"
   },
   "contacts": {
     "founderLabel": "Studijos įkūrėjas",

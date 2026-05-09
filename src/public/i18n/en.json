@@ -26,9 +26,12 @@
     "studioDescription": "crafting visual solutions for brands that want to stand out. Our work focuses on brand identity, visual communication, and design elements that transform your ideas into clear, meaningful expressions."
   },
   "carousel": {
-    "brandIdentity": "BRAND IDENTITY",
-    "eventVisualization": "VISUALIZATION OF EVENT",
-    "posters": "POSTERS"
+    "webDesign": "WEB DIZAINAS",
+    "eventsDesign": "RENGINIŲ DIZAINAS",
+    "brandStyle": "FIRMINIS STILIUS",
+    "packagingDesign": "PAKUOTĖS DIZAINAS",
+    "tshirtDesign": "MARŠKINĖLIŲ DIZAINAS",
+    "digitalAndPrintDesign": "SKAITMENINIS IR SPAUDOS DIZAINAS"
   },
   "contacts": {
     "founderLabel": "Studio Founder",

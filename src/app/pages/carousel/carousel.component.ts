@@ -1,9 +1,9 @@
-import {AfterViewInit, Component, ElementRef, HostListener, QueryList, signal, ViewChildren} from '@angular/core';
+import {Component, HostListener, signal} from '@angular/core';
 import {NgClass, NgForOf} from '@angular/common';
 import {TranslatePipe} from '../../shared/i18n/translate.pipe';
 
 interface CarouselItem {
-  video: string;
+  image: string;
   titleKey: string;
 }
 
@@ -19,34 +19,32 @@ type CarouselPosition = 'left' | 'center' | 'right' | 'hidden-left' | 'hidden-ri
   ],
   styleUrls: ['./carousel.component.css']
 })
-export class CarouselComponent implements AfterViewInit {
-
-  @ViewChildren('videoEl') videos!: QueryList<ElementRef<HTMLVideoElement>>;
+export class CarouselComponent {
 
   items: CarouselItem[] = [
     {
-      video: 'public/videos/Mobilausgateriopaslaugos-video.mp4',
-      titleKey: 'carousel.brandIdentity',
+      image: 'public/carousel/web-dizainas.png',
+      titleKey: 'carousel.webDesign',
     },
     {
-      video: 'public/videos/Skinelegance-video.mp4',
-      titleKey: 'carousel.brandIdentity',
+      image: 'public/carousel/renginiai.png',
+      titleKey: 'carousel.eventsDesign',
     },
     {
-      video: 'public/videos/Zvaigdziuaidai-video.mp4',
-      titleKey: 'carousel.eventVisualization',
+      image: 'public/carousel/firminis-stilius.png',
+      titleKey: 'carousel.brandStyle',
     },
     {
-      video: 'public/videos/Vaisiuamzius-video.mp4',
-      titleKey: 'carousel.brandIdentity',
+      image: 'public/carousel/pakuotes-dizainas.png',
+      titleKey: 'carousel.packagingDesign',
     },
     {
-      video: 'public/videos/Kupiskiomuziejus-video.mp4',
-      titleKey: 'carousel.brandIdentity',
+      image: 'public/carousel/marskineliu-dizainas.png',
+      titleKey: 'carousel.tshirtDesign',
     },
     {
-      video: 'public/videos/Poster-video.mp4',
-      titleKey: 'carousel.posters',
+      image: 'public/carousel/post.png',
+      titleKey: 'carousel.digitalAndPrintDesign',
     }
   ];
 
@@ -60,22 +58,16 @@ export class CarouselComponent implements AfterViewInit {
     this.screenWidth.set(window.innerWidth);
   }
 
-  ngAfterViewInit() {
-    this.playCenterVideo();
-  }
-
   next() {
     if (this.currentIndex < this.items.length - 1) {
       this.currentIndex = (this.currentIndex + 1);
     }
-    this.playCenterVideo();
   }
 
   prev() {
     if (this.currentIndex > 0) {
       this.currentIndex = (this.currentIndex - 1);
     }
-    this.playCenterVideo();
   }
 
   get hasPrev(): boolean {
@@ -100,22 +92,5 @@ export class CarouselComponent implements AfterViewInit {
 
   isCenter(index: number): boolean {
     return this.getPosition(index) === 'center';
-  }
-
-  private playCenterVideo() {
-    if (!this.videos) return;
-
-    this.videos.forEach((videoRef, index) => {
-      const video = videoRef.nativeElement;
-
-      if (index === this.currentIndex) {
-        video.currentTime = 0;
-        video.loop = true;
-        video.play().catch(() => {
-        });
-      } else {
-        video.pause();
-      }
-    });
   }
 }

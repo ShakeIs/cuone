@@ -18,11 +18,11 @@
   width: 587px;
   height: 830px;
   opacity: 0;
-  transition: transform 0.55s ease, opacity 0.55s ease, left 0.55s ease, top 0.55s ease;
+  transition: transform 0.85s ease, opacity 0.85s ease, left 0.85s ease, top 0.85s ease;
 }
 
 .video-container {
-  width: 480px;
+  width: min(100%, 480px);
   height: 600px;
   border-radius: 24px;
   overflow: hidden;
@@ -30,10 +30,11 @@
   background: rgba(255, 255, 255, 0.04);
 }
 
-.carousel-card video {
+.carousel-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .carousel-caption {

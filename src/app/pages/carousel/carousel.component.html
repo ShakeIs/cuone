@@ -12,16 +12,12 @@
       [ngClass]="getPosition(i)"
     >
       <div class="video-container">
-        <video
-          #videoEl
-          [src]="item.video"
-          width="456"
-          muted
-          playsinline
-          preload="metadata"
+        <img
+          [src]="item.image"
           [ngClass]="!isCenter(i) ? 'grayscale' : ''"
-          class="rounded-corners"
-        ></video>
+          class="carousel-image rounded-corners"
+          alt=""
+        >
       </div>
 
       <div class="carousel-caption">
