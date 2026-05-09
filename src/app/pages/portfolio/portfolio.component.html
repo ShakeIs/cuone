@@ -1,261 +1,110 @@
-<div class="main-container">
-  <div class="bold orange" [ngClass]="screenWidth() > 767 ? 'fs-64' : 'fs-24'">
-    {{ 'portfolio.title' | t }}
-  </div>
-  <div class="mt-24 regular" [ngClass]="screenWidth() > 767 ? 'fs-32' : 'fs-14'">
-    {{ 'portfolio.subtitle' | t }}
-  </div>
+<section class="portfolio-page">
+  <header class="portfolio-hero">
+    <p class="portfolio-kicker bold">Projektai</p>
+    <h1 class="portfolio-title">Portfolio</h1>
+    <p class="portfolio-intro regular">
+      Naujausiu klientu, akademiniu ir asmeniniu dizaino projektu atranka.
+    </p>
 
-  <div class="mt-96 two-column-card-container">
-    <div class="pointer" routerLink="/dublis">
-      <img src="public/photos/dublis/dublis_portfolio.png" alt="" class="rounded-corners image">
-    </div>
-    <div class="information-flex-with-redirect">
-      <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24' : 'fs-14'">
-        {{ 'portfolio.dublisDescription' | t }}
-      </span>
-      <hr class="full-line">
-      @if (screenWidth() > 768) {
-        <span class="fs-20">
-        2025<span class="orange">/</span>02
-      </span>
-        <div class="more-info-container">
-          <img src="public/small_vector.png" alt="">
-          <a class="fs-20 more-info-button" routerLink="/dublis">{{ 'portfolio.moreInfo' | t }}</a>
-        </div>
-      } @else {
-        <div class="container-inline-flex">
-          <span class="fs-12">
-            2025<span class="orange">/</span>02
-          </span>
-          <div class="more-info-container">
-            <span class="orange">/</span>
-            <a class="fs-12 more-info-button" routerLink="/dublis">{{ 'portfolio.tapForMore' | t }}</a>
-          </div>
-        </div>
+    <div class="portfolio-filters" aria-label="Portfolio kategorijos">
+      @for (filter of filters; track filter.value) {
+        <button
+          type="button"
+          class="portfolio-filter"
+          [class.is-active]="activeFilter() === filter.value"
+          (click)="setFilter(filter.value)"
+        >
+          {{ filter.label }}
+        </button>
       }
     </div>
-  </div>
+  </header>
 
-  <div class="mt-48 three-column-card-container">
-    @if (screenWidth() > 768) {
-      <div class="information-flex">
-      <span class="fs-24 regular">
-        {{ 'portfolio.gaterisDescription' | t }}
-      </span>
-        <hr class="full-line">
-        <span class="fs-20">
-        2025<span class="orange">/</span>10
-      </span>
-      </div>
-      <div>
-        <img src="public/photos/gateris/gateris_1.png" alt="" class="rounded-corners image">
-      </div>
-      <div>
-        <img src="public/photos/gateris/gateris_2.png" alt="" class="rounded-corners image">
-      </div>
-    } @else {
-      <div class="item">
-        <img src="public/photos/gateris/gateris_1.png" alt="" class="rounded-corners image">
-      </div>
-      <div class="item">
-        <img src="public/photos/gateris/gateris_2.png" alt="" class="rounded-corners image">
-      </div>
-      <div class="information-flex last">
-        <span class="fs-14 regular">
-          {{ 'portfolio.gaterisDescription' | t }}
-        </span>
-        <hr class="full-line">
-        <span class="fs-12">
-          2025<span class="orange">/</span>10
-        </span>
-      </div>
-    }
-  </div>
+  <div class="portfolio-sections">
+    @for (section of visibleSections(); track section.id) {
+      @switch (section.type) {
+        @case ('dual') {
+          <section class="portfolio-section portfolio-section--dual">
+            @for (tile of section.tiles; track $index) {
+              <article
+                class="portfolio-card portfolio-card--square"
+                [class.portfolio-card--text]="tile.type === 'text'"
+              >
+                @if (tile.type === 'image') {
+                  <img class="portfolio-card__image" [src]="tile.image" [alt]="tile.alt ?? ''">
+                } @else {
+                  <div class="portfolio-card__text-block">
+                    <h2 class="portfolio-card__text-title">{{ tile.title }}</h2>
+                    <p class="portfolio-card__text-copy">{{ tile.description }}</p>
+                  </div>
+                }
+              </article>
+            }
+          </section>
+        }
 
-  <div class="mt-48 two-column-card-container-right">
-    <div class="information-flex-with-redirect">
-      <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24' : 'fs-14'">
-        {{ 'portfolio.vaisiaiDescription' | t }}
-      </span>
-      <hr class="full-line">
-      @if (screenWidth() > 768) {
-        <span class="fs-20">
-        2025<span class="orange">/</span>11
-      </span>
-        <div class="more-info-container">
-          <img src="public/small_vector.png" alt="">
-          <a class="fs-20 more-info-button" routerLink="/vaisiai">{{ 'portfolio.moreInfo' | t }}</a>
-        </div>
-      } @else {
-        <div class="container-inline-flex">
-          <span class="fs-12">
-            2025<span class="orange">/</span>11
-          </span>
-          <div class="more-info-container">
-            <span class="orange">/</span>
-            <a class="fs-12 more-info-button" routerLink="/vaisiai">{{ 'portfolio.tapForMore' | t }}</a>
-          </div>
-        </div>
+        @case ('featureGrid') {
+          <section class="portfolio-section portfolio-section--feature-grid">
+            <article class="portfolio-card portfolio-card--square portfolio-card--feature">
+              <img
+                class="portfolio-card__image"
+                [src]="section.tiles[0].image"
+                [alt]="section.tiles[0].alt ?? ''"
+              >
+            </article>
+
+            <div class="portfolio-section__small-grid">
+              @for (tile of section.tiles.slice(1); track $index) {
+                <article
+                  class="portfolio-card portfolio-card--square portfolio-card--small"
+                  [class.portfolio-card--text]="tile.type === 'text'"
+                >
+                  @if (tile.type === 'image') {
+                    <img class="portfolio-card__image" [src]="tile.image" [alt]="tile.alt ?? ''">
+                  } @else {
+                    <div class="portfolio-card__text-block">
+                      <h2 class="portfolio-card__text-title">{{ tile.title }}</h2>
+                      <p class="portfolio-card__text-copy">{{ tile.description }}</p>
+                    </div>
+                  }
+                </article>
+              }
+            </div>
+          </section>
+        }
+
+        @case ('banner') {
+          <section class="portfolio-section portfolio-section--banner">
+            <article class="portfolio-card portfolio-card--banner">
+              <img
+                class="portfolio-card__image"
+                [src]="section.tiles[0].image"
+                [alt]="section.tiles[0].alt ?? ''"
+              >
+            </article>
+          </section>
+        }
+
+        @case ('dualWithBanner') {
+          <section class="portfolio-section portfolio-section--dual-banner">
+            <div class="portfolio-section__top-row">
+              @for (tile of section.tiles.slice(0, 2); track $index) {
+                <article class="portfolio-card portfolio-card--square">
+                  <img class="portfolio-card__image" [src]="tile.image" [alt]="tile.alt ?? ''">
+                </article>
+              }
+            </div>
+
+            <article class="portfolio-card portfolio-card--banner">
+              <img
+                class="portfolio-card__image"
+                [src]="section.tiles[2].image"
+                [alt]="section.tiles[2].alt ?? ''"
+              >
+            </article>
+          </section>
+        }
       }
-    </div>
-    <div class="pointer" routerLink="/vaisiai">
-      <img src="public/photos/vaisiai.png" alt="" class="rounded-corners image">
-    </div>
-  </div>
-
-  <div class="mt-48 three-column-card-container-left">
-    <div class="item">
-      <img src="public/photos/basketnews/bnews_1.png" alt="" class="rounded-corners image">
-    </div>
-    <div class="item">
-      <img src="public/photos/basketnews/bnews_2.png" alt="" class="rounded-corners image">
-    </div>
-    <div class="information-flex last">
-      <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24' : 'fs-14'">
-        {{ 'portfolio.basketnewsDescription' | t }}
-      </span>
-      <hr class="full-line">
-      <span [ngClass]="screenWidth() > 767 ? 'fs-20' : 'fs-12'">
-        2025<span class="orange">/</span>10
-      </span>
-    </div>
-  </div>
-
-  <div class="mt-48 two-column-card-container-right">
-    <div class="information-flex">
-      <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24' : 'fs-14'">
-        {{ 'portfolio.skinDescription' | t }}
-      </span>
-      <hr class="full-line">
-      <span [ngClass]="screenWidth() > 767 ? 'fs-20' : 'fs-12'">
-        2025<span class="orange">/</span>10
-      </span>
-    </div>
-    <div class="">
-      <img src="public/photos/skin.png" alt="" class="rounded-corners image">
-    </div>
-  </div>
-</div>
-
-@if (screenWidth() > 768) {
-  <div class="mt-48 phones-container">
-    <div class="main-container">
-      <img src="public/photos/Phones-horizontal.png" alt="" class="rounded-corners image">
-    </div>
-  </div>
-} @else {
-  <div class="mt-48 phones-container">
-    <div class="main-container">
-      <div class="phones-wrapper">
-        <img src="public/photos/phones/phone_1.png" alt="" class="rounded-corners phones-image">
-        <img src="public/photos/phones/phone_2.png" alt="" class="rounded-corners phones-image">
-        <img src="public/photos/phones/phone_3.png" alt="" class="rounded-corners phones-image">
-      </div>
-      <div class="phones-wrapper mt-12">
-        <img src="public/photos/phones/phone_4.png" alt="" class="rounded-corners phones-image">
-        <img src="public/photos/phones/phone_5.png" alt="" class="rounded-corners phones-image">
-        <img src="public/photos/phones/phone_6.png" alt="" class="rounded-corners phones-image">
-      </div>
-      <div class="phones-wrapper mt-12">
-        <img src="public/photos/phones/phone_7.png" alt="" class="rounded-corners phones-image">
-        <img src="public/photos/phones/phone_8.png" alt="" class="rounded-corners phones-image">
-        <img src="public/photos/phones/phone_9.png" alt="" class="rounded-corners phones-image">
-      </div>
-    </div>
-  </div>
-}
-
-<div class="main-container" [ngClass]="screenWidth() > 767 ? 'mt-48' : 'mt-12'">
-  <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24 text-width' : 'fs-14'">
-    {{ 'portfolio.socialMediaDescription' | t }}
-  </span>
-
-  <div class="three-images-container mt-48">
-    @if (screenWidth() > 768) {
-      <img src="public/photos/poster/poster_1.png" alt="" class="rounded-corners smaller-image">
-    }
-    <img src="public/photos/poster/poster_2.png" alt="" class="rounded-corners smaller-image">
-    <img src="public/photos/poster/poster_3.jpg" alt="" class="rounded-corners smaller-image">
-  </div>
-
-  <div [ngClass]="screenWidth() > 767 ? 'mt-48' : 'mt-12'">
-    <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24 text-width' : 'fs-14'">
-      {{ 'portfolio.postersDescription' | t }}
-    </span>
-  </div>
-
-  <div class="three-images-container mt-48">
-    @if (screenWidth() > 768) {
-      <img src="public/photos/kupiskio/kupiskio_1.png" alt="" class="rounded-corners smaller-image">
-    }
-    <img src="public/photos/kupiskio/kupiskio_2.png" alt="" class="rounded-corners smaller-image">
-    <img src="public/photos/kupiskio/kupiskio_3.png" alt="" class="rounded-corners smaller-image">
-  </div>
-
-  <div class="container-flex" [ngClass]="screenWidth() > 767 ? 'mt-48' : 'mt-12'">
-    <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24' : 'fs-14'" [innerHTML]="'portfolio.kupiskioDescription' | t"></span>
-    @if (screenWidth() > 768) {
-      <img src="public/white_line.png" alt="" class="rounded-corners">
-    } @else {
-      <hr class="full-line">
-    }
-    <span [ngClass]="screenWidth() > 767 ? 'fs-20' : 'fs-12'">
-      2025<span class="orange">/</span>09
-    </span>
-  </div>
-
-  <div class="mt-48 two-column-card-container">
-    <div class="pointer" routerLink="/aidai">
-      <img src="public/photos/aidai.png" alt="" class="rounded-corners image">
-    </div>
-    <div class="information-flex-with-redirect">
-      <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24' : 'fs-14'">
-        {{ 'portfolio.aidaiDescription' | t }}
-      </span>
-      <hr class="full-line">
-      @if (screenWidth() > 768) {
-        <span class="fs-20">
-        2025<span class="orange">/</span>10
-      </span>
-        <div class="more-info-container">
-          <img src="public/small_vector.png" alt="">
-          <a class="fs-20 more-info-button" routerLink="/aidai">{{ 'portfolio.moreInfo' | t }}</a>
-        </div>
-      } @else {
-        <div class="container-inline-flex">
-          <span class="fs-12">
-            2025<span class="orange">/</span>10
-          </span>
-          <div class="more-info-container">
-            <span class="orange">/</span>
-            <a class="fs-12 more-info-button" routerLink="/aidai">{{ 'portfolio.tapForMore' | t }}</a>
-          </div>
-        </div>
-      }
-    </div>
-  </div>
-
-  <div class="three-images-container mt-48">
-    @if (screenWidth() > 768) {
-      <img src="public/photos/mobile/mobile_3.png" alt="" class="rounded-corners smaller-image">
-    }
-    <img src="public/photos/mobile/mobile_2.png" class="rounded-corners smaller-image">
-    <img src="public/photos/mobile/mobile_1.png" alt="" class="rounded-corners smaller-image">
-  </div>
-
-  <div class="margin-last-text" [ngClass]="screenWidth() > 767 ? 'mt-48' : 'mt-12'">
-    <span class="regular" [ngClass]="screenWidth() > 767 ? 'fs-24 text-width' : 'fs-14'">
-      {{ 'portfolio.websitesDescription' | t }}
-    </span>
-    @if (screenWidth() < 769) {
-      <hr class="full-line">
-      <span class="fs-12">
-        2025<span class="orange">/</span>11
-      </span>
-      <span class="fs-12">
-        2025<span class="orange">/</span>04
-      </span>
     }
   </div>
-</div>
+</section>
