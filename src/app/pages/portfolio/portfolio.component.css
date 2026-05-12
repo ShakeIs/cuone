@@ -132,6 +132,11 @@
   grid-column: span 2;
 }
 
+.portfolio-card--placeholder {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .portfolio-card__image {
   display: block;
   width: 100%;
@@ -206,7 +211,9 @@
   }
 
   .portfolio-square-block--grid {
+    grid-template-rows: none;
     gap: 14px;
+    aspect-ratio: auto;
   }
 
   .portfolio-card--square,
@@ -218,6 +225,18 @@
   .portfolio-square-block {
     width: 100%;
     max-width: none;
+  }
+
+  .portfolio-card--grid-tile {
+    aspect-ratio: 1 / 1;
+  }
+
+  .portfolio-card--span-two {
+    aspect-ratio: 2 / 1;
+  }
+
+  .portfolio-card--placeholder {
+    display: none;
   }
 }
 

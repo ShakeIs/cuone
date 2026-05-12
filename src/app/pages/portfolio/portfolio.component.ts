@@ -528,4 +528,11 @@ export class Portfolio {
   getFeatureGridBlocks(section: PortfolioSection): readonly PortfolioFeatureGridBlock[] {
     return section.type === 'featureGrid' ? section.blocks : [];
   }
+
+  isPlaceholderTile(tile: PortfolioTile): boolean {
+    return tile.type === 'text'
+      && !tile.title?.trim()
+      && !tile.description?.trim()
+      && !tile.secondaryDescription?.trim();
+  }
 }

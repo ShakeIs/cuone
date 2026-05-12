@@ -82,6 +82,7 @@
                     <article
                       class="portfolio-card portfolio-card--grid-tile"
                       [class.portfolio-card--text]="tile.type === 'text'"
+                      [class.portfolio-card--placeholder]="isPlaceholderTile(tile)"
                       [class.portfolio-card--span-two]="tile.span === 'double'"
                     >
                       @if (tile.type === 'image') {
