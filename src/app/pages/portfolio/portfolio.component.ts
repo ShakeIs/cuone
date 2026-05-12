@@ -40,29 +40,24 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
     tiles: [
       {
         type: 'image',
-        image: 'public/photos/dublis/dublis_portfolio.png',
+        image: 'public/photos/portfolio/renatus/renatus_1.png',
         alt: 'Renatus interjero objektu paieskos projekto vizualas',
       },
       {
         type: 'image',
-        image: 'public/photos/mobile/mobile_1.png',
+        image: 'public/photos/portfolio/renatus/renatus_2.png',
         alt: 'Mobilus svetaines ekranas',
       },
       {
         type: 'image',
-        image: 'public/photos/mobile/mobile_2.png',
+        image: 'public/photos/portfolio/renatus/renatus_3.png',
         alt: 'Mobilus svetaines ekranas su kortelemis',
       },
       {
         type: 'text',
         title: "DIZAINO SAVAITE '26",
         description: 'Renginio vizualine komunikacija, socialiniu tinklu vizualai ir reklama.',
-      },
-      {
-        type: 'image',
-        image: 'public/photos/mobile/mobile_3.png',
-        alt: 'Mobilus svetaines ekranas su perziuros vaizdu',
-      },
+      }
     ],
   },
   {
