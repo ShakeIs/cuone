@@ -86,11 +86,16 @@
   justify-content: start;
 }
 
-.portfolio-section__small-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 405px));
-  gap: 20px;
+.portfolio-square-block {
   width: min(100%, 830px);
+}
+
+.portfolio-square-block--grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  aspect-ratio: 1 / 1;
 }
 
 .portfolio-section--dual-banner {
@@ -118,14 +123,13 @@
   min-height: 240px;
 }
 
-.portfolio-card--feature {
-  max-width: 830px;
-  min-height: 100%;
+.portfolio-card--grid-tile {
+  min-width: 0;
+  min-height: 0;
 }
 
-.portfolio-card--small {
-  width: min(100%, 405px);
-  max-width: 405px;
+.portfolio-card--span-two {
+  grid-column: span 2;
 }
 
 .portfolio-card__image {
@@ -165,9 +169,16 @@
 
 .portfolio-card__text-copy {
   margin: 0;
-  max-width: 11ch;
   color: #f5efff;
   font-size: 18px;
+  line-height: 1.08;
+}
+
+.portfolio-card__text-note {
+  margin: 0;
+  color: rgba(245, 239, 255, 0.78);
+  font-size: 18px;
+  font-style: italic;
   line-height: 1.08;
 }
 
@@ -194,16 +205,17 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .portfolio-section__small-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .portfolio-square-block--grid {
     gap: 14px;
-    width: 100%;
   }
 
   .portfolio-card--square,
-  .portfolio-card--feature,
-  .portfolio-card--small,
   .portfolio-card--banner {
+    width: 100%;
+    max-width: none;
+  }
+
+  .portfolio-square-block {
     width: 100%;
     max-width: none;
   }
@@ -230,15 +242,12 @@
     justify-content: stretch;
   }
 
-  .portfolio-section__small-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .portfolio-card--square,
+  .portfolio-card--banner {
     width: min(100%, 560px);
   }
 
-  .portfolio-card--square,
-  .portfolio-card--feature,
-  .portfolio-card--small,
-  .portfolio-card--banner {
+  .portfolio-square-block {
     width: min(100%, 560px);
   }
 
@@ -281,7 +290,6 @@
   .portfolio-sections,
   .portfolio-section--dual,
   .portfolio-section--feature-grid,
-  .portfolio-section__small-grid,
   .portfolio-section__top-row,
   .portfolio-section--dual-banner {
     gap: 6px;
@@ -298,18 +306,16 @@
     justify-content: center;
   }
 
-  .portfolio-section__small-grid {
-    grid-template-columns: repeat(2, minmax(0, 157px));
+  .portfolio-square-block {
     width: 320px;
+  }
+
+  .portfolio-square-block--grid {
+    gap: 6px;
   }
 
   .portfolio-card--square {
     width: 320px;
-  }
-
-  .portfolio-card--small {
-    width: 157px;
-    max-width: 157px;
   }
 
   .portfolio-card--banner {
@@ -329,7 +335,11 @@
   }
 
   .portfolio-card__text-copy {
-    max-width: 10ch;
+    font-size: 11px;
+    line-height: 1.08;
+  }
+
+  .portfolio-card__text-note {
     font-size: 11px;
     line-height: 1.08;
   }

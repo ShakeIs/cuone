@@ -24,8 +24,9 @@
     @for (section of visibleSections(); track section.id) {
       @switch (section.type) {
         @case ('dual') {
+          @let sectionTiles = getSectionTiles(section);
           <section class="portfolio-section portfolio-section--dual">
-            @for (tile of section.tiles; track $index) {
+            @for (tile of sectionTiles; track $index) {
               <article
                 class="portfolio-card portfolio-card--square"
                 [class.portfolio-card--text]="tile.type === 'text'"
@@ -36,6 +37,9 @@
                   <div class="portfolio-card__text-block">
                     <h2 class="portfolio-card__text-title">{{ tile.title }}</h2>
                     <p class="portfolio-card__text-copy">{{ tile.description }}</p>
+                    @if (tile.secondaryDescription) {
+                      <p class="portfolio-card__text-note">{{ tile.secondaryDescription }}</p>
+                    }
                   </div>
                 }
               </article>
@@ -44,51 +48,79 @@
         }
 
         @case ('featureGrid') {
+          @let blocks = getFeatureGridBlocks(section);
           <section class="portfolio-section portfolio-section--feature-grid">
-            <article class="portfolio-card portfolio-card--square portfolio-card--feature">
-              <img
-                class="portfolio-card__image"
-                [src]="section.tiles[0].image"
-                [alt]="section.tiles[0].alt ?? ''"
+            @for (block of blocks; track $index) {
+              <div
+                class="portfolio-square-block"
+                [class.portfolio-square-block--single]="block.type === 'single'"
+                [class.portfolio-square-block--grid]="block.type === 'grid'"
               >
-            </article>
-
-            <div class="portfolio-section__small-grid">
-              @for (tile of section.tiles.slice(1); track $index) {
-                <article
-                  class="portfolio-card portfolio-card--square portfolio-card--small"
-                  [class.portfolio-card--text]="tile.type === 'text'"
-                >
-                  @if (tile.type === 'image') {
-                    <img class="portfolio-card__image" [src]="tile.image" [alt]="tile.alt ?? ''">
-                  } @else {
-                    <div class="portfolio-card__text-block">
-                      <h2 class="portfolio-card__text-title">{{ tile.title }}</h2>
-                      <p class="portfolio-card__text-copy">{{ tile.description }}</p>
-                    </div>
+                @if (block.type === 'single') {
+                  <article
+                    class="portfolio-card portfolio-card--square"
+                    [class.portfolio-card--text]="block.tile.type === 'text'"
+                  >
+                    @if (block.tile.type === 'image') {
+                      <img
+                        class="portfolio-card__image"
+                        [src]="block.tile.image"
+                        [alt]="block.tile.alt ?? ''"
+                      >
+                    } @else {
+                      <div class="portfolio-card__text-block">
+                        <h2 class="portfolio-card__text-title">{{ block.tile.title }}</h2>
+                        <p class="portfolio-card__text-copy">{{ block.tile.description }}</p>
+                        @if (block.tile.secondaryDescription) {
+                          <p class="portfolio-card__text-note">{{ block.tile.secondaryDescription }}</p>
+                        }
+                      </div>
+                    }
+                  </article>
+                } @else {
+                  @for (tile of block.tiles; track $index) {
+                    <article
+                      class="portfolio-card portfolio-card--grid-tile"
+                      [class.portfolio-card--text]="tile.type === 'text'"
+                      [class.portfolio-card--span-two]="tile.span === 'double'"
+                    >
+                      @if (tile.type === 'image') {
+                        <img class="portfolio-card__image" [src]="tile.image" [alt]="tile.alt ?? ''">
+                      } @else {
+                        <div class="portfolio-card__text-block">
+                          <h2 class="portfolio-card__text-title">{{ tile.title }}</h2>
+                          <p class="portfolio-card__text-copy">{{ tile.description }}</p>
+                          @if (tile.secondaryDescription) {
+                            <p class="portfolio-card__text-note">{{ tile.secondaryDescription }}</p>
+                          }
+                        </div>
+                      }
+                    </article>
                   }
-                </article>
-              }
-            </div>
+                }
+              </div>
+            }
           </section>
         }
 
         @case ('banner') {
+          @let sectionTiles = getSectionTiles(section);
           <section class="portfolio-section portfolio-section--banner">
             <article class="portfolio-card portfolio-card--banner">
               <img
                 class="portfolio-card__image"
-                [src]="section.tiles[0].image"
-                [alt]="section.tiles[0].alt ?? ''"
+                [src]="sectionTiles[0].image"
+                [alt]="sectionTiles[0].alt ?? ''"
               >
             </article>
           </section>
         }
 
         @case ('dualWithBanner') {
+          @let sectionTiles = getSectionTiles(section);
           <section class="portfolio-section portfolio-section--dual-banner">
             <div class="portfolio-section__top-row">
-              @for (tile of section.tiles.slice(0, 2); track $index) {
+              @for (tile of sectionTiles.slice(0, 2); track $index) {
                 <article class="portfolio-card portfolio-card--square">
                   <img class="portfolio-card__image" [src]="tile.image" [alt]="tile.alt ?? ''">
                 </article>
@@ -98,8 +130,8 @@
             <article class="portfolio-card portfolio-card--banner">
               <img
                 class="portfolio-card__image"
-                [src]="section.tiles[2].image"
-                [alt]="section.tiles[2].alt ?? ''"
+                [src]="sectionTiles[2].image"
+                [alt]="sectionTiles[2].alt ?? ''"
               >
             </article>
           </section>
