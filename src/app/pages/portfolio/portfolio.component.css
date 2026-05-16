@@ -126,6 +126,7 @@
 
 .portfolio-card--banner {
   width: min(100%, 1680px);
+  aspect-ratio: 2.45 / 1;
   min-height: 240px;
 }
 
@@ -193,7 +194,7 @@
   line-height: 1.15;
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .portfolio-page {
     margin: 0 40px;
     padding-bottom: 96px;
@@ -246,7 +247,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (min-width: 769px) and (max-width: 900px) {
   .portfolio-page {
     margin: 0 24px;
     padding: 32px 0 88px;
@@ -282,7 +283,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .portfolio-page {
     margin: 0 12px;
     padding: 24px 0 72px;
@@ -327,32 +328,53 @@
   .portfolio-section--dual,
   .portfolio-section--feature-grid,
   .portfolio-section__top-row {
-    grid-template-columns: minmax(0, 320px);
+    grid-template-columns: minmax(0, 1fr);
     justify-content: center;
   }
 
   .portfolio-square-block {
-    width: 320px;
+    width: 100%;
+    max-width: none;
   }
 
   .portfolio-square-block--grid {
+    grid-template-rows: none;
     gap: 12px;
+    aspect-ratio: auto;
   }
 
   .portfolio-card--square {
-    width: 320px;
+    width: 100%;
+    max-width: none;
   }
 
   .portfolio-card--banner {
-    width: 320px;
+    width: 100%;
+    max-width: none;
     aspect-ratio: 1.15 / 1;
     min-height: 0;
+  }
+
+  .portfolio-card--grid-tile {
+    aspect-ratio: 1 / 1;
+  }
+
+  .portfolio-card--span-two {
+    aspect-ratio: 2 / 1;
   }
 
   .portfolio-card--text.portfolio-card--square,
   .portfolio-card--text.portfolio-card--grid-tile,
   .portfolio-card--text.portfolio-card--span-two {
     aspect-ratio: auto;
+    height: auto;
+  }
+
+  .portfolio-card--placeholder {
+    display: block;
+    visibility: hidden;
+    pointer-events: none;
+    aspect-ratio: 1 / 1;
     height: auto;
   }
 
