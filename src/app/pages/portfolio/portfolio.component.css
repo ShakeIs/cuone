@@ -1,6 +1,6 @@
 .portfolio-page {
   margin: 0 120px;
-  padding: 48px 0 120px;
+  padding: 80px 0 120px;
 }
 
 .portfolio-hero {
@@ -16,15 +16,14 @@
 }
 
 .portfolio-title {
-  font-size: clamp(40px, 7vw, 84px);
+  font-size: 64px;
+  font-weight: bold;
   line-height: 0.94;
-  letter-spacing: -0.05em;
 }
 
 .portfolio-intro {
   margin-top: 18px;
-  color: rgba(245, 239, 255, 0.82);
-  font-size: clamp(16px, 2.2vw, 28px);
+  font-size: 32px;
   line-height: 1.35;
 }
 
@@ -32,7 +31,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 32px;
+  margin-top: 92px;
 }
 
 .portfolio-filter {
@@ -42,7 +41,7 @@
   background: rgba(255, 255, 255, 0.02);
   color: #f5efff;
   font: inherit;
-  font-size: 14px;
+  font-size: 24px;
   cursor: pointer;
   transition:
     border-color 0.2s ease,
@@ -53,7 +52,7 @@
 
 .portfolio-filter:hover,
 .portfolio-filter:focus-visible {
-  border-color: rgba(232, 81, 2, 0.9);
+  border-color: #F5EFFF;
   color: #ffffff;
   outline: none;
   transform: translateY(-1px);
@@ -165,9 +164,9 @@
 .portfolio-card__text-title {
   margin: 0;
   color: #e85102;
-  font-size: 19px;
+  font-size: 24px;
   font-weight: 500;
-  line-height: 1.05;
+  line-height: 1.15;
   letter-spacing: -0.03em;
   text-transform: uppercase;
 }
@@ -175,16 +174,16 @@
 .portfolio-card__text-copy {
   margin: 0;
   color: #f5efff;
-  font-size: 18px;
-  line-height: 1.08;
+  font-size: 24px;
+  line-height: 1.15;
 }
 
 .portfolio-card__text-note {
   margin: 0;
   color: rgba(245, 239, 255, 0.78);
-  font-size: 18px;
+  font-size: 24px;
   font-style: italic;
-  line-height: 1.08;
+  line-height: 1.15;
 }
 
 @media (max-width: 1024px) {
@@ -349,17 +348,17 @@
   }
 
   .portfolio-card__text-title {
-    font-size: 12px;
-    line-height: 1.08;
+    font-size: 24px;
+    line-height: 1.15;
   }
 
   .portfolio-card__text-copy {
-    font-size: 11px;
-    line-height: 1.08;
+    font-size: 24px;
+    line-height: 1.15;
   }
 
   .portfolio-card__text-note {
-    font-size: 11px;
-    line-height: 1.08;
+    font-size: 24px;
+    line-height: 1.15;
   }
 }
