@@ -5,9 +5,8 @@
 
 @media (min-width: 1921px) {
   .portfolio-page {
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+    width: 1680px;
+    margin: 0 auto;
   }
 }
 
@@ -74,7 +73,7 @@
 
 .portfolio-sections {
   display: grid;
-  gap: 20px;
+  gap: 48px;
   margin-top: 44px;
 }
 
@@ -126,7 +125,6 @@
 
 .portfolio-card--banner {
   width: min(100%, 1680px);
-  aspect-ratio: 2.45 / 1;
   min-height: 240px;
 }
 
