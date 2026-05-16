@@ -3,6 +3,14 @@
   padding: 80px 0 120px;
 }
 
+@media (min-width: 1921px) {
+  .portfolio-page {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .portfolio-hero {
   max-width: 720px;
 }
@@ -118,7 +126,6 @@
 
 .portfolio-card--banner {
   width: min(100%, 1680px);
-  aspect-ratio: 2.45 / 1;
   min-height: 240px;
 }
 
@@ -310,7 +317,7 @@
   .portfolio-section--feature-grid,
   .portfolio-section__top-row,
   .portfolio-section--dual-banner {
-    gap: 6px;
+    gap: 12px;
   }
 
   .portfolio-sections {
@@ -329,7 +336,7 @@
   }
 
   .portfolio-square-block--grid {
-    gap: 6px;
+    gap: 12px;
   }
 
   .portfolio-card--square {
@@ -342,23 +349,34 @@
     min-height: 0;
   }
 
+  .portfolio-card--text.portfolio-card--square,
+  .portfolio-card--text.portfolio-card--grid-tile,
+  .portfolio-card--text.portfolio-card--span-two {
+    aspect-ratio: auto;
+    height: auto;
+  }
+
   .portfolio-card__text-block {
     gap: 4px;
     padding-top: 0;
   }
 
   .portfolio-card__text-title {
-    font-size: 24px;
+    font-size: 14px;
+    font-weight: 500;
     line-height: 1.15;
   }
 
   .portfolio-card__text-copy {
-    font-size: 24px;
+    font-size: 14px;
+    font-weight: 400;
     line-height: 1.15;
   }
 
   .portfolio-card__text-note {
-    font-size: 24px;
+    font-size: 12px;
+    font-weight: 400;
+    font-style: italic;
     line-height: 1.15;
   }
 }
