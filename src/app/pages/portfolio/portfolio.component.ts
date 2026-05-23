@@ -14,6 +14,7 @@ interface PortfolioFilterOption {
 interface PortfolioTile {
   type: PortfolioTileType;
   image?: string;
+  mobileImage?: string;
   alt?: string;
   title?: string;
   description?: string;
@@ -340,6 +341,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
       {
         type: 'image',
         image: 'public/photos/Phones-horizontal.png',
+        mobileImage: 'public/photos/portfolio/mobiles_horizontal.png',
         alt: 'Socialinių tinklų reklamų maketai telefonų ekranuose su skirtingais projektų vizualais',
       },
     ],
