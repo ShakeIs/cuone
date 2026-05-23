@@ -137,6 +137,10 @@
   grid-column: span 2;
 }
 
+.portfolio-card--span-two-mobile {
+  grid-column: auto;
+}
+
 .portfolio-card--placeholder {
   visibility: hidden;
   pointer-events: none;
@@ -377,9 +381,14 @@
     aspect-ratio: 2 / 1;
   }
 
+  .portfolio-card--span-two-mobile {
+    grid-column: span 2;
+  }
+
   .portfolio-card--text.portfolio-card--square,
   .portfolio-card--text.portfolio-card--grid-tile,
-  .portfolio-card--text.portfolio-card--span-two {
+  .portfolio-card--text.portfolio-card--span-two,
+  .portfolio-card--text.portfolio-card--span-two-mobile {
     aspect-ratio: auto;
     height: auto;
   }

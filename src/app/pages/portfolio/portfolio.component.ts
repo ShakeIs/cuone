@@ -21,6 +21,7 @@ interface PortfolioTile {
 }
 
 interface PortfolioFeatureGridTile extends PortfolioTile {
+  mobileSpan?: PortfolioFeatureGridTileSpan;
   span?: PortfolioFeatureGridTileSpan;
 }
 
@@ -92,7 +93,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'text',
             title: "RENATUS",
-            description: 'Unikalių interjero objektų paieškos internetinės svetainėsdizainas.',
+            description: 'Unikalių interjero objektų paieškos internetinės svetainės dizainas.',
             secondaryDescription: 'Projektas sukurtas studijų tikslams.',
             span: 'double',
           }
@@ -191,6 +192,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'text',
             title: "URBAN SUSHI | GASTROBARAS",
+            mobileSpan: 'double',
             description: 'Firminis stilius, logotipas ir socialinių tinklų vizualai, reklama.',
           }
         ],
@@ -315,6 +317,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'text',
             title: "DUBLIS | GASTROBARAS",
+            mobileSpan: 'double',
             description: 'Firminis stilius, logotipas ir socialinių tinklų vizualai, reklama.',
           }
         ],
@@ -490,6 +493,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'text',
             title: "SKIN ELEGANCE",
+            mobileSpan: 'double',
             description: 'Firminio stiliaus kūrimas, logotipas ir socialinių tinklų vizualai.',
           }
         ],

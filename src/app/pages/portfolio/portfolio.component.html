@@ -83,6 +83,7 @@
                       [class.portfolio-card--text]="tile.type === 'text'"
                       [class.portfolio-card--placeholder]="isPlaceholderTile(tile)"
                       [class.portfolio-card--span-two]="tile.span === 'double'"
+                      [class.portfolio-card--span-two-mobile]="tile.mobileSpan === 'double'"
                     >
                       @if (tile.type === 'image') {
                         <img class="portfolio-card__image" [src]="tile.image" [alt]="tile.alt ?? ''">
