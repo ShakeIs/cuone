@@ -23,6 +23,7 @@
   margin-top: 32px;
   font-size: 40px;
   width: 50%;
+  white-space: pre-line;
   transition: transform 0.5s ease;
 }
 
@@ -121,12 +122,17 @@
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(2, auto);
   gap: 80px;
+  justify-items: center;
+  align-items: center;
 }
 
 .client-logo {
   display: block;
   max-width: 100%;
+  width: min(100%, 162px);
+  max-height: 192px;
   height: auto;
+  object-fit: contain;
 }
 
 .mobile-kampuotas {
@@ -262,6 +268,11 @@
     gap: 36px;
     align-items: center;
     justify-items: center;
+  }
+
+  .client-logo {
+    width: auto;
+    max-height: none;
   }
 
   .projects-text {

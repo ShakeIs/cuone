@@ -73,7 +73,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/renatus/renatus_1.png',
-          alt: 'Renatus interjero objektu paieskos projekto vizualas',
+          alt: 'Renatus interjero svetainės mobilūs ekranai prie telefono ir staliuko',
         },
       },
       {
@@ -82,12 +82,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/renatus/renatus_2.png',
-            alt: 'Mobilus svetaines ekranas',
+            alt: 'Renatus interjero svetainės maketas nešiojamojo kompiuterio ekrane',
           },
           {
             type: 'image',
             image: 'public/photos/portfolio/renatus/renatus_3.png',
-            alt: 'Mobilus svetaines ekranas su kortelemis',
+            alt: 'Renatus baldų katalogo mobilūs ekranai tamsiame fone',
           },
           {
             type: 'text',
@@ -111,7 +111,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/dizaino/dizaino_1.png',
-            alt: 'Mobilus svetaines ekranas',
+            alt: 'Dizaino savaitė 26 logotipas rožiniame burbulo fone',
           },
           {
             type: 'text',
@@ -126,7 +126,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/dizaino/dizaino_2.png',
-            alt: 'Mobilus svetaines ekranas su kortelemis',
+            alt: 'Blizgus rožinis renginio tipografinis vizualas baltame fone',
           }
         ],
       },
@@ -135,7 +135,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/dizaino/dizaino_3.png',
-          alt: 'Renatus interjero objektu paieskos projekto vizualas',
+          alt: 'Dizaino savaitė 26 plakato konkurso plakatas',
         },
       },
     ],
@@ -150,7 +150,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/gateris/gateris_1.png',
-          alt: 'Renatus interjero objektu paieskos projekto vizualas',
+          alt: 'Mobilaus Gaterio Paslaugos Facebook viršelio maketas nešiojamojo kompiuterio ekrane',
         },
       },
       {
@@ -159,7 +159,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/gateris/gateris_2.png',
-            alt: 'Mobilus svetaines ekranas',
+            alt: 'Mobilaus Gaterio Paslaugos logotipo variantai oranžiniame ir tamsiame fone',
           },
           {
             type: 'text',
@@ -181,12 +181,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/sushi/sushi_1.png',
-            alt: 'Mobilus svetaines ekranas',
+            alt: 'Urban Sushi logotipo vizualas su sušių fonu',
           },
           {
             type: 'image',
             image: 'public/photos/portfolio/sushi/sushi_2.png',
-            alt: 'Mobilus svetaines ekranas su kortelemis',
+            alt: 'Urban Sushi firminės lazdelės juodame dėkle ant raudono fono',
           },
           {
             type: 'text',
@@ -200,7 +200,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/sushi/sushi_3.png',
-          alt: 'Renatus interjero objektu paieskos projekto vizualas',
+          alt: 'Urban Sushi vizitinės kortelės prie kavos puodelio',
         },
       },
     ],
@@ -213,12 +213,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
       {
         type: 'image',
         image: 'public/photos/portfolio/shirts/shirt_1.png',
-        alt: 'Svetaines dizaino pristatymo plakatas',
+        alt: 'Juodi marškinėliai su ryškiu STAY HUNGRY grafiniu piešiniu',
       },
       {
         type: 'image',
         image: 'public/photos/portfolio/shirts/shirt_2.png',
-        alt: 'Svetaines maketas kompiuterio ekrane',
+        alt: 'Balti marškinėliai su rankos iliustracija ir užrašu THIS TASKA',
       },
     ],
   },
@@ -233,7 +233,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/garazas/garazas_1.png',
-            alt: 'Mobilus svetaines ekranas',
+            alt: 'Garažas 9:11 svetainės mobilūs ekranai su sportinio automobilio vizualu',
           },
           {
             type: 'text',
@@ -249,7 +249,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/garazas/garazas_2.png',
-            alt: 'Mobilus svetaines ekranas su kortelemis',
+            alt: 'Garažas 9:11 svetainės maketas kompiuterio ekrane',
           }
         ],
       },
@@ -258,7 +258,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/garazas/garazas_3.png',
-          alt: 'Renatus interjero objektu paieskos projekto vizualas',
+          alt: 'Garažas 9:11 svetainės pradžios puslapis nešiojamojo kompiuterio ekrane',
         },
       },
     ],
@@ -273,7 +273,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/vaisiai/vaisiai_1.png',
-          alt: 'Renatus interjero objektu paieskos projekto vizualas',
+          alt: 'Vaisių amžius liofilizuotų braškių pakuotė šalia sūrio ir uogų',
         },
       },
       {
@@ -282,7 +282,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/vaisiai/vaisiai_2.png',
-            alt: 'Mobilus svetaines ekranas',
+            alt: 'Vaisių amžius reklaminiai roll-up stendai su braškių pakuote',
           },
           {
             type: 'text',
@@ -305,12 +305,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/dublis/dublis_1.png',
-            alt: 'Mobilus svetaines ekranas',
+            alt: 'Gastrobaro Dublis svetainės maketas nešiojamojo kompiuterio ekrane',
           },
           {
             type: 'image',
             image: 'public/photos/portfolio/dublis/dublis_2.png',
-            alt: 'Mobilus svetaines ekranas su kortelemis',
+            alt: 'Gastrobaro Dublis socialinių tinklų įrašas telefono ekrane',
           },
           {
             type: 'text',
@@ -324,7 +324,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/dublis/dublis_3.png',
-          alt: 'Renatus interjero objektu paieskos projekto vizualas',
+          alt: 'Gastrobaro Dublis meniu maketas su vizitine kortele',
         },
       },
     ],
@@ -337,7 +337,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
       {
         type: 'image',
         image: 'public/photos/Phones-horizontal.png',
-        alt: 'Platus firminio pristatymo maketas',
+        alt: 'Socialinių tinklų reklamų maketai telefonų ekranuose su skirtingais projektų vizualais',
       },
     ],
   },
@@ -352,7 +352,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/paws/paws_1.png',
-            alt: 'Mobilus svetaines ekranas',
+            alt: 'Hope for Paws socialinio tinklo įrašas telefono ekrane',
           },
           {
             type: 'text',
@@ -368,7 +368,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/paws/paws_2.png',
-            alt: 'Mobilus svetaines ekranas su kortelemis',
+            alt: 'Hope for Paws pakuotės dizainas ant balto maišelio',
           }
         ],
       },
@@ -377,7 +377,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/paws/paws_3.png',
-          alt: 'Renatus interjero objektu paieskos projekto vizualas',
+          alt: 'Hope for Paws plakatas su šunelio portretu mėlyname fone',
         },
       },
     ],
@@ -390,12 +390,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
       {
         type: 'image',
         image: 'public/photos/portfolio/health/health_1.png',
-        alt: 'Svetaines dizaino pristatymo plakatas',
+        alt: 'Programėlės dizaino maketas dviejuose telefonų ekranuose violetiniame fone',
       },
       {
         type: 'image',
         image: 'public/photos/portfolio/health/health_2.png',
-        alt: 'Svetaines maketas kompiuterio ekrane',
+        alt: 'Programėlės vertinimų ir užduočių ekranai dviejuose telefonuose',
       },
     ],
   },
@@ -409,7 +409,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/aidai/aidai_1.png',
-          alt: 'Renatus interjero objektu paieskos projekto vizualas',
+          alt: 'Žvaigždžių Aidai renginio plakatas su planetomis ir violetiniu taku',
         },
       },
       {
@@ -418,7 +418,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/aidai/aidai_2.png',
-            alt: 'Mobilus svetaines ekranas',
+            alt: 'Žvaigždžių Aidai socialinio tinklo įrašo maketas telefono ekrane',
           },
           {
             type: 'text',
@@ -447,7 +447,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/laisvalaikis/laisvalaikis_1.png',
-            alt: 'Mobilus svetaines ekranas',
+            alt: 'Laisvalaikio svetainės maketas su vandens pramogų kortelėmis',
           }
         ],
       },
@@ -456,7 +456,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/laisvalaikis/laisvalaikis_2.png',
-          alt: 'Renatus interjero objektu paieskos projekto vizualas',
+          alt: 'Laisvalaikio svetainės pradžios puslapis nešiojamojo kompiuterio ekrane',
         },
       },
     ],
@@ -471,7 +471,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/elegance/elegance_1.png',
-          alt: 'Renatus interjero objektu paieskos projekto vizualas',
+          alt: 'Skin Elegance firminio stiliaus priemonės ant šviesaus fono',
         },
       },
       {
@@ -480,12 +480,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/elegance/elegance_2.png',
-            alt: 'Mobilus svetaines ekranas',
+            alt: 'Skin Elegance drobinis krepšys su logotipu',
           },
           {
             type: 'image',
             image: 'public/photos/portfolio/elegance/elegance_3.png',
-            alt: 'Mobilus svetaines ekranas',
+            alt: 'Skin Elegance vizitinė kortelė ant akmenukų fono',
           },
           {
             type: 'text',

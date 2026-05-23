@@ -55,6 +55,8 @@
 }
 
 .ig-icon {
+  width: 24px;
+  height: 24px;
   transition: filter 0.25s ease;
 }
 
@@ -100,5 +102,10 @@
     font-size: 12px;
     margin-top: 36px;
     margin-bottom: 0;
+  }
+
+  .ig-icon {
+    width: 12px;
+    height: 12px;
   }
 }
