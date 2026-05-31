@@ -75,7 +75,6 @@
   border-color: #F5EFFF;
   color: #ffffff;
   outline: none;
-  transform: translateY(-1px);
 }
 
 .portfolio-filter.is-active {

@@ -22,16 +22,16 @@
       "connection": "Connection"
     },
     "projects": "PROJECTS",
-    "studioTitle": "We are a new, modern graphic design studio",
-    "studioDescription": "crafting visual solutions for brands that want to stand out. Our work focuses on brand identity, visual communication, and design elements that transform your ideas into clear, meaningful expressions."
+    "studioTitle": "We are a new, modern graphic design studio.",
+    "studioDescription": "Crafting visual solutions for brands that want to stand out. Our work focuses on brand identity, visual communication, and design elements that transform your ideas into clear, meaningful expressions."
   },
   "carousel": {
-    "webDesign": "WEB DIZAINAS",
-    "eventsDesign": "RENGINIŲ DIZAINAS",
-    "brandStyle": "FIRMINIS STILIUS",
-    "packagingDesign": "PAKUOTĖS DIZAINAS",
-    "tshirtDesign": "MARŠKINĖLIŲ DIZAINAS",
-    "digitalAndPrintDesign": "SKAITMENINIS IR SPAUDOS DIZAINAS"
+    "webDesign": "WEB DESIGN",
+    "eventsDesign": "EVENT DESIGN",
+    "brandStyle": "BRAND IDENTITY",
+    "packagingDesign": "PACKAGING DESIGN",
+    "tshirtDesign": "T-SHIRT DESIGN",
+    "digitalAndPrintDesign": "DIGITAL AND PRINT DESIGN"
   },
   "contacts": {
     "founderLabel": "Studio Founder",

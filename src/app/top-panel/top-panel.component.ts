@@ -14,6 +14,9 @@ export class TopPanel {
   isHovered = false;
   screenWidth = signal(window.innerWidth);
   isMenuOpen = signal(false);
+  private readonly supportsHover =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   @HostListener('window:resize')
   onResize() {
@@ -26,6 +29,23 @@ export class TopPanel {
 
   toggleMenu() {
     this.isMenuOpen.update(val => !val);
+  }
+
+  onLogoPointerEnter() {
+    if (!this.supportsHover) {
+      return;
+    }
+
+    this.isHovered = true;
+  }
+
+  onLogoPointerLeave() {
+    this.isHovered = false;
+  }
+
+  onLogoClick() {
+    this.isHovered = false;
+    this.isMenuOpen.set(false);
   }
 
   navigate(link: string) {

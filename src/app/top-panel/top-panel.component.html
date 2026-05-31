@@ -3,8 +3,9 @@
   <img
     alt="Logo" width="136" height="35" class="logo" priority routerLink="/"
     [src]="isHovered ? 'public/logo_orange.svg' : 'public/CU-ONE.svg'"
-    (mouseenter)="isHovered = true"
-    (mouseleave)="isHovered = false"
+    (click)="onLogoClick()"
+    (pointerenter)="onLogoPointerEnter()"
+    (pointerleave)="onLogoPointerLeave()"
   />
 
   @if (screenWidth() > 768) {
