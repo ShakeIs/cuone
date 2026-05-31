@@ -17,7 +17,15 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/public"
+              {
+                "glob": "**/*",
+                "input": "src/public",
+                "output": "/public/",
+                "ignore": [
+                  "photos/portfolio/**",
+                  "photos/Phones-horizontal.png"
+                ]
+              }
             ],
             "styles": [
               "src/styles.css"

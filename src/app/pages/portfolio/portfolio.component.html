@@ -30,8 +30,20 @@
                 class="portfolio-card portfolio-card--square"
                 [class.portfolio-card--text]="tile.type === 'text'"
               >
-                @if (tile.type === 'image') {
-                  <img class="portfolio-card__image" [src]="tile.image" [alt]="tile.alt ?? ''">
+                @if (tile.type === 'image' && tile.image) {
+                  @let image = tile.image;
+                  <img
+                    class="portfolio-card__image"
+                    [src]="image.src"
+                    [attr.srcset]="image.srcSet"
+                    [attr.sizes]="image.sizes"
+                    [alt]="tile.alt ?? ''"
+                    [attr.loading]="getImageLoading(section.id, image)"
+                    [attr.decoding]="getImageDecoding(section.id, image)"
+                    [attr.fetchpriority]="getImageFetchPriority(section.id, image)"
+                    [attr.width]="image.width"
+                    [attr.height]="image.height"
+                  >
                 } @else {
                   <div class="portfolio-card__text-block">
                     <h2 class="portfolio-card__text-title">{{ getTileTitle(tile) }}</h2>
@@ -60,11 +72,19 @@
                     class="portfolio-card portfolio-card--square"
                     [class.portfolio-card--text]="block.tile.type === 'text'"
                   >
-                    @if (block.tile.type === 'image') {
+                    @if (block.tile.type === 'image' && block.tile.image) {
+                      @let image = block.tile.image;
                       <img
                         class="portfolio-card__image"
-                        [src]="block.tile.image"
+                        [src]="image.src"
+                        [attr.srcset]="image.srcSet"
+                        [attr.sizes]="image.sizes"
                         [alt]="block.tile.alt ?? ''"
+                        [attr.loading]="getImageLoading(section.id, image)"
+                        [attr.decoding]="getImageDecoding(section.id, image)"
+                        [attr.fetchpriority]="getImageFetchPriority(section.id, image)"
+                        [attr.width]="image.width"
+                        [attr.height]="image.height"
                       >
                     } @else {
                       <div class="portfolio-card__text-block">
@@ -87,8 +107,20 @@
                       [class.portfolio-card--span-two]="tile.span === 'double'"
                       [class.portfolio-card--span-two-mobile]="tile.mobileSpan === 'double'"
                     >
-                      @if (tile.type === 'image') {
-                        <img class="portfolio-card__image" [src]="tile.image" [alt]="tile.alt ?? ''">
+                      @if (tile.type === 'image' && tile.image) {
+                        @let image = tile.image;
+                        <img
+                          class="portfolio-card__image"
+                          [src]="image.src"
+                          [attr.srcset]="image.srcSet"
+                          [attr.sizes]="image.sizes"
+                          [alt]="tile.alt ?? ''"
+                          [attr.loading]="getImageLoading(section.id, image)"
+                          [attr.decoding]="getImageDecoding(section.id, image)"
+                          [attr.fetchpriority]="getImageFetchPriority(section.id, image)"
+                          [attr.width]="image.width"
+                          [attr.height]="image.height"
+                        >
                       } @else {
                         <div class="portfolio-card__text-block">
                           <h2 class="portfolio-card__text-title">{{ getTileTitle(tile) }}</h2>
@@ -108,21 +140,36 @@
 
         @case ('banner') {
           @let sectionTiles = getSectionTiles(section);
+          @let bannerTile = sectionTiles[0];
           <section class="portfolio-section portfolio-section--banner">
             <article
               class="portfolio-card portfolio-card--banner"
-              [class.portfolio-card--banner-mobile-alt]="!!sectionTiles[0].mobileImage"
+              [class.portfolio-card--banner-mobile-alt]="!!bannerTile.mobileImage"
             >
-              <picture>
-                @if (sectionTiles[0].mobileImage) {
-                  <source [srcset]="sectionTiles[0].mobileImage!" media="(max-width: 768px)">
-                }
-                <img
-                  class="portfolio-card__image"
-                  [src]="sectionTiles[0].image"
-                  [alt]="sectionTiles[0].alt ?? ''"
-                >
-              </picture>
+              @if (bannerTile.type === 'image' && bannerTile.image) {
+                @let image = bannerTile.image;
+                <picture>
+                  @if (bannerTile.mobileImage) {
+                    <source
+                      [attr.srcset]="bannerTile.mobileImage.srcSet"
+                      [attr.sizes]="bannerTile.mobileImage.sizes"
+                      media="(max-width: 768px)"
+                    >
+                  }
+                  <img
+                    class="portfolio-card__image"
+                    [src]="image.src"
+                    [attr.srcset]="image.srcSet"
+                    [attr.sizes]="image.sizes"
+                    [alt]="bannerTile.alt ?? ''"
+                    [attr.loading]="getImageLoading(section.id, image)"
+                    [attr.decoding]="getImageDecoding(section.id, image)"
+                    [attr.fetchpriority]="getImageFetchPriority(section.id, image)"
+                    [attr.width]="image.width"
+                    [attr.height]="image.height"
+                  >
+                </picture>
+              }
             </article>
           </section>
         }
@@ -133,17 +180,41 @@
             <div class="portfolio-section__top-row">
               @for (tile of sectionTiles.slice(0, 2); track $index) {
                 <article class="portfolio-card portfolio-card--square">
-                  <img class="portfolio-card__image" [src]="tile.image" [alt]="tile.alt ?? ''">
+                  @if (tile.type === 'image' && tile.image) {
+                    @let image = tile.image;
+                    <img
+                      class="portfolio-card__image"
+                      [src]="image.src"
+                      [attr.srcset]="image.srcSet"
+                      [attr.sizes]="image.sizes"
+                      [alt]="tile.alt ?? ''"
+                      [attr.loading]="getImageLoading(section.id, image)"
+                      [attr.decoding]="getImageDecoding(section.id, image)"
+                      [attr.fetchpriority]="getImageFetchPriority(section.id, image)"
+                      [attr.width]="image.width"
+                      [attr.height]="image.height"
+                    >
+                  }
                 </article>
               }
             </div>
 
             <article class="portfolio-card portfolio-card--banner">
-              <img
-                class="portfolio-card__image"
-                [src]="sectionTiles[2].image"
-                [alt]="sectionTiles[2].alt ?? ''"
-              >
+              @if (sectionTiles[2].type === 'image' && sectionTiles[2].image) {
+                @let image = sectionTiles[2].image!;
+                <img
+                  class="portfolio-card__image"
+                  [src]="image.src"
+                  [attr.srcset]="image.srcSet"
+                  [attr.sizes]="image.sizes"
+                  [alt]="sectionTiles[2].alt ?? ''"
+                  [attr.loading]="getImageLoading(section.id, image)"
+                  [attr.decoding]="getImageDecoding(section.id, image)"
+                  [attr.fetchpriority]="getImageFetchPriority(section.id, image)"
+                  [attr.width]="image.width"
+                  [attr.height]="image.height"
+                >
+              }
             </article>
           </section>
         }

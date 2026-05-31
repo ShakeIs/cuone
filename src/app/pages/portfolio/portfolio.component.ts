@@ -1,11 +1,21 @@
 import {Component, computed, inject, signal} from '@angular/core';
 import {Language, LocalizationService} from '../../shared/i18n/localization.service';
+import {
+  createDesktopBannerImage,
+  createMobileBannerImage,
+  createSquarePortfolioImage,
+  PORTFOLIO_IMAGE_SIZES,
+  ResponsiveImageAsset,
+} from './portfolio-image';
 
 type PortfolioCategory = 'brand' | 'events' | 'web';
 type PortfolioFilter = 'all' | PortfolioCategory;
 type PortfolioSectionType = 'dual' | 'featureGrid' | 'banner' | 'dualWithBanner';
 type PortfolioTileType = 'image' | 'text';
 type PortfolioFeatureGridTileSpan = 'single' | 'double';
+type PortfolioImageLoading = 'eager' | 'lazy';
+type PortfolioImageDecoding = 'sync' | 'async';
+type PortfolioFetchPriority = 'high' | 'auto';
 
 interface PortfolioFilterOption {
   value: PortfolioFilter;
@@ -14,8 +24,8 @@ interface PortfolioFilterOption {
 
 interface PortfolioTile {
   type: PortfolioTileType;
-  image?: string;
-  mobileImage?: string;
+  image?: ResponsiveImageAsset;
+  mobileImage?: ResponsiveImageAsset;
   alt?: string;
   copyKey?: string;
   mobileSpan?: PortfolioFeatureGridTileSpan;
@@ -72,7 +82,7 @@ interface PortfolioCopy {
 
 const PORTFOLIO_COPY: Record<Language, PortfolioCopy> = {
   lt: {
-    subtitle: 'Naujausių klientų, akademinių ir asmeninių dizaino projektai.',
+    subtitle: 'NaujausiÅ³ klientÅ³, akademiniÅ³ ir asmeniniÅ³ dizaino projektai.',
     filters: {
       all: 'Visi',
       brand: 'Firminis stilius',
@@ -82,53 +92,53 @@ const PORTFOLIO_COPY: Record<Language, PortfolioCopy> = {
     tiles: {
       renatus: {
         title: 'RENATUS',
-        description: 'Unikalių interjero objektų paieškos internetinės svetainės dizainas.',
-        secondaryDescription: 'Projektas sukurtas studijų tikslams.',
+        description: 'UnikaliÅ³ interjero objektÅ³ paieÅ¡kos internetinÄ—s svetainÄ—s dizainas.',
+        secondaryDescription: 'Projektas sukurtas studijÅ³ tikslams.',
       },
       dizaino: {
-        title: "DIZAINO SAVAITĖ '26",
-        description: 'Renginio vizualinė komunikacija, socialinių tinklų vizualai ir reklama.',
+        title: "DIZAINO SAVAITÄ– '26",
+        description: 'Renginio vizualinÄ— komunikacija, socialiniÅ³ tinklÅ³ vizualai ir reklama.',
       },
       gateris: {
         title: 'MOBILAUS GATERIO PASLAUGOS',
-        description: 'Firminis stilius, logotipas ir socialinių tinklų vizualai.',
+        description: 'Firminis stilius, logotipas ir socialiniÅ³ tinklÅ³ vizualai.',
       },
       sushi: {
         title: 'URBAN SUSHI | GASTROBARAS',
-        description: 'Firminis stilius, logotipas ir socialinių tinklų vizualai, reklama.',
+        description: 'Firminis stilius, logotipas ir socialiniÅ³ tinklÅ³ vizualai, reklama.',
       },
       garazas: {
-        title: 'GARAŽAS | 9:11',
-        description: 'Automobilių muziejaus interneto svetainės dizaino atnaujinimas.',
-        secondaryDescription: 'Projektas sukurtas studijų tikslams.',
+        title: 'GARAÅ½AS | 9:11',
+        description: 'AutomobiliÅ³ muziejaus interneto svetainÄ—s dizaino atnaujinimas.',
+        secondaryDescription: 'Projektas sukurtas studijÅ³ tikslams.',
       },
       vaisiai: {
-        title: 'VAISIŲ AMŽIUS',
-        description: 'Firminio stiliaus kūrimas, logotipas, pakuotės dizainas.',
-        secondaryDescription: 'Projektas sukurtas studijų tikslams.',
+        title: 'VAISIÅ² AMÅ½IUS',
+        description: 'Firminio stiliaus kÅ«rimas, logotipas, pakuotÄ—s dizainas.',
+        secondaryDescription: 'Projektas sukurtas studijÅ³ tikslams.',
       },
       dublis: {
         title: 'DUBLIS | GASTROBARAS',
-        description: 'Firminis stilius, logotipas ir socialinių tinklų vizualai, reklama.',
+        description: 'Firminis stilius, logotipas ir socialiniÅ³ tinklÅ³ vizualai, reklama.',
       },
       paws: {
         title: 'HOPE FOR PAWS',
-        description: 'Renginio vizualinės komunikacijos rengimas, firminis stilius, logotipas.',
-        secondaryDescription: 'Projektas sukurtas studijų tikslams.',
+        description: 'Renginio vizualinÄ—s komunikacijos rengimas, firminis stilius, logotipas.',
+        secondaryDescription: 'Projektas sukurtas studijÅ³ tikslams.',
       },
       aidai: {
-        title: 'ŽVAIGŽDŽIŲ AIDAI',
-        description: 'Renginio vizualinės komunikacijos rengimas, firminis stilius, logotipas.',
-        secondaryDescription: 'Projektas sukurtas studijų tikslams.',
+        title: 'Å½VAIGÅ½DÅ½IÅ² AIDAI',
+        description: 'Renginio vizualinÄ—s komunikacijos rengimas, firminis stilius, logotipas.',
+        secondaryDescription: 'Projektas sukurtas studijÅ³ tikslams.',
       },
       laisvalaikio: {
-        title: 'LAISVALAIKIO SVETAINĖ',
-        description: 'Internetinės svetainės dizaino kūrimas pagal temą.',
-        secondaryDescription: 'Projektas sukurtas studijų tikslams.',
+        title: 'LAISVALAIKIO SVETAINÄ–',
+        description: 'InternetinÄ—s svetainÄ—s dizaino kÅ«rimas pagal temÄ….',
+        secondaryDescription: 'Projektas sukurtas studijÅ³ tikslams.',
       },
       elegance: {
         title: 'SKIN ELEGANCE',
-        description: 'Firminio stiliaus kūrimas, logotipas ir socialinių tinklų vizualai.',
+        description: 'Firminio stiliaus kÅ«rimas, logotipas ir socialiniÅ³ tinklÅ³ vizualai.',
       },
     },
   },
@@ -205,7 +215,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         type: 'single',
         tile: {
           type: 'image',
-          image: 'public/photos/portfolio/renatus/renatus_1.png',
+          image: createSquarePortfolioImage('renatus/renatus_1', 830, 830),
           alt: 'Renatus mobile website screens beside a phone and side table',
         },
       },
@@ -214,12 +224,22 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tiles: [
           {
             type: 'image',
-            image: 'public/photos/portfolio/renatus/renatus_2.png',
+            image: createSquarePortfolioImage(
+              'renatus/renatus_2',
+              406,
+              406,
+              PORTFOLIO_IMAGE_SIZES.grid
+            ),
             alt: 'Renatus website mockup on a laptop screen',
           },
           {
             type: 'image',
-            image: 'public/photos/portfolio/renatus/renatus_3.png',
+            image: createSquarePortfolioImage(
+              'renatus/renatus_3',
+              406,
+              406,
+              PORTFOLIO_IMAGE_SIZES.grid
+            ),
             alt: 'Renatus furniture catalog mobile screens on a dark background',
           },
           {
@@ -241,7 +261,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tiles: [
           {
             type: 'image',
-            image: 'public/photos/portfolio/dizaino/dizaino_1.png',
+            image: createSquarePortfolioImage(
+              'dizaino/dizaino_1',
+              406,
+              406,
+              PORTFOLIO_IMAGE_SIZES.grid
+            ),
             alt: 'Design Week 26 logo on a pink bubble background',
           },
           {
@@ -253,7 +278,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           },
           {
             type: 'image',
-            image: 'public/photos/portfolio/dizaino/dizaino_2.png',
+            image: createSquarePortfolioImage(
+              'dizaino/dizaino_2',
+              406,
+              406,
+              PORTFOLIO_IMAGE_SIZES.grid
+            ),
             alt: 'Glossy pink event typography on a white background',
           }
         ],
@@ -262,7 +292,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         type: 'single',
         tile: {
           type: 'image',
-          image: 'public/photos/portfolio/dizaino/dizaino_3.png',
+          image: createSquarePortfolioImage('dizaino/dizaino_3', 830, 830),
           alt: 'Design Week 26 poster competition poster',
         },
       },
@@ -277,7 +307,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         type: 'single',
         tile: {
           type: 'image',
-          image: 'public/photos/portfolio/gateris/gateris_1.png',
+          image: createSquarePortfolioImage('gateris/gateris_1', 830, 830),
           alt: 'Mobile Sawmill Services Facebook cover mockup on a laptop screen',
         },
       },
@@ -286,7 +316,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tiles: [
           {
             type: 'image',
-            image: 'public/photos/portfolio/gateris/gateris_2.png',
+            image: createSquarePortfolioImage(
+              'gateris/gateris_2',
+              406,
+              406,
+              PORTFOLIO_IMAGE_SIZES.grid
+            ),
             alt: 'Mobile Sawmill Services logo variations on orange and dark backgrounds',
           },
           {
@@ -307,12 +342,22 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tiles: [
           {
             type: 'image',
-            image: 'public/photos/portfolio/sushi/sushi_1.png',
+            image: createSquarePortfolioImage(
+              'sushi/sushi_1',
+              406,
+              406,
+              PORTFOLIO_IMAGE_SIZES.grid
+            ),
             alt: 'Urban Sushi logo visual with sushi in the background',
           },
           {
             type: 'image',
-            image: 'public/photos/portfolio/sushi/sushi_2.png',
+            image: createSquarePortfolioImage(
+              'sushi/sushi_2',
+              406,
+              406,
+              PORTFOLIO_IMAGE_SIZES.grid
+            ),
             alt: 'Urban Sushi branded chopsticks on a red background',
           },
           {
@@ -326,7 +371,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         type: 'single',
         tile: {
           type: 'image',
-          image: 'public/photos/portfolio/sushi/sushi_3.png',
+          image: createSquarePortfolioImage('sushi/sushi_3', 830, 830),
           alt: 'Urban Sushi business cards beside a coffee cup',
         },
       },
@@ -339,12 +384,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
     tiles: [
       {
         type: 'image',
-        image: 'public/photos/portfolio/shirts/shirt_1.png',
+        image: createSquarePortfolioImage('shirts/shirt_1', 830, 830),
         alt: 'Black T-shirt with a bold Stay Hungry graphic',
       },
       {
         type: 'image',
-        image: 'public/photos/portfolio/shirts/shirt_2.png',
+        image: createSquarePortfolioImage('shirts/shirt_2', 830, 830),
         alt: 'White T-shirt with a hand illustration and text graphic',
       },
     ],
@@ -359,7 +404,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tiles: [
           {
             type: 'image',
-            image: 'public/photos/portfolio/garazas/garazas_1.png',
+            image: createSquarePortfolioImage(
+              'garazas/garazas_1',
+              406,
+              406,
+              PORTFOLIO_IMAGE_SIZES.grid
+            ),
             alt: 'Garage 9:11 mobile website screens with a sports car visual',
           },
           {
@@ -371,7 +421,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           },
           {
             type: 'image',
-            image: 'public/photos/portfolio/garazas/garazas_2.png',
+            image: createSquarePortfolioImage(
+              'garazas/garazas_2',
+              406,
+              406,
+              PORTFOLIO_IMAGE_SIZES.grid
+            ),
             alt: 'Garage 9:11 website mockup on a desktop screen',
           }
         ],
@@ -380,7 +435,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         type: 'single',
         tile: {
           type: 'image',
-          image: 'public/photos/portfolio/garazas/garazas_3.png',
+          image: createSquarePortfolioImage('garazas/garazas_3', 830, 830),
           alt: 'Garage 9:11 homepage on a laptop screen',
         },
       },
@@ -395,7 +450,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         type: 'single',
         tile: {
           type: 'image',
-          image: 'public/photos/portfolio/vaisiai/vaisiai_1.png',
+          image: createSquarePortfolioImage('vaisiai/vaisiai_1', 1080, 1080),
           alt: 'Age of Fruit freeze-dried strawberry package beside cheese and berries',
         },
       },
@@ -404,7 +459,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tiles: [
           {
             type: 'image',
-            image: 'public/photos/portfolio/vaisiai/vaisiai_2.png',
+            image: createSquarePortfolioImage(
+              'vaisiai/vaisiai_2',
+              1080,
+              1080,
+              PORTFOLIO_IMAGE_SIZES.grid
+            ),
             alt: 'Age of Fruit roll-up stands with strawberry packaging',
           },
           {
@@ -425,12 +485,22 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tiles: [
           {
             type: 'image',
-            image: 'public/photos/portfolio/dublis/dublis_1.png',
+            image: createSquarePortfolioImage(
+              'dublis/dublis_1',
+              406,
+              406,
+              PORTFOLIO_IMAGE_SIZES.grid
+            ),
             alt: 'Dublis gastrobar website mockup on a laptop screen',
           },
           {
             type: 'image',
-            image: 'public/photos/portfolio/dublis/dublis_2.png',
+            image: createSquarePortfolioImage(
+              'dublis/dublis_2',
+              406,
+              406,
+              PORTFOLIO_IMAGE_SIZES.grid
+            ),
             alt: 'Dublis gastrobar social media post on a phone screen',
           },
           {
@@ -444,7 +514,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         type: 'single',
         tile: {
           type: 'image',
-          image: 'public/photos/portfolio/dublis/dublis_3.png',
+          image: createSquarePortfolioImage('dublis/dublis_3', 830, 830),
           alt: 'Dublis gastrobar menu mockup with a business card',
         },
       },
@@ -457,8 +527,8 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
     tiles: [
       {
         type: 'image',
-        image: 'public/photos/Phones-horizontal.png',
-        mobileImage: 'public/photos/portfolio/mobiles_horizontal.png',
+        image: createDesktopBannerImage('banner/Phones-horizontal', 2027, 994),
+        mobileImage: createMobileBannerImage('banner/mobiles_horizontal', 321, 434),
         alt: 'Social media ad mockups on phone screens with different project visuals',
       },
     ],
@@ -473,7 +543,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tiles: [
           {
             type: 'image',
-            image: 'public/photos/portfolio/paws/paws_1.png',
+            image: createSquarePortfolioImage(
+              'paws/paws_1',
+              406,
+              406,
+              PORTFOLIO_IMAGE_SIZES.grid
+            ),
             alt: 'Hope for Paws social media post on a phone screen',
           },
           {
@@ -485,7 +560,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           },
           {
             type: 'image',
-            image: 'public/photos/portfolio/paws/paws_2.png',
+            image: createSquarePortfolioImage(
+              'paws/paws_2',
+              406,
+              406,
+              PORTFOLIO_IMAGE_SIZES.grid
+            ),
             alt: 'Hope for Paws packaging design on a white bag',
           }
         ],
@@ -494,7 +574,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         type: 'single',
         tile: {
           type: 'image',
-          image: 'public/photos/portfolio/paws/paws_3.png',
+          image: createSquarePortfolioImage('paws/paws_3', 830, 830),
           alt: 'Hope for Paws poster with a dog portrait on a blue background',
         },
       },
@@ -507,12 +587,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
     tiles: [
       {
         type: 'image',
-        image: 'public/photos/portfolio/health/health_1.png',
+        image: createSquarePortfolioImage('health/health_1', 830, 830),
         alt: 'App design mockup on two phone screens with a purple background',
       },
       {
         type: 'image',
-        image: 'public/photos/portfolio/health/health_2.png',
+        image: createSquarePortfolioImage('health/health_2', 830, 830),
         alt: 'App review and task screens on two phones',
       },
     ],
@@ -526,7 +606,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         type: 'single',
         tile: {
           type: 'image',
-          image: 'public/photos/portfolio/aidai/aidai_1.png',
+          image: createSquarePortfolioImage('aidai/aidai_1', 830, 830),
           alt: 'Echoes of the Stars event poster with planets and a violet path',
         },
       },
@@ -535,7 +615,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tiles: [
           {
             type: 'image',
-            image: 'public/photos/portfolio/aidai/aidai_2.png',
+            image: createSquarePortfolioImage(
+              'aidai/aidai_2',
+              406,
+              406,
+              PORTFOLIO_IMAGE_SIZES.grid
+            ),
             alt: 'Echoes of the Stars social post mockup on a phone screen',
           },
           {
@@ -560,7 +645,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           },
           {
             type: 'image',
-            image: 'public/photos/portfolio/laisvalaikis/laisvalaikis_1.png',
+            image: createSquarePortfolioImage(
+              'laisvalaikis/laisvalaikis_1',
+              406,
+              406,
+              PORTFOLIO_IMAGE_SIZES.grid
+            ),
             alt: 'Leisure website mockup with water activity cards',
           }
         ],
@@ -569,7 +659,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         type: 'single',
         tile: {
           type: 'image',
-          image: 'public/photos/portfolio/laisvalaikis/laisvalaikis_2.png',
+          image: createSquarePortfolioImage('laisvalaikis/laisvalaikis_2', 830, 830),
           alt: 'Leisure website homepage on a laptop screen',
         },
       },
@@ -584,7 +674,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         type: 'single',
         tile: {
           type: 'image',
-          image: 'public/photos/portfolio/elegance/elegance_1.png',
+          image: createSquarePortfolioImage('elegance/elegance_1', 830, 830),
           alt: 'Skin Elegance brand identity assets on a light background',
         },
       },
@@ -593,12 +683,22 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tiles: [
           {
             type: 'image',
-            image: 'public/photos/portfolio/elegance/elegance_2.png',
+            image: createSquarePortfolioImage(
+              'elegance/elegance_2',
+              406,
+              406,
+              PORTFOLIO_IMAGE_SIZES.grid
+            ),
             alt: 'Skin Elegance canvas bag with logo',
           },
           {
             type: 'image',
-            image: 'public/photos/portfolio/elegance/elegance_3.png',
+            image: createSquarePortfolioImage(
+              'elegance/elegance_3',
+              406,
+              406,
+              PORTFOLIO_IMAGE_SIZES.grid
+            ),
             alt: 'Skin Elegance business card on a stone background',
           },
           {
@@ -642,6 +742,11 @@ export class Portfolio {
 
     return this.sections.filter((section) => section.categories.includes(filter));
   });
+  readonly priorityImageIds = computed(() =>
+    this.collectSectionImages(this.visibleSections())
+      .slice(0, 2)
+      .map(({sectionId, image}) => this.getImageId(sectionId, image))
+  );
 
   setFilter(filter: PortfolioFilter) {
     this.activeFilter.set(filter);
@@ -680,11 +785,67 @@ export class Portfolio {
     return this.getTileCopy(tile).secondaryDescription ?? '';
   }
 
+  getImageLoading(sectionId: string, image: ResponsiveImageAsset): PortfolioImageLoading {
+    return this.isPriorityImage(sectionId, image) ? 'eager' : 'lazy';
+  }
+
+  getImageDecoding(sectionId: string, image: ResponsiveImageAsset): PortfolioImageDecoding {
+    return this.isPriorityImage(sectionId, image) ? 'sync' : 'async';
+  }
+
+  getImageFetchPriority(sectionId: string, image: ResponsiveImageAsset): PortfolioFetchPriority {
+    return this.priorityImageIds()[0] === this.getImageId(sectionId, image) ? 'high' : 'auto';
+  }
+
   private getTileCopy(tile: PortfolioTile): PortfolioTileCopy {
     if (!tile.copyKey) {
       return {};
     }
 
     return this.copy().tiles[tile.copyKey] ?? {};
+  }
+
+  private isPriorityImage(sectionId: string, image: ResponsiveImageAsset): boolean {
+    return this.priorityImageIds().includes(this.getImageId(sectionId, image));
+  }
+
+  private getImageId(sectionId: string, image: ResponsiveImageAsset): string {
+    return `${sectionId}:${image.src}`;
+  }
+
+  private collectSectionImages(
+    sections: ReadonlyArray<PortfolioSection>
+  ): Array<{sectionId: string; image: ResponsiveImageAsset}> {
+    const images: Array<{sectionId: string; image: ResponsiveImageAsset}> = [];
+
+    for (const section of sections) {
+      if ('tiles' in section) {
+        for (const tile of section.tiles) {
+          if (tile.type === 'image' && tile.image) {
+            images.push({sectionId: section.id, image: tile.image});
+          }
+        }
+
+        continue;
+      }
+
+      for (const block of section.blocks) {
+        if (block.type === 'single') {
+          if (block.tile.type === 'image' && block.tile.image) {
+            images.push({sectionId: section.id, image: block.tile.image});
+          }
+
+          continue;
+        }
+
+        for (const tile of block.tiles) {
+          if (tile.type === 'image' && tile.image) {
+            images.push({sectionId: section.id, image: tile.image});
+          }
+        }
+      }
+    }
+
+    return images;
   }
 }
