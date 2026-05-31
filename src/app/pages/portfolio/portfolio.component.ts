@@ -82,7 +82,7 @@ interface PortfolioCopy {
 
 const PORTFOLIO_COPY: Record<Language, PortfolioCopy> = {
   lt: {
-    subtitle: 'NaujausiÅ³ klientÅ³, akademiniÅ³ ir asmeniniÅ³ dizaino projektai.',
+    subtitle: 'Naujausių klientų, akademinių ir asmeninių dizaino projektų.',
     filters: {
       all: 'Visi',
       brand: 'Firminis stilius',
@@ -92,53 +92,53 @@ const PORTFOLIO_COPY: Record<Language, PortfolioCopy> = {
     tiles: {
       renatus: {
         title: 'RENATUS',
-        description: 'UnikaliÅ³ interjero objektÅ³ paieÅ¡kos internetinÄ—s svetainÄ—s dizainas.',
-        secondaryDescription: 'Projektas sukurtas studijÅ³ tikslams.',
+        description: 'Unikalių interjero objektų paieškos internetinės svetainės dizainas.',
+        secondaryDescription: 'Projektas sukurtas studijų tikslams.',
       },
       dizaino: {
-        title: "DIZAINO SAVAITÄ– '26",
-        description: 'Renginio vizualinÄ— komunikacija, socialiniÅ³ tinklÅ³ vizualai ir reklama.',
+        title: "DIZAINO SAVAITĖ '26",
+        description: 'Renginio vizualinė komunikacija, socialinių tinklų vizualai ir reklama.',
       },
       gateris: {
         title: 'MOBILAUS GATERIO PASLAUGOS',
-        description: 'Firminis stilius, logotipas ir socialiniÅ³ tinklÅ³ vizualai.',
+        description: 'Firminis stilius, logotipas ir socialinių tinklų vizualai.',
       },
       sushi: {
         title: 'URBAN SUSHI | GASTROBARAS',
-        description: 'Firminis stilius, logotipas ir socialiniÅ³ tinklÅ³ vizualai, reklama.',
+        description: 'Firminis stilius, logotipas ir socialinių tinklų vizualai, reklama.',
       },
       garazas: {
-        title: 'GARAÅ½AS | 9:11',
-        description: 'AutomobiliÅ³ muziejaus interneto svetainÄ—s dizaino atnaujinimas.',
-        secondaryDescription: 'Projektas sukurtas studijÅ³ tikslams.',
+        title: 'GARAŽAS | 9:11',
+        description: 'Automobilių muziejaus interneto svetainės dizaino atnaujinimas.',
+        secondaryDescription: 'Projektas sukurtas studijų tikslams.',
       },
       vaisiai: {
-        title: 'VAISIÅ² AMÅ½IUS',
-        description: 'Firminio stiliaus kÅ«rimas, logotipas, pakuotÄ—s dizainas.',
-        secondaryDescription: 'Projektas sukurtas studijÅ³ tikslams.',
+        title: 'VAISIŲ AMŽIUS',
+        description: 'Firminio stiliaus kūrimas, logotipas, pakuotės dizainas.',
+        secondaryDescription: 'Projektas sukurtas studijų tikslams.',
       },
       dublis: {
         title: 'DUBLIS | GASTROBARAS',
-        description: 'Firminis stilius, logotipas ir socialiniÅ³ tinklÅ³ vizualai, reklama.',
+        description: 'Firminis stilius, logotipas ir socialinių tinklų vizualai, reklama.',
       },
       paws: {
         title: 'HOPE FOR PAWS',
-        description: 'Renginio vizualinÄ—s komunikacijos rengimas, firminis stilius, logotipas.',
-        secondaryDescription: 'Projektas sukurtas studijÅ³ tikslams.',
+        description: 'Renginio vizualinės komunikacijos rengimas, firminis stilius, logotipas.',
+        secondaryDescription: 'Projektas sukurtas studijų tikslams.',
       },
       aidai: {
-        title: 'Å½VAIGÅ½DÅ½IÅ² AIDAI',
-        description: 'Renginio vizualinÄ—s komunikacijos rengimas, firminis stilius, logotipas.',
-        secondaryDescription: 'Projektas sukurtas studijÅ³ tikslams.',
+        title: 'ŽVAIGŽDŽIŲ AIDAI',
+        description: 'Renginio vizualinės komunikacijos rengimas, firminis stilius, logotipas.',
+        secondaryDescription: 'Projektas sukurtas studijų tikslams.',
       },
       laisvalaikio: {
-        title: 'LAISVALAIKIO SVETAINÄ–',
-        description: 'InternetinÄ—s svetainÄ—s dizaino kÅ«rimas pagal temÄ….',
-        secondaryDescription: 'Projektas sukurtas studijÅ³ tikslams.',
+        title: 'LAISVALAIKIO SVETAINĖ',
+        description: 'Internetinės svetainės dizaino kūrimas pagal temą.',
+        secondaryDescription: 'Projektas sukurtas studijų tikslams.',
       },
       elegance: {
         title: 'SKIN ELEGANCE',
-        description: 'Firminio stiliaus kÅ«rimas, logotipas ir socialiniÅ³ tinklÅ³ vizualai.',
+        description: 'Firminio stiliaus kūrimas, logotipas ir socialinių tinklų vizualai.',
       },
     },
   },
