@@ -2,11 +2,11 @@
   <header class="portfolio-hero">
     <h1 class="portfolio-title">Portfolio</h1>
     <p class="portfolio-intro regular">
-      Naujausių klientų, akademinių ir asmeninių dizaino projektai.
+      {{ getPortfolioSubtitle() }}
     </p>
 
-    <div class="portfolio-filters" aria-label="Portfolio kategorijos">
-      @for (filter of filters; track filter.value) {
+    <div class="portfolio-filters" aria-label="Portfolio categories">
+      @for (filter of filters(); track filter.value) {
         <button
           type="button"
           class="portfolio-filter"
@@ -34,10 +34,10 @@
                   <img class="portfolio-card__image" [src]="tile.image" [alt]="tile.alt ?? ''">
                 } @else {
                   <div class="portfolio-card__text-block">
-                    <h2 class="portfolio-card__text-title">{{ tile.title }}</h2>
-                    <p class="portfolio-card__text-copy">{{ tile.description }}</p>
-                    @if (tile.secondaryDescription) {
-                      <p class="portfolio-card__text-note">{{ tile.secondaryDescription }}</p>
+                    <h2 class="portfolio-card__text-title">{{ getTileTitle(tile) }}</h2>
+                    <p class="portfolio-card__text-copy">{{ getTileDescription(tile) }}</p>
+                    @if (getTileSecondaryDescription(tile)) {
+                      <p class="portfolio-card__text-note">{{ getTileSecondaryDescription(tile) }}</p>
                     }
                   </div>
                 }
@@ -68,10 +68,12 @@
                       >
                     } @else {
                       <div class="portfolio-card__text-block">
-                        <h2 class="portfolio-card__text-title">{{ block.tile.title }}</h2>
-                        <p class="portfolio-card__text-copy">{{ block.tile.description }}</p>
-                        @if (block.tile.secondaryDescription) {
-                          <p class="portfolio-card__text-note">{{ block.tile.secondaryDescription }}</p>
+                        <h2 class="portfolio-card__text-title">{{ getTileTitle(block.tile) }}</h2>
+                        <p class="portfolio-card__text-copy">{{ getTileDescription(block.tile) }}</p>
+                        @if (getTileSecondaryDescription(block.tile)) {
+                          <p class="portfolio-card__text-note">
+                            {{ getTileSecondaryDescription(block.tile) }}
+                          </p>
                         }
                       </div>
                     }
@@ -89,10 +91,10 @@
                         <img class="portfolio-card__image" [src]="tile.image" [alt]="tile.alt ?? ''">
                       } @else {
                         <div class="portfolio-card__text-block">
-                          <h2 class="portfolio-card__text-title">{{ tile.title }}</h2>
-                          <p class="portfolio-card__text-copy">{{ tile.description }}</p>
-                          @if (tile.secondaryDescription) {
-                            <p class="portfolio-card__text-note">{{ tile.secondaryDescription }}</p>
+                          <h2 class="portfolio-card__text-title">{{ getTileTitle(tile) }}</h2>
+                          <p class="portfolio-card__text-copy">{{ getTileDescription(tile) }}</p>
+                          @if (getTileSecondaryDescription(tile)) {
+                            <p class="portfolio-card__text-note">{{ getTileSecondaryDescription(tile) }}</p>
                           }
                         </div>
                       }

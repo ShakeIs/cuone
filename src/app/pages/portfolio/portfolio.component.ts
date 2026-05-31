@@ -1,4 +1,5 @@
-import { Component, computed, signal } from '@angular/core';
+import {Component, computed, inject, signal} from '@angular/core';
+import {Language, LocalizationService} from '../../shared/i18n/localization.service';
 
 type PortfolioCategory = 'brand' | 'events' | 'web';
 type PortfolioFilter = 'all' | PortfolioCategory;
@@ -16,9 +17,9 @@ interface PortfolioTile {
   image?: string;
   mobileImage?: string;
   alt?: string;
-  title?: string;
-  description?: string;
-  secondaryDescription?: string;
+  copyKey?: string;
+  mobileSpan?: PortfolioFeatureGridTileSpan;
+  span?: PortfolioFeatureGridTileSpan;
 }
 
 interface PortfolioFeatureGridTile extends PortfolioTile {
@@ -57,12 +58,142 @@ interface PortfolioStandardSection extends PortfolioBaseSection {
 
 type PortfolioSection = PortfolioStandardSection | PortfolioFeatureGridSection;
 
-const FILTER_OPTIONS: ReadonlyArray<PortfolioFilterOption> = [
-  { value: 'all', label: 'Visi' },
-  { value: 'brand', label: 'Firminis stilius' },
-  { value: 'events', label: 'Renginiai' },
-  { value: 'web', label: 'Web dizainas' },
-];
+interface PortfolioTileCopy {
+  title?: string;
+  description?: string;
+  secondaryDescription?: string;
+}
+
+interface PortfolioCopy {
+  subtitle: string;
+  filters: Record<PortfolioFilter, string>;
+  tiles: Record<string, PortfolioTileCopy>;
+}
+
+const PORTFOLIO_COPY: Record<Language, PortfolioCopy> = {
+  lt: {
+    subtitle: 'Naujausių klientų, akademinių ir asmeninių dizaino projektai.',
+    filters: {
+      all: 'Visi',
+      brand: 'Firminis stilius',
+      events: 'Renginiai',
+      web: 'Web dizainas',
+    },
+    tiles: {
+      renatus: {
+        title: 'RENATUS',
+        description: 'Unikalių interjero objektų paieškos internetinės svetainės dizainas.',
+        secondaryDescription: 'Projektas sukurtas studijų tikslams.',
+      },
+      dizaino: {
+        title: "DIZAINO SAVAITĖ '26",
+        description: 'Renginio vizualinė komunikacija, socialinių tinklų vizualai ir reklama.',
+      },
+      gateris: {
+        title: 'MOBILAUS GATERIO PASLAUGOS',
+        description: 'Firminis stilius, logotipas ir socialinių tinklų vizualai.',
+      },
+      sushi: {
+        title: 'URBAN SUSHI | GASTROBARAS',
+        description: 'Firminis stilius, logotipas ir socialinių tinklų vizualai, reklama.',
+      },
+      garazas: {
+        title: 'GARAŽAS | 9:11',
+        description: 'Automobilių muziejaus interneto svetainės dizaino atnaujinimas.',
+        secondaryDescription: 'Projektas sukurtas studijų tikslams.',
+      },
+      vaisiai: {
+        title: 'VAISIŲ AMŽIUS',
+        description: 'Firminio stiliaus kūrimas, logotipas, pakuotės dizainas.',
+        secondaryDescription: 'Projektas sukurtas studijų tikslams.',
+      },
+      dublis: {
+        title: 'DUBLIS | GASTROBARAS',
+        description: 'Firminis stilius, logotipas ir socialinių tinklų vizualai, reklama.',
+      },
+      paws: {
+        title: 'HOPE FOR PAWS',
+        description: 'Renginio vizualinės komunikacijos rengimas, firminis stilius, logotipas.',
+        secondaryDescription: 'Projektas sukurtas studijų tikslams.',
+      },
+      aidai: {
+        title: 'ŽVAIGŽDŽIŲ AIDAI',
+        description: 'Renginio vizualinės komunikacijos rengimas, firminis stilius, logotipas.',
+        secondaryDescription: 'Projektas sukurtas studijų tikslams.',
+      },
+      laisvalaikio: {
+        title: 'LAISVALAIKIO SVETAINĖ',
+        description: 'Internetinės svetainės dizaino kūrimas pagal temą.',
+        secondaryDescription: 'Projektas sukurtas studijų tikslams.',
+      },
+      elegance: {
+        title: 'SKIN ELEGANCE',
+        description: 'Firminio stiliaus kūrimas, logotipas ir socialinių tinklų vizualai.',
+      },
+    },
+  },
+  en: {
+    subtitle: 'Latest client, academic, and personal design projects.',
+    filters: {
+      all: 'All',
+      brand: 'Brand Identity',
+      events: 'Events',
+      web: 'Web Design',
+    },
+    tiles: {
+      renatus: {
+        title: 'RENATUS',
+        description: 'Design for a website dedicated to finding unique interior objects.',
+        secondaryDescription: 'The project was created for study purposes.',
+      },
+      dizaino: {
+        title: "DESIGN WEEK '26",
+        description: 'Visual communication for the event, social media visuals, and advertising.',
+      },
+      gateris: {
+        title: 'MOBILE SAWMILL SERVICES',
+        description: 'Brand identity, logo, and social media visuals.',
+      },
+      sushi: {
+        title: 'URBAN SUSHI | GASTROBAR',
+        description: 'Brand identity, logo, social media visuals, and advertising.',
+      },
+      garazas: {
+        title: 'GARAGE | 9:11',
+        description: 'Website design refresh for an automotive museum.',
+        secondaryDescription: 'The project was created for study purposes.',
+      },
+      vaisiai: {
+        title: 'AGE OF FRUIT',
+        description: 'Brand identity design, logo, and packaging design.',
+        secondaryDescription: 'The project was created for study purposes.',
+      },
+      dublis: {
+        title: 'DUBLIS | GASTROBAR',
+        description: 'Brand identity, logo, social media visuals, and advertising.',
+      },
+      paws: {
+        title: 'HOPE FOR PAWS',
+        description: 'Event visual communication design, brand identity, and logo.',
+        secondaryDescription: 'The project was created for study purposes.',
+      },
+      aidai: {
+        title: 'ECHOES OF THE STARS',
+        description: 'Event visual communication design, brand identity, and logo.',
+        secondaryDescription: 'The project was created for study purposes.',
+      },
+      laisvalaikio: {
+        title: 'LEISURE WEBSITE',
+        description: 'Website design created based on a given theme.',
+        secondaryDescription: 'The project was created for study purposes.',
+      },
+      elegance: {
+        title: 'SKIN ELEGANCE',
+        description: 'Brand identity design, logo, and social media visuals.',
+      },
+    },
+  },
+};
 
 const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
   {
@@ -75,7 +206,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/renatus/renatus_1.png',
-          alt: 'Renatus interjero svetainės mobilūs ekranai prie telefono ir staliuko',
+          alt: 'Renatus mobile website screens beside a phone and side table',
         },
       },
       {
@@ -84,18 +215,16 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/renatus/renatus_2.png',
-            alt: 'Renatus interjero svetainės maketas nešiojamojo kompiuterio ekrane',
+            alt: 'Renatus website mockup on a laptop screen',
           },
           {
             type: 'image',
             image: 'public/photos/portfolio/renatus/renatus_3.png',
-            alt: 'Renatus baldų katalogo mobilūs ekranai tamsiame fone',
+            alt: 'Renatus furniture catalog mobile screens on a dark background',
           },
           {
             type: 'text',
-            title: "RENATUS",
-            description: 'Unikalių interjero objektų paieškos internetinės svetainės dizainas.',
-            secondaryDescription: 'Projektas sukurtas studijų tikslams.',
+            copyKey: 'renatus',
             span: 'double',
           }
         ],
@@ -113,22 +242,19 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/dizaino/dizaino_1.png',
-            alt: 'Dizaino savaitė 26 logotipas rožiniame burbulo fone',
+            alt: 'Design Week 26 logo on a pink bubble background',
           },
           {
             type: 'text',
-            title: "DIZAINO SAVAITE '26",
-            description: 'Renginio vizualine komunikacija, socialiniu tinklu vizualai ir reklama.',
+            copyKey: 'dizaino',
           },
           {
             type: 'text',
-            title: "",
-            description: '',
           },
           {
             type: 'image',
             image: 'public/photos/portfolio/dizaino/dizaino_2.png',
-            alt: 'Blizgus rožinis renginio tipografinis vizualas baltame fone',
+            alt: 'Glossy pink event typography on a white background',
           }
         ],
       },
@@ -137,7 +263,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/dizaino/dizaino_3.png',
-          alt: 'Dizaino savaitė 26 plakato konkurso plakatas',
+          alt: 'Design Week 26 poster competition poster',
         },
       },
     ],
@@ -152,7 +278,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/gateris/gateris_1.png',
-          alt: 'Mobilaus Gaterio Paslaugos Facebook viršelio maketas nešiojamojo kompiuterio ekrane',
+          alt: 'Mobile Sawmill Services Facebook cover mockup on a laptop screen',
         },
       },
       {
@@ -161,12 +287,11 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/gateris/gateris_2.png',
-            alt: 'Mobilaus Gaterio Paslaugos logotipo variantai oranžiniame ir tamsiame fone',
+            alt: 'Mobile Sawmill Services logo variations on orange and dark backgrounds',
           },
           {
             type: 'text',
-            title: "Mobilaus gaterio paslaugos",
-            description: 'Firminis stilius, logotipas ir socialinių tinklų vizualai.',
+            copyKey: 'gateris',
           }
         ],
       },
@@ -183,18 +308,17 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/sushi/sushi_1.png',
-            alt: 'Urban Sushi logotipo vizualas su sušių fonu',
+            alt: 'Urban Sushi logo visual with sushi in the background',
           },
           {
             type: 'image',
             image: 'public/photos/portfolio/sushi/sushi_2.png',
-            alt: 'Urban Sushi firminės lazdelės juodame dėkle ant raudono fono',
+            alt: 'Urban Sushi branded chopsticks on a red background',
           },
           {
             type: 'text',
-            title: "URBAN SUSHI | GASTROBARAS",
+            copyKey: 'sushi',
             mobileSpan: 'double',
-            description: 'Firminis stilius, logotipas ir socialinių tinklų vizualai, reklama.',
           }
         ],
       },
@@ -203,7 +327,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/sushi/sushi_3.png',
-          alt: 'Urban Sushi vizitinės kortelės prie kavos puodelio',
+          alt: 'Urban Sushi business cards beside a coffee cup',
         },
       },
     ],
@@ -216,12 +340,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
       {
         type: 'image',
         image: 'public/photos/portfolio/shirts/shirt_1.png',
-        alt: 'Juodi marškinėliai su ryškiu STAY HUNGRY grafiniu piešiniu',
+        alt: 'Black T-shirt with a bold Stay Hungry graphic',
       },
       {
         type: 'image',
         image: 'public/photos/portfolio/shirts/shirt_2.png',
-        alt: 'Balti marškinėliai su rankos iliustracija ir užrašu THIS TASKA',
+        alt: 'White T-shirt with a hand illustration and text graphic',
       },
     ],
   },
@@ -236,23 +360,19 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/garazas/garazas_1.png',
-            alt: 'Garažas 9:11 svetainės mobilūs ekranai su sportinio automobilio vizualu',
+            alt: 'Garage 9:11 mobile website screens with a sports car visual',
           },
           {
             type: 'text',
-            title: "GARAŽAS | 9:11",
-            description: 'Automobilių muziejaus interneto svetainės dizaino atnaujinimas.',
-            secondaryDescription: 'Projektas sukurtas studijų tikslams.',
+            copyKey: 'garazas',
           },
           {
             type: 'text',
-            title: "",
-            description: '',
           },
           {
             type: 'image',
             image: 'public/photos/portfolio/garazas/garazas_2.png',
-            alt: 'Garažas 9:11 svetainės maketas kompiuterio ekrane',
+            alt: 'Garage 9:11 website mockup on a desktop screen',
           }
         ],
       },
@@ -261,7 +381,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/garazas/garazas_3.png',
-          alt: 'Garažas 9:11 svetainės pradžios puslapis nešiojamojo kompiuterio ekrane',
+          alt: 'Garage 9:11 homepage on a laptop screen',
         },
       },
     ],
@@ -276,7 +396,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/vaisiai/vaisiai_1.png',
-          alt: 'Vaisių amžius liofilizuotų braškių pakuotė šalia sūrio ir uogų',
+          alt: 'Age of Fruit freeze-dried strawberry package beside cheese and berries',
         },
       },
       {
@@ -285,13 +405,11 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/vaisiai/vaisiai_2.png',
-            alt: 'Vaisių amžius reklaminiai roll-up stendai su braškių pakuote',
+            alt: 'Age of Fruit roll-up stands with strawberry packaging',
           },
           {
             type: 'text',
-            title: "VAISIŲ AMŽIUS",
-            description: 'Firminio stiliaus kūrimas, logotipas, pakuotės dizainas.',
-            secondaryDescription: 'Projektas sukurtas studijų tikslams.',
+            copyKey: 'vaisiai',
           }
         ],
       },
@@ -300,7 +418,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
   {
     id: 'dublis',
     type: 'featureGrid',
-    categories: ['web'],
+    categories: ['brand'],
     blocks: [
       {
         type: 'grid',
@@ -308,18 +426,17 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/dublis/dublis_1.png',
-            alt: 'Gastrobaro Dublis svetainės maketas nešiojamojo kompiuterio ekrane',
+            alt: 'Dublis gastrobar website mockup on a laptop screen',
           },
           {
             type: 'image',
             image: 'public/photos/portfolio/dublis/dublis_2.png',
-            alt: 'Gastrobaro Dublis socialinių tinklų įrašas telefono ekrane',
+            alt: 'Dublis gastrobar social media post on a phone screen',
           },
           {
             type: 'text',
-            title: "DUBLIS | GASTROBARAS",
+            copyKey: 'dublis',
             mobileSpan: 'double',
-            description: 'Firminis stilius, logotipas ir socialinių tinklų vizualai, reklama.',
           }
         ],
       },
@@ -328,7 +445,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/dublis/dublis_3.png',
-          alt: 'Gastrobaro Dublis meniu maketas su vizitine kortele',
+          alt: 'Dublis gastrobar menu mockup with a business card',
         },
       },
     ],
@@ -342,7 +459,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         type: 'image',
         image: 'public/photos/Phones-horizontal.png',
         mobileImage: 'public/photos/portfolio/mobiles_horizontal.png',
-        alt: 'Socialinių tinklų reklamų maketai telefonų ekranuose su skirtingais projektų vizualais',
+        alt: 'Social media ad mockups on phone screens with different project visuals',
       },
     ],
   },
@@ -357,23 +474,19 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/paws/paws_1.png',
-            alt: 'Hope for Paws socialinio tinklo įrašas telefono ekrane',
+            alt: 'Hope for Paws social media post on a phone screen',
           },
           {
             type: 'text',
-            title: "HOPE FOR PAWS",
-            description: 'Renginio vizualinės komunikacijos rengimas, firminis stilius, logotipas.',
-            secondaryDescription: 'Projektas sukurtas studijų tikslams.',
+            copyKey: 'paws',
           },
           {
             type: 'text',
-            title: "",
-            description: '',
           },
           {
             type: 'image',
             image: 'public/photos/portfolio/paws/paws_2.png',
-            alt: 'Hope for Paws pakuotės dizainas ant balto maišelio',
+            alt: 'Hope for Paws packaging design on a white bag',
           }
         ],
       },
@@ -382,7 +495,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/paws/paws_3.png',
-          alt: 'Hope for Paws plakatas su šunelio portretu mėlyname fone',
+          alt: 'Hope for Paws poster with a dog portrait on a blue background',
         },
       },
     ],
@@ -395,12 +508,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
       {
         type: 'image',
         image: 'public/photos/portfolio/health/health_1.png',
-        alt: 'Programėlės dizaino maketas dviejuose telefonų ekranuose violetiniame fone',
+        alt: 'App design mockup on two phone screens with a purple background',
       },
       {
         type: 'image',
         image: 'public/photos/portfolio/health/health_2.png',
-        alt: 'Programėlės vertinimų ir užduočių ekranai dviejuose telefonuose',
+        alt: 'App review and task screens on two phones',
       },
     ],
   },
@@ -414,7 +527,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/aidai/aidai_1.png',
-          alt: 'Žvaigždžių Aidai renginio plakatas su planetomis ir violetiniu taku',
+          alt: 'Echoes of the Stars event poster with planets and a violet path',
         },
       },
       {
@@ -423,13 +536,11 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/aidai/aidai_2.png',
-            alt: 'Žvaigždžių Aidai socialinio tinklo įrašo maketas telefono ekrane',
+            alt: 'Echoes of the Stars social post mockup on a phone screen',
           },
           {
             type: 'text',
-            title: "ŽVAIGŽDŽIŲ AIDAI",
-            description: 'Renginio vizualinės komunikacijos rengimas, firminis stilius, logotipas.',
-            secondaryDescription: 'Projektas sukurtas studijų tikslams.',
+            copyKey: 'aidai',
           }
         ],
       },
@@ -445,14 +556,12 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tiles: [
           {
             type: 'text',
-            title: "LAISVALAIKIO SVETAINĖ",
-            description: 'Internetinės svetainės diziano kūrimas pagal temą.',
-            secondaryDescription: 'Projektas sukurtas studijų tikslams.',
+            copyKey: 'laisvalaikio',
           },
           {
             type: 'image',
             image: 'public/photos/portfolio/laisvalaikis/laisvalaikis_1.png',
-            alt: 'Laisvalaikio svetainės maketas su vandens pramogų kortelėmis',
+            alt: 'Leisure website mockup with water activity cards',
           }
         ],
       },
@@ -461,7 +570,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/laisvalaikis/laisvalaikis_2.png',
-          alt: 'Laisvalaikio svetainės pradžios puslapis nešiojamojo kompiuterio ekrane',
+          alt: 'Leisure website homepage on a laptop screen',
         },
       },
     ],
@@ -476,7 +585,7 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
         tile: {
           type: 'image',
           image: 'public/photos/portfolio/elegance/elegance_1.png',
-          alt: 'Skin Elegance firminio stiliaus priemonės ant šviesaus fono',
+          alt: 'Skin Elegance brand identity assets on a light background',
         },
       },
       {
@@ -485,18 +594,17 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
           {
             type: 'image',
             image: 'public/photos/portfolio/elegance/elegance_2.png',
-            alt: 'Skin Elegance drobinis krepšys su logotipu',
+            alt: 'Skin Elegance canvas bag with logo',
           },
           {
             type: 'image',
             image: 'public/photos/portfolio/elegance/elegance_3.png',
-            alt: 'Skin Elegance vizitinė kortelė ant akmenukų fono',
+            alt: 'Skin Elegance business card on a stone background',
           },
           {
             type: 'text',
-            title: "SKIN ELEGANCE",
+            copyKey: 'elegance',
             mobileSpan: 'double',
-            description: 'Firminio stiliaus kūrimas, logotipas ir socialinių tinklų vizualai.',
           }
         ],
       },
@@ -510,8 +618,20 @@ const PORTFOLIO_SECTIONS: ReadonlyArray<PortfolioSection> = [
   styleUrl: './portfolio.component.css',
 })
 export class Portfolio {
-  readonly filters = FILTER_OPTIONS;
+  private readonly localization = inject(LocalizationService);
+
   readonly sections = PORTFOLIO_SECTIONS;
+  readonly copy = computed(() => PORTFOLIO_COPY[this.localization.language()]);
+  readonly filters = computed<ReadonlyArray<PortfolioFilterOption>>(() => {
+    const labels = this.copy().filters;
+
+    return [
+      {value: 'all', label: labels.all},
+      {value: 'brand', label: labels.brand},
+      {value: 'events', label: labels.events},
+      {value: 'web', label: labels.web},
+    ];
+  });
   readonly activeFilter = signal<PortfolioFilter>('all');
   readonly visibleSections = computed(() => {
     const filter = this.activeFilter();
@@ -536,9 +656,35 @@ export class Portfolio {
   }
 
   isPlaceholderTile(tile: PortfolioTile): boolean {
+    const copy = this.getTileCopy(tile);
+
     return tile.type === 'text'
-      && !tile.title?.trim()
-      && !tile.description?.trim()
-      && !tile.secondaryDescription?.trim();
+      && !copy.title?.trim()
+      && !copy.description?.trim()
+      && !copy.secondaryDescription?.trim();
+  }
+
+  getPortfolioSubtitle(): string {
+    return this.copy().subtitle;
+  }
+
+  getTileTitle(tile: PortfolioTile): string {
+    return this.getTileCopy(tile).title ?? '';
+  }
+
+  getTileDescription(tile: PortfolioTile): string {
+    return this.getTileCopy(tile).description ?? '';
+  }
+
+  getTileSecondaryDescription(tile: PortfolioTile): string {
+    return this.getTileCopy(tile).secondaryDescription ?? '';
+  }
+
+  private getTileCopy(tile: PortfolioTile): PortfolioTileCopy {
+    if (!tile.copyKey) {
+      return {};
+    }
+
+    return this.copy().tiles[tile.copyKey] ?? {};
   }
 }
