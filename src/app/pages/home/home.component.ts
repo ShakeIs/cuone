@@ -49,7 +49,7 @@ export class Home {
     { normal: 'public/clients/kupiskio_3.svg', width: 80 },
     { normal: 'public/clients/vaisiu_4.svg', width: 80 },
     { normal: 'public/clients/artele_5.svg', width: 80 },
-    { normal: 'public/clients/dizaino_8.svg', width: 65, maxHeight: 120 },
+    { normal: 'public/clients/dizaino_8.svg', width: 65, maxHeight: 80 },
     { normal: 'public/clients/dublis_6.svg', width: 80 },
     { normal: 'public/clients/lineka_9.svg', width: 80 },
     { normal: 'public/clients/sushi_10.svg', width: 80 },
