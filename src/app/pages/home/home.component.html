@@ -68,7 +68,8 @@
         [src]="img.normal"
         alt=""
         class="client-logo"
-        width="162px"
+        [width]="clientLogoDefaultWidth"
+        [style.max-height.px]="img.maxHeight ?? null"
       />
     }
   </div>
@@ -79,6 +80,7 @@
         [src]="img.normal"
         class="client-logo"
         [width]="img.width"
+        [style.max-height.px]="img.maxHeight ?? null"
       />
     }
   </div>

@@ -19,6 +19,7 @@ export class Home {
   readonly desktopBreakpoint = 768;
   screenWidth = signal(typeof window !== 'undefined' ? window.innerWidth : this.desktopBreakpoint + 1);
   isDesktop = computed(() => this.screenWidth() > this.desktopBreakpoint);
+  readonly clientLogoDefaultWidth = 162;
 
   @HostListener('window:resize')
   onResize() {
@@ -37,7 +38,7 @@ export class Home {
     { normal: 'public/clients/artele_5.svg' },
     { normal: 'public/clients/dublis_6.svg' },
     { normal: 'public/clients/renatus_7.svg' },
-    { normal: 'public/clients/dizaino_8.svg' },
+    { normal: 'public/clients/dizaino_8.svg', maxHeight: 150 },
     { normal: 'public/clients/lineka_9.svg' },
     { normal: 'public/clients/sushi_10.svg' },
   ];
@@ -48,7 +49,7 @@ export class Home {
     { normal: 'public/clients/kupiskio_3.svg', width: 80 },
     { normal: 'public/clients/vaisiu_4.svg', width: 80 },
     { normal: 'public/clients/artele_5.svg', width: 80 },
-    { normal: 'public/clients/dizaino_8.svg', width: 55 },
+    { normal: 'public/clients/dizaino_8.svg', width: 65, maxHeight: 120 },
     { normal: 'public/clients/dublis_6.svg', width: 80 },
     { normal: 'public/clients/lineka_9.svg', width: 80 },
     { normal: 'public/clients/sushi_10.svg', width: 80 },
